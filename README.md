@@ -1,6 +1,6 @@
 # DE Vocab Trainer
 
->> Completely prompted - this is not a controller for fuel rods in a nuclear power plant. <<
+>> Completely prompted - this is not a controller for fuel rods in a nuclear power plant.
 
 Offline German vocabulary trainer for **A1 / A2** level, with translations into **Slovak** and **English**. Pure HTML/CSS/JS, no build step. Designed to be hosted on GitHub Pages or any static host, then installed as a PWA for offline use on phone and desktop.
 
