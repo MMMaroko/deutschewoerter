@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#1e293b">
+<title>A2 Vocab Trainer (DE / SK / EN)</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%;background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+  body{display:flex;flex-direction:column;height:100vh;height:100dvh}
+  button,select,.seg button{touch-action:manipulation;user-select:none;-webkit-user-select:none}
+  header{padding:10px 14px;background:#1e293b;border-bottom:1px solid #334155;display:flex;justify-content:space-between;align-items:center;flex:0 0 auto}
+  header h1{margin:0;font-size:15px;font-weight:600;letter-spacing:.3px}
+  header .stats{font-size:12px;color:#94a3b8}
+  #diag{font-size:10px;color:#475569;padding:2px 14px;background:#0b1220;border-bottom:1px solid #1e293b;font-family:ui-monospace,Menlo,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:0 0 auto}
+  main{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .panel{padding:14px}
+  .row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .row label{font-size:12px;color:#94a3b8;display:block;margin-bottom:4px}
+  select,button{font:inherit;border-radius:10px;border:1px solid #334155;background:#1e293b;color:#e2e8f0;padding:10px 12px;font-size:15px}
+  select{flex:1;min-width:0}
+  button{cursor:pointer;transition:background .12s;-webkit-appearance:none;appearance:none}
+  button:active{background:#334155}
+  button.primary{background:#2563eb;border-color:#2563eb;color:white;font-weight:600}
+  button.primary:active{background:#1d4ed8}
+  button.ghost{background:transparent}
+  .seg{display:flex;background:#1e293b;border:1px solid #334155;border-radius:10px;overflow:hidden}
+  .seg button{flex:1;border:0;border-radius:0;background:transparent;padding:12px 8px;font-size:13px;color:#e2e8f0}
+  .seg button.on{background:#2563eb;color:white}
+  .field{flex:1;min-width:140px}
+  .cardWrap{display:flex;flex-direction:column;align-items:stretch;justify-content:center;padding:18px;height:100%;gap:14px}
+  .card{position:relative;background:#1e293b;border:1px solid #334155;border-radius:18px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:140px;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+  .card.tap{cursor:pointer;background:#0b1220;border-style:dashed}
+  /* When the bottom card is in unrevealed state, keep the real answer
+     content in place (so the card has its full reveal-time height) but
+     hide it visually. Two pseudo-elements draw the "TAP TO REVEAL" cover
+     so the card doesn't visibly grow when the user reveals.            */
+  #cardB.tap > *{visibility:hidden}
+  #cardB.tap::before{content:"TAP TO REVEAL";position:absolute;top:22px;left:0;right:0;text-align:center;font-size:11px;letter-spacing:1.5px;font-weight:600;color:#64748b;text-transform:uppercase}
+  #cardB.tap::after{content:"•••";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:32px;font-weight:600;color:#e2e8f0;letter-spacing:8px}
+  .card .label{font-size:11px;letter-spacing:1.5px;color:#64748b;text-transform:uppercase;margin-bottom:10px}
+  .card .word{font-size:30px;font-weight:600;line-height:1.2;word-break:break-word}
+  .card .sub{margin-top:8px;font-size:15px;color:#94a3b8;line-height:1.35}
+  .card .sub.big{font-size:22px;color:#cbd5e1;font-weight:500;margin-top:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  /* Divider-with-tag pattern: a 1-px line with a centered SK/EN/etc tag.
+     Centered cleanly via inline-block + text-align rather than absolute
+     positioning, so letter-spacing doesn't shift the tag off-center.        */
+  .lang-text{font-size:28px;font-weight:600;line-height:1.2;word-break:break-word;color:#e2e8f0;margin-top:6px}
+  /* Bar with tag centered on it. The line is a ::before pseudo, the tag is
+     the flex child whose own background masks the line behind it.          */
+  .divider-with-tag{position:relative;display:flex;align-items:center;justify-content:center;width:78%;max-width:420px;margin:18px auto 4px;height:14px}
+  .divider-with-tag::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#334155;transform:translateY(-50%)}
+  .divider-with-tag .tag{position:relative;background:#1e293b;color:#94a3b8;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:0 10px;line-height:1}
+  .card.tap .divider-with-tag .tag{background:#0b1220}
+  .card .meta{margin-top:10px;font-size:12px;color:#64748b;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  /* Source note positioned ABOVE the card so the card height itself is
+     identical for KB vs non-KB entries — the note lives outside the box. */
+  .src-note-outer{font-size:10px;color:#64748b;font-style:italic;text-align:center;line-height:1.3;letter-spacing:.3px;padding:0 14px;min-height:0}
+  .src-note-outer:empty{display:none}
+  .review-row .src-marker{font-size:9px;color:#fbbf24;margin-left:6px;font-weight:600;letter-spacing:.5px;vertical-align:super}
+  /* Review mode (full list) */
+  #review{padding:6px 14px 24px}
+  .review-header{display:flex;align-items:center;gap:10px;padding:6px 0 10px;margin-bottom:6px;position:sticky;top:0;background:#0f172a;z-index:1;border-bottom:1px solid #1e293b}
+  .review-header span{font-size:13px;color:#94a3b8;flex:1}
+  .review-cat-header{font-size:11px;letter-spacing:1.5px;color:#94a3b8;text-transform:uppercase;padding:16px 0 6px;border-bottom:1px solid #334155;margin-bottom:2px;font-weight:600}
+  .review-row{display:grid;grid-template-columns:1.15fr .9fr 1fr;gap:8px;padding:8px 2px;border-bottom:1px solid #1e293b;align-items:baseline;font-size:13px;line-height:1.35}
+  .review-row .de{font-weight:600}
+  .review-row .de .p2{display:block;font-size:10px;color:#64748b;font-family:ui-monospace,monospace;margin-top:2px;font-weight:400;letter-spacing:0}
+  .review-row .sk,.review-row .en{color:#cbd5e1;font-weight:400}
+  .gen-m{color:#60a5fa}
+  .gen-f{color:#f87171}
+  .gen-n{color:#4ade80}
+  .hint{color:#475569;font-size:13px;text-align:center}
+  .footer{padding:8px 14px;background:#1e293b;border-top:1px solid #334155;display:flex;gap:8px;flex:0 0 auto}
+  .footer button{flex:1;padding:14px 10px;font-size:15px}
+  details{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:8px 12px;margin-top:10px}
+  details summary{cursor:pointer;font-size:13px;color:#94a3b8}
+  .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;margin-top:6px}
+  .legend span{padding:2px 8px;border-radius:6px;background:#0b1220;border:1px solid #334155}
+  @media(min-width:600px){.card .word{font-size:40px}}
+</style>
+<script>
+  // Error handler installed first so it catches any syntax/runtime errors below.
+  window.addEventListener('error', function(e){
+    var d = document.getElementById('diag');
+    var msg = (e && (e.message || (e.error && e.error.message))) || 'unknown';
+    if(e && e.filename) msg += ' @ line ' + (e.lineno || '?');
+    if(d) d.textContent = 'ERR: ' + msg;
+  }, true);
+  // Stub App so inline onclick="App.x()" never throws ReferenceError.
+  window.App = {
+    _ready: false,
+    _stub: function(name){
+      var d = document.getElementById('diag');
+      if(d) d.textContent = 'NOT READY: ' + name;
+    },
+    pickLevel:  function(){ this._stub('pickLevel'); },
+    changeType: function(){ this._stub('changeType'); },
+    pickDir:    function(){ this._stub('pickDir'); },
+    start:      function(){ this._stub('start'); },
+    back:       function(){ this._stub('back'); },
+    reveal:     function(){ this._stub('reveal'); },
+    next:       function(){ this._stub('next'); },
+    review:     function(){ this._stub('review'); }
+  };
+</script>
+</head>
+<body>
+
+<header>
+  <h1>🇩🇪 A2 Vocab Trainer</h1>
+  <div class="stats" id="stats">0 / 0</div>
+</header>
+<div id="diag">loading...</div>
+
+<main id="main">
+  <section class="panel" id="setup">
+    <div class="row">
+      <div class="field">
+        <label>Level</label>
+        <div class="seg" id="lvl">
+          <button type="button" data-l="A1" onclick="App.pickLevel(this)">A1 · Beginner</button>
+          <button type="button" data-l="A2" class="on" onclick="App.pickLevel(this)">A2 · Elementary</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Word type</label>
+        <select id="type" onchange="App.changeType()">
+          <option value="noun">Nouns (by category)</option>
+          <option value="all-noun">All nouns</option>
+          <option value="verb">Verbs (by category)</option>
+          <option value="all-verb">All verbs</option>
+          <option value="adj">Adjectives</option>
+          <option value="adv">Adverbs</option>
+        </select>
+      </div>
+      <div class="field" id="catWrap">
+        <label>Category</label>
+        <select id="cat"></select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>Show first</label>
+        <div class="seg" id="dir">
+          <button type="button" data-v="de" class="on" onclick="App.pickDir(this)">German → SK/EN</button>
+          <button type="button" data-v="sken" onclick="App.pickDir(this)">SK/EN → German</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:6px">
+      <button type="button" class="primary" id="start" style="flex:1;padding:14px" onclick="App.start()">Start learning →</button>
+      <button type="button" id="reviewBtn" style="flex:1;padding:14px" onclick="App.review()">Review list ☰</button>
+    </div>
+
+    <details>
+      <summary>Legend & info</summary>
+      <div class="legend">
+        <span class="gen-m">der (m)</span>
+        <span class="gen-f">die (f)</span>
+        <span class="gen-n">das (n)</span>
+      </div>
+      <p style="font-size:12px;color:#94a3b8;line-height:1.5">
+        Tap the dashed card to reveal the hidden word. Verbs show Partizip II. Nouns colored by gender, plural appended.
+        Review list shows every entry in the chosen category as DE / SK / EN.
+      </p>
+      <p style="font-size:11px;color:#475569;margin:6px 0 0" id="dbVersion">Database version: —</p>
+    </details>
+  </section>
+
+  <!-- View 3: review list (all entries DE / SK / EN) -->
+  <section id="review" style="display:none">
+    <div class="review-header">
+      <button type="button" class="ghost" onclick="App.back()" style="padding:8px 12px">← Back</button>
+      <span id="reviewTitle">Review</span>
+    </div>
+    <div id="reviewList"></div>
+  </section>
+
+  <section class="cardWrap" id="learn" style="display:none">
+    <div class="src-note-outer" id="noteA"></div>
+    <div class="card" id="cardA">
+      <div class="label" id="labelA">SLOVAK / ENGLISH</div>
+      <div class="word" id="wordA">—</div>
+      <div class="sub" id="subA"></div>
+    </div>
+    <div class="src-note-outer" id="noteB"></div>
+    <div class="card tap" id="cardB" onclick="App.reveal()">
+      <div class="label">TAP TO REVEAL</div>
+      <div class="word" id="wordB">•••</div>
+      <div class="sub" id="subB"></div>
+      <div class="meta" id="metaB"></div>
+    </div>
+    <div class="hint">Random within category — no repeats until pool exhausted</div>
+  </section>
+</main>
+
+<div class="footer" id="footer" style="display:none">
+  <button type="button" class="ghost" onclick="App.back()">← Back</button>
+  <button type="button" class="ghost" onclick="App.reveal()">Reveal</button>
+  <button type="button" class="primary" onclick="App.next()">Next →</button>
+</div>
+
+<!-- External vocabulary data and app logic.
+     Loaded as separate files for clean GitHub Pages structure;
+     served from same origin, cached by service worker for offline. -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+<script>
+  // Register the service worker on http(s) origins so the app works offline
+  // after the first load. Skipped on file:// because SWs aren't allowed there.
+  if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').then(function (reg) {
+        // When a new SW takes over, reload once so the user sees fresh data
+        var refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
+        });
+      }).catch(function () { /* SW registration is optional */ });
+    });
+  }
+</script>
+
+</body>
+</html>

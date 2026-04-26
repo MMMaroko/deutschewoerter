@@ -1,0 +1,11 @@
+# scratch / analysis artefacts (used during local edits only)
+_diff*.txt
+_*.py
+
+# editor / OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
