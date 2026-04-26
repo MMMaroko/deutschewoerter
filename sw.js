@@ -1,8 +1,9 @@
 // Service worker - cache app shell for full offline use
-const CACHE = 'a2vocab-v8';
+const CACHE = 'a2vocab-v12';
 const ASSETS = [
   './',
   './index.html',
+  './init.js',
   './data.js',
   './app.js',
   './manifest.json',

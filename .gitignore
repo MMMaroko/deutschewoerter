@@ -1,11 +1,21 @@
-# scratch / analysis artefacts (used during local edits only)
-_diff*.txt
-_*.py
+# Scratch / analysis artefacts — Python scripts and plain-text dumps are
+# only used during local edits and never need to be committed.
+*.py
+*.txt
 
-# editor / OS noise
+# Exceptions: if any of these become necessary, uncomment the matching line
+# and run `git add -f <file>` once. Order matters — exceptions must come
+# AFTER the broad exclude rules above.
+# !LICENSE.txt
+# !robots.txt
+# !security.txt
+# !humans.txt
+
+# Editor / OS noise
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 *.swp
 *.bak
+*.tmp

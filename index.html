@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#1e293b">
+<!-- Content Security Policy: defense-in-depth.
+     - default-src 'self'              only same-origin assets (no CDNs, no external)
+     - script-src 'self'               STRICT — no inline scripts, no inline event handlers,
+                                       no eval. Only init.js / data.js / app.js execute.
+     - style-src 'self' 'unsafe-inline'  inline <style> block + a few style="..." attrs
+     - img-src 'self' data:            local images + inline data: SVG (if any)
+     - connect-src 'self'              no XHR/fetch/WebSocket to other origins
+     - frame-ancestors 'none'          can't be iframed by other sites (anti-clickjacking)
+     - base-uri 'self'                 prevents <base> tag injection from rebasing URLs
+     - form-action 'self'              forms (if any) can only submit to same origin
+     - object-src 'none'               no <object>/<embed>/<applet> -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <title>A2 Vocab Trainer (DE / SK / EN)</title>
 <link rel="manifest" href="manifest.json">
 <style>
@@ -81,31 +93,7 @@
   .legend span{padding:2px 8px;border-radius:6px;background:#0b1220;border:1px solid #334155}
   @media(min-width:600px){.card .word{font-size:40px}}
 </style>
-<script>
-  // Error handler installed first so it catches any syntax/runtime errors below.
-  window.addEventListener('error', function(e){
-    var d = document.getElementById('diag');
-    var msg = (e && (e.message || (e.error && e.error.message))) || 'unknown';
-    if(e && e.filename) msg += ' @ line ' + (e.lineno || '?');
-    if(d) d.textContent = 'ERR: ' + msg;
-  }, true);
-  // Stub App so inline onclick="App.x()" never throws ReferenceError.
-  window.App = {
-    _ready: false,
-    _stub: function(name){
-      var d = document.getElementById('diag');
-      if(d) d.textContent = 'NOT READY: ' + name;
-    },
-    pickLevel:  function(){ this._stub('pickLevel'); },
-    changeType: function(){ this._stub('changeType'); },
-    pickDir:    function(){ this._stub('pickDir'); },
-    start:      function(){ this._stub('start'); },
-    back:       function(){ this._stub('back'); },
-    reveal:     function(){ this._stub('reveal'); },
-    next:       function(){ this._stub('next'); },
-    review:     function(){ this._stub('review'); }
-  };
-</script>
+<script src="init.js"></script>
 </head>
 <body>
 
@@ -121,8 +109,8 @@
       <div class="field">
         <label>Level</label>
         <div class="seg" id="lvl">
-          <button type="button" data-l="A1" onclick="App.pickLevel(this)">A1 · Beginner</button>
-          <button type="button" data-l="A2" class="on" onclick="App.pickLevel(this)">A2 · Elementary</button>
+          <button type="button" data-l="A1">A1 · Beginner</button>
+          <button type="button" data-l="A2" class="on">A2 · Elementary</button>
         </div>
       </div>
     </div>
@@ -130,7 +118,7 @@
     <div class="row">
       <div class="field">
         <label>Word type</label>
-        <select id="type" onchange="App.changeType()">
+        <select id="type">
           <option value="noun">Nouns (by category)</option>
           <option value="all-noun">All nouns</option>
           <option value="verb">Verbs (by category)</option>
@@ -149,15 +137,15 @@
       <div class="field">
         <label>Show first</label>
         <div class="seg" id="dir">
-          <button type="button" data-v="de" class="on" onclick="App.pickDir(this)">German → SK/EN</button>
-          <button type="button" data-v="sken" onclick="App.pickDir(this)">SK/EN → German</button>
+          <button type="button" data-v="de" class="on">German → SK/EN</button>
+          <button type="button" data-v="sken">SK/EN → German</button>
         </div>
       </div>
     </div>
 
     <div class="row" style="margin-top:6px">
-      <button type="button" class="primary" id="start" style="flex:1;padding:14px" onclick="App.start()">Start learning →</button>
-      <button type="button" id="reviewBtn" style="flex:1;padding:14px" onclick="App.review()">Review list ☰</button>
+      <button type="button" class="primary" id="start" style="flex:1;padding:14px">Start learning →</button>
+      <button type="button" id="reviewBtn" style="flex:1;padding:14px">Review list ☰</button>
     </div>
 
     <details>
@@ -178,7 +166,7 @@
   <!-- View 3: review list (all entries DE / SK / EN) -->
   <section id="review" style="display:none">
     <div class="review-header">
-      <button type="button" class="ghost" onclick="App.back()" style="padding:8px 12px">← Back</button>
+      <button type="button" class="ghost" style="padding:8px 12px">← Back</button>
       <span id="reviewTitle">Review</span>
     </div>
     <div id="reviewList"></div>
@@ -192,7 +180,7 @@
       <div class="sub" id="subA"></div>
     </div>
     <div class="src-note-outer" id="noteB"></div>
-    <div class="card tap" id="cardB" onclick="App.reveal()">
+    <div class="card tap" id="cardB">
       <div class="label">TAP TO REVEAL</div>
       <div class="word" id="wordB">•••</div>
       <div class="sub" id="subB"></div>
@@ -203,34 +191,17 @@
 </main>
 
 <div class="footer" id="footer" style="display:none">
-  <button type="button" class="ghost" onclick="App.back()">← Back</button>
-  <button type="button" class="ghost" onclick="App.reveal()">Reveal</button>
-  <button type="button" class="primary" onclick="App.next()">Next →</button>
+  <button type="button" class="ghost">← Back</button>
+  <button type="button" class="ghost">Reveal</button>
+  <button type="button" class="primary">Next →</button>
 </div>
 
 <!-- External vocabulary data and app logic.
      Loaded as separate files for clean GitHub Pages structure;
-     served from same origin, cached by service worker for offline. -->
+     served from same origin, cached by service worker for offline.
+     Service worker registration lives at the bottom of app.js. -->
 <script src="data.js"></script>
 <script src="app.js"></script>
-
-<script>
-  // Register the service worker on http(s) origins so the app works offline
-  // after the first load. Skipped on file:// because SWs aren't allowed there.
-  if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('sw.js').then(function (reg) {
-        // When a new SW takes over, reload once so the user sees fresh data
-        var refreshing = false;
-        navigator.serviceWorker.addEventListener('controllerchange', function () {
-          if (refreshing) return;
-          refreshing = true;
-          window.location.reload();
-        });
-      }).catch(function () { /* SW registration is optional */ });
-    });
-  }
-</script>
 
 </body>
 </html>

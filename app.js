@@ -81,13 +81,18 @@
       var art = GENDER_ARTICLE[w.g] || '';
       var cls = GENDER_CLASS[w.g] || '';
       var plPart = '';
-      // Explicit "no plural exists" marker: render a single em-dash
-      // (no separator hyphen). Used for genuinely uncountable nouns.
+      // Plural marker conventions (dictionary-style):
+      //   pl:"—"   → "der Lärm —"      (no plural exists / uncountable)
+      //   pl:"="   → "das Zeichen -"   (plural identical to singular)
+      //   pl:"-en" → "die Wahrheit -en" (countable, distinct ending)
+      //   pl:"-"   → no marker          (used for professions/countries)
       if(w.pl === '—' || w.pl === '–'){
         plPart = ' —';
+      } else if(w.pl === '='){
+        plPart = ' -';
       } else {
         var suf = pluralSuffix(w.pl);
-        if(suf) plPart = ' - ' + escapeText(suf);
+        if(suf) plPart = ' -' + escapeText(suf);
       }
       return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>';
     }
@@ -297,51 +302,31 @@
   };
   window.App._ready = true;
 
-  // ----- iPad / iOS Files-preview fallback -----
-  // Some iOS WebView contexts (notably the built-in Files-app HTML preview)
-  // suppress inline onclick="" attribute handlers but still dispatch real
-  // 'click' and 'touchend' events. Wrap each App method in a tiny self-
-  // debouncer so we can safely bind both inline onclick AND addEventListener
-  // handlers without double-firing on platforms (Android, desktop) that
-  // trigger both.
-  function makeDebounced(fn){
-    var lastT = 0;
-    return function(arg){
-      var now = Date.now();
-      if(now - lastT < 350) return;
-      lastT = now;
-      return fn(arg);
-    };
-  }
-  var _wrapKeys = ['start','review','back','reveal','next','pickDir','pickLevel','changeType'];
-  for(var _wi=0; _wi<_wrapKeys.length; _wi++){
-    var _k = _wrapKeys[_wi];
-    if(typeof App[_k] === 'function') App[_k] = makeDebounced(App[_k]);
-  }
-  function addBackupTap(el, fn){
-    if(!el) return;
-    el.addEventListener('click', fn);
-    el.addEventListener('touchend', fn);
-  }
-  addBackupTap($('start'),     function(){ App.start(); });
-  addBackupTap($('reviewBtn'), function(){ App.review(); });
-  addBackupTap($('cardB'),     function(){ App.reveal(); });
+  // ----- Event bindings -----
+  // CSP-friendly: no inline onclick/onchange in HTML — every interactive
+  // element gets its handler attached here. The synthesised 'click' event
+  // works for both mouse and touch on all modern browsers.
+  function bind(el, ev, fn){ if(el) el.addEventListener(ev, fn); }
+
+  bind($('start'),     'click',  function(){ App.start(); });
+  bind($('reviewBtn'), 'click',  function(){ App.review(); });
+  bind($('cardB'),     'click',  function(){ App.reveal(); });
+  bind($('type'),      'change', function(){ App.changeType(); });
+
   var _lvlBtns = $('lvl').getElementsByTagName('button');
   for(var _li=0; _li<_lvlBtns.length; _li++){
-    (function(b){ addBackupTap(b, function(){ App.pickLevel(b); }); })(_lvlBtns[_li]);
+    (function(b){ bind(b, 'click', function(){ App.pickLevel(b); }); })(_lvlBtns[_li]);
   }
   var _dirBtns = $('dir').getElementsByTagName('button');
   for(var _di=0; _di<_dirBtns.length; _di++){
-    (function(b){ addBackupTap(b, function(){ App.pickDir(b); }); })(_dirBtns[_di]);
+    (function(b){ bind(b, 'click', function(){ App.pickDir(b); }); })(_dirBtns[_di]);
   }
   var _footerBtns = $('footer').getElementsByTagName('button');
-  if(_footerBtns[0]) addBackupTap(_footerBtns[0], function(){ App.back(); });
-  if(_footerBtns[1]) addBackupTap(_footerBtns[1], function(){ App.reveal(); });
-  if(_footerBtns[2]) addBackupTap(_footerBtns[2], function(){ App.next(); });
+  if(_footerBtns[0]) bind(_footerBtns[0], 'click', function(){ App.back(); });
+  if(_footerBtns[1]) bind(_footerBtns[1], 'click', function(){ App.reveal(); });
+  if(_footerBtns[2]) bind(_footerBtns[2], 'click', function(){ App.next(); });
   var _reviewBackBtn = $('review').getElementsByTagName('button')[0];
-  if(_reviewBackBtn) addBackupTap(_reviewBackBtn, function(){ App.back(); });
-  // The type <select> uses onchange — bind a fallback change handler too.
-  $('type').addEventListener('change', function(){ App.changeType(); });
+  if(_reviewBackBtn) bind(_reviewBackBtn, 'click', function(){ App.back(); });
 
   window.addEventListener('resize', function(){
     if($('learn').style.display === 'flex'){
@@ -369,3 +354,20 @@
     diag('ERR init: ' + e.message);
   }
 })();
+
+/* Service worker registration — runs after the IIFE has set up the app.
+   Skipped on file:// origins (where SWs aren't allowed). When a new SW
+   takes control, force a one-time reload so the page picks up updated
+   data/code immediately after a deploy. */
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').then(function () {
+      var refreshing = false;
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
+    }).catch(function () { /* SW registration is optional */ });
+  });
+}
