@@ -116,17 +116,15 @@
   }
   function render(){
     var labelA=$('labelA'), wordA=$('wordA'), subA=$('subA'), noteA=$('noteA');
-    var cardB=$('cardB'), wordB=$('wordB'), subB=$('subB'), metaB=$('metaB'), noteB=$('noteB');
+    var cardB=$('cardB'), wordB=$('wordB'), subB=$('subB'), metaB=$('metaB');
     if(!state.current){
       labelA.textContent='—'; wordA.textContent='No words'; subA.textContent='';
       wordB.textContent='—'; subB.textContent=''; metaB.textContent='';
-      if(noteA) noteA.textContent=''; if(noteB) noteB.textContent='';
+      if(noteA) noteA.textContent='';
       return;
     }
     var w = state.current;
-    var note = srcNoteText(w);
-    if(noteA) noteA.textContent = note;
-    if(noteB) noteB.textContent = note;
+    if(noteA) noteA.textContent = srcNoteText(w);
     if(state.direction === 'de'){
       labelA.textContent = 'GERMAN';
       wordA.innerHTML = deHTML(w);
