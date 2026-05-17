@@ -23,6 +23,113 @@
   var GENDER_CLASS   = {m:'gen-m', f:'gen-f', n:'gen-n', p:'gen-p'};
   var state = { pool: [], used: [], current: null, revealed: false, direction: 'de', level: 'A2' };
 
+  // ----- "All levels" view: merge logic --------------------------------
+  // When the user picks the "All" level, the per-level VOCAB objects are
+  // combined into a single view. Some noun categories that mean the same
+  // thing across levels are unified; the "Separable Verbs" category is
+  // dropped and each separable verb is redistributed into the
+  // Communication / Mind / Movement / Work category that fits its meaning.
+
+  // Source noun category → target merged category. Categories not listed
+  // are kept under their original name.
+  var NOUN_CAT_REMAP = {
+    'Body':                'Body & Health',
+    'Body & Medicine':     'Body & Health',
+    'Health':              'Body & Health',
+    'Emotions & Feelings': 'Emotions',
+    'Family':              'People & Family',
+    'People & Society':    'People & Family',
+    'Food':                'Food & Dining',
+    'Household':           'House & Home',
+    'Economy & Work':      'Work & School'
+  };
+
+  // Separable-verb → semantic category lookup, keyed by the exact `de` field
+  // including any ", sich" suffix. Verbs not listed fall through to
+  // "Work & Daily Actions" as the default bucket.
+  var SEP_VERB_CATEGORY = {
+    // ---- Movement & Physical (motion through space, physical actions) ----
+    'ab·biegen':'Movement & Physical','ab·fahren':'Movement & Physical',
+    'ab·fliegen':'Movement & Physical','an·fassen':'Movement & Physical',
+    'an·kommen':'Movement & Physical','aus·atmen':'Movement & Physical',
+    'aus·gehen':'Movement & Physical','aus·steigen':'Movement & Physical',
+    'aus·wandern':'Movement & Physical','ein·atmen':'Movement & Physical',
+    'ein·biegen':'Movement & Physical','ein·brechen':'Movement & Physical',
+    'ein·fahren':'Movement & Physical','ein·steigen':'Movement & Physical',
+    'fest·halten (sich)':'Movement & Physical','fest·stecken':'Movement & Physical',
+    'hin·fallen':'Movement & Physical','hoch·heben':'Movement & Physical',
+    'mit·nehmen':'Movement & Physical','raus·bringen':'Movement & Physical',
+    'raus·fallen':'Movement & Physical','runter·bringen':'Movement & Physical',
+    'runter·kommen':'Movement & Physical','um·drehen':'Movement & Physical',
+    'um·steigen':'Movement & Physical','um·ziehen':'Movement & Physical',
+    'weg·fahren':'Movement & Physical','weg·werfen':'Movement & Physical',
+    'zurück·bleiben':'Movement & Physical','zurück·bringen':'Movement & Physical',
+    'auf·stehen':'Movement & Physical','auf·wachen':'Movement & Physical',
+    'ein·schlafen':'Movement & Physical','aus·ruhen, sich':'Movement & Physical',
+    // ---- Communication & Social ----
+    'ab·lehnen':'Communication & Social','ab·sagen':'Communication & Social',
+    'ab·weisen':'Communication & Social','an·bieten':'Communication & Social',
+    'an·nehmen':'Communication & Social','an·rufen':'Communication & Social',
+    'an·melden':'Communication & Social','auf·treten':'Communication & Social',
+    'ein·laden':'Communication & Social','fehl·leiten':'Communication & Social',
+    'vor·schlagen':'Communication & Social','vor·stellen':'Communication & Social',
+    'vor·tragen':'Communication & Social','zu·geben':'Communication & Social',
+    'zurück·rufen':'Communication & Social',
+    // ---- Mind & Perception ----
+    'an·schauen':'Mind & Perception','auf·passen':'Mind & Perception',
+    'aus·schließen':'Mind & Perception','aus·sehen':'Mind & Perception',
+    'aus·suchen':'Mind & Perception','aus·wählen':'Mind & Perception',
+    'fern·sehen':'Mind & Perception','heraus·finden':'Mind & Perception',
+    'kennen·lernen':'Mind & Perception','nach·denken':'Mind & Perception',
+    'vor·haben':'Mind & Perception','wieder·holen':'Mind & Perception',
+    'wohl·fühlen, sich':'Mind & Perception','zusammen·passen':'Mind & Perception'
+    // (All others fall through to "Work & Daily Actions" as default.)
+  };
+
+  function sepVerbCategory(v){
+    // Ambiguous: an·ziehen means both "put on (clothes)" → Work and
+    // "pull/attract" → Movement, depending on entry. Disambiguate via EN.
+    if (v.de === 'an·ziehen' && /pull/i.test(v.en || '')) return 'Movement & Physical';
+    return SEP_VERB_CATEGORY[v.de] || 'Work & Daily Actions';
+  }
+
+  function buildAllLevel(){
+    var all = { nouns:{}, verbs:{}, adjectives:[], adverbs:[] };
+    var levels = ['A1','A2','B1'];
+    for (var li=0; li<levels.length; li++){
+      var lvl = window.VOCAB_LEVELS[levels[li]];
+      if (!lvl) continue;
+      var cat, arr, i, target;
+      // Nouns — merge similar categories.
+      for (cat in lvl.nouns) {
+        if (!lvl.nouns.hasOwnProperty(cat)) continue;
+        target = NOUN_CAT_REMAP[cat] || cat;
+        if (!all.nouns[target]) all.nouns[target] = [];
+        arr = lvl.nouns[cat];
+        for (i=0; i<arr.length; i++) all.nouns[target].push(arr[i]);
+      }
+      // Verbs — keep verb categories aligned; redistribute Separable Verbs.
+      for (cat in lvl.verbs) {
+        if (!lvl.verbs.hasOwnProperty(cat)) continue;
+        arr = lvl.verbs[cat];
+        if (cat === 'Separable Verbs') {
+          for (i=0; i<arr.length; i++) {
+            target = sepVerbCategory(arr[i]);
+            if (!all.verbs[target]) all.verbs[target] = [];
+            all.verbs[target].push(arr[i]);
+          }
+        } else {
+          if (!all.verbs[cat]) all.verbs[cat] = [];
+          for (i=0; i<arr.length; i++) all.verbs[cat].push(arr[i]);
+        }
+      }
+      // Adjectives + adverbs are flat lists — concat.
+      for (i=0; i<lvl.adjectives.length; i++) all.adjectives.push(lvl.adjectives[i]);
+      for (i=0; i<lvl.adverbs.length;   i++) all.adverbs.push(lvl.adverbs[i]);
+    }
+    return all;
+  }
+
   function loadCategoryOptions(){
     var t = $('type').value;
     $('catWrap').style.display = (t==='noun' || t==='verb') ? '' : 'none';
@@ -162,9 +269,13 @@
   window.App.pickLevel = function(btn){
     try {
       var lvl = (btn && btn.dataset && btn.dataset.l) || 'A2';
-      if(!window.VOCAB_LEVELS[lvl]){ diag('unknown level: ' + lvl); return; }
+      if (lvl === 'All') {
+        window.VOCAB = buildAllLevel();
+      } else {
+        if(!window.VOCAB_LEVELS[lvl]){ diag('unknown level: ' + lvl); return; }
+        window.VOCAB = window.VOCAB_LEVELS[lvl];
+      }
       state.level = lvl;
-      window.VOCAB = window.VOCAB_LEVELS[lvl];
       var seg = $('lvl');
       var kids = seg.getElementsByTagName('button');
       for(var i=0;i<kids.length;i++) kids[i].classList.remove('on');

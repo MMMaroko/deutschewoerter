@@ -1761,6 +1761,54 @@ adverbs: [
   {de:"darauf",sk:"na tom, na to",en:"on it, thereon"}
 ]
 } /* end A1 */
+,
+
+B1: {
+nouns: {
+  "Abstract & Communication": [
+    {de:"Gedächtnis",g:"n",pl:"-se",sk:"pamäť, spomienka",en:"memory"}
+  ],
+  "People & Society": [
+    {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
+    {de:"Forscher",g:"m",pl:"=",sk:"výskumník",en:"researcher, scientist"}
+  ],
+  "Objects": [
+    {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"}
+  ],
+  "Actions & Events": [
+    {de:"Abenteuer",g:"n",pl:"=",sk:"dobrodružstvo, aféra",en:"adventure, affair"}
+  ],
+  "Miscellaneous": [
+    {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"}
+  ]
+},
+verbs: {
+  "Mind & Perception": [
+    {de:"riechen",p2:"h. gerochen",sk:"cítiť (čuchať)",en:"to smell"},
+    {de:"überschätzen",p2:"h. überschätzt",sk:"preceniť",en:"to overestimate"},
+    {de:"unterschätzen",p2:"h. unterschätzt",sk:"podceniť",en:"to underestimate"}
+  ],
+  "Movement & Physical": [
+    {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
+    {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"}
+  ],
+  "Work & Daily Actions": [
+    {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"}
+  ],
+  "Separable Verbs": [
+    {de:"auf·regen",p2:"h. aufgeregt",sk:"rozčúliť",en:"to upset",sep:true},
+    {de:"auf·streichen",p2:"h. aufgestrichen",sk:"natierať",en:"to spread, apply on",sep:true}
+  ]
+},
+adjectives: [
+  {de:"aufmerksam",sk:"pozorný",en:"attentive"},
+  {de:"großzügig",sk:"veľkorysý",en:"generous"},
+  {de:"streng",sk:"prísny, neúprosný",en:"strict, harsh"},
+  {de:"verantwortlich",sk:"zodpovedný",en:"responsible"},
+  {de:"unangenehm",sk:"nepríjemný",en:"unpleasant"}
+],
+adverbs: []
+} /* end B1 */
 
 }; /* end VOCAB_LEVELS */
 
