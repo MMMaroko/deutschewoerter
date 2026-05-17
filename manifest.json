@@ -1,7 +1,7 @@
 {
-  "name": "A2 Vocab Trainer",
-  "short_name": "A2 Vocab",
-  "description": "Offline German A2 vocabulary trainer (DE / SK / EN)",
+  "name": "DE Vocab Trainer",
+  "short_name": "DE Vocab",
+  "description": "Offline German vocabulary trainer (DE / SK / EN)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

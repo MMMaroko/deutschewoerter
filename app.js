@@ -1,5 +1,4 @@
-/* A2 Vocab Trainer — application logic. Populates window.App methods
-   used by inline onclick handlers in index.html. */
+/* DE Vocab Trainer — application logic. Populates window.App methods. */
 (function(){
   function diag(msg){
     var d = document.getElementById('diag');

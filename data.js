@@ -1,5 +1,4 @@
-/* A2 Vocab Trainer — vocabulary data (German / Slovak / English).
-   Built inline-extracted from index.html */
+/* DE Vocab Trainer — vocabulary data (German / Slovak / English). */
 window.VOCAB_LEVELS = {
 A2: {
 nouns: {
