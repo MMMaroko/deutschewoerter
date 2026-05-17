@@ -1,6 +1,6 @@
 # DE Vocab Trainer
 
->> Completely prompted - this is not a controller for fuel rods in a nuclear power plant. <<
+> Completely prompted - this is not a controller for fuel rods in a nuclear power plant.
 
 Offline German vocabulary trainer for **A1 / A2** level, with translations into **Slovak** and **English**. Pure HTML/CSS/JS, no build step. Designed to be hosted on GitHub Pages or any static host, then installed as a PWA for offline use on phone and desktop.
 
@@ -24,22 +24,6 @@ Open `index.html` directly in a browser via `file://` works on **desktop** but n
 python -m http.server 8000
 # then open http://localhost:8000
 ```
-
-## Deploy to GitHub Pages
-
-1. Create a public repo on GitHub, e.g. `deutschewoerter`.
-2. Commit and push the contents of this directory to the repo's `main` branch.
-   ```bash
-   git init
-   git add .
-   git commit -m "initial commit"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/deutschewoerter.git
-   git push -u origin main
-   ```
-3. On the repo page → **Settings → Pages** → *Source*: `Deploy from a branch` → *Branch*: `main` / `/ (root)` → **Save**.
-4. Wait ~1 minute. Pages prints a URL like `https://<your-username>.github.io/deutschewoerter/`.
-5. Open the URL in any browser. On phone Safari/Chrome → *Share → Add to Home Screen* — the service worker installs and the app is fully offline-capable from then on.
 
 ## Updating the deployed app
 
