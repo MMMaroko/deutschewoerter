@@ -309,7 +309,6 @@
       pickNext();
       $('setup').style.display = 'none';
       $('learn').style.display = 'flex';
-      $('learn').style.height = (viewH() - 130) + 'px';
       $('footer').style.display = 'flex';
       render();
       diag('learning ' + state.pool.length + ' words, dir=' + state.direction);
@@ -418,7 +417,12 @@
 
   bind($('start'),     'click',  function(){ App.start(); });
   bind($('reviewBtn'), 'click',  function(){ App.review(); });
-  bind($('cardB'),     'click',  function(){ App.reveal(); });
+  // Tap behaviour: first tap reveals the hidden side, second tap (when
+  // already revealed) advances to the next word.
+  bind($('cardB'), 'click', function(){
+    if (state.revealed) App.next();
+    else App.reveal();
+  });
   bind($('type'),      'change', function(){ App.changeType(); });
 
   var _lvlBtns = $('lvl').getElementsByTagName('button');
@@ -436,11 +440,18 @@
   var _reviewBackBtn = $('review').getElementsByTagName('button')[0];
   if(_reviewBackBtn) bind(_reviewBackBtn, 'click', function(){ App.back(); });
 
-  window.addEventListener('resize', function(){
-    if($('learn').style.display === 'flex'){
-      $('learn').style.height = (viewH() - 130) + 'px';
-    }
-  });
+  // Force the body to match the *visible* viewport rather than relying on
+  // CSS 100svh — older iPad Safari falls back to 100vh, which is the
+  // toolbar-hidden viewport, pushing the footer below the visible area.
+  // We override with the real visualViewport height instead.
+  function fitBody(){
+    var h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+    if (h) document.body.style.height = h + 'px';
+  }
+  fitBody();
+  window.addEventListener('resize', fitBody);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fitBody);
+  window.addEventListener('orientationchange', fitBody);
   document.addEventListener('keydown', function(e){
     if($('learn').style.display === 'none') return;
     if(e.code === 'Space'){ e.preventDefault(); state.revealed ? window.App.next() : window.App.reveal(); }
