@@ -1765,27 +1765,36 @@ adverbs: [
 B1: {
 nouns: {
   "Abstract & Communication": [
-    {de:"Gedächtnis",g:"n",pl:"-se",sk:"pamäť, spomienka",en:"memory"}
+    {de:"Gedächtnis",g:"n",pl:"-se",sk:"pamäť, spomienka",en:"memory"},
+    {de:"Freude",g:"f",pl:"-n",sk:"radosť, potešenie",en:"joy, happiness"},
+    {de:"Nachhilfe",g:"f",pl:"-n",sk:"doučovanie",en:"tutoring"}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
-    {de:"Forscher",g:"m",pl:"=",sk:"výskumník",en:"researcher, scientist"}
+    {de:"Forscher",g:"m",pl:"=",sk:"výskumník",en:"researcher, scientist"},
+    {de:"Vorbild",g:"n",pl:"-er",sk:"vzor, príklad",en:"role model"}
   ],
   "Objects": [
-    {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"}
+    {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
+    {de:"Raumschiff",g:"n",pl:"-e",sk:"vesmírna loď",en:"spaceship"},
+    {de:"Rakete",g:"f",pl:"-n",sk:"raketa (zbraň)",en:"missile, rocket"},
+    {de:"Schläger",g:"m",pl:"=",sk:"pálka, raketa",en:"bat, racket"},
+    {de:"Gewürz",g:"n",pl:"-e",sk:"korenie",en:"spice"}
   ],
   "Actions & Events": [
     {de:"Abenteuer",g:"n",pl:"=",sk:"dobrodružstvo, aféra",en:"adventure, affair"}
   ],
   "Miscellaneous": [
-    {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"}
+    {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
+    {de:"Siedlung",g:"f",pl:"=",sk:"osídlenie",en:"settlement"}
   ]
 },
 verbs: {
   "Mind & Perception": [
     {de:"riechen",p2:"h. gerochen",sk:"cítiť (čuchať)",en:"to smell"},
     {de:"überschätzen",p2:"h. überschätzt",sk:"preceniť",en:"to overestimate"},
-    {de:"unterschätzen",p2:"h. unterschätzt",sk:"podceniť",en:"to underestimate"}
+    {de:"unterschätzen",p2:"h. unterschätzt",sk:"podceniť",en:"to underestimate"},
+    {de:"beeinflussen",p2:"h. beeinflusst",sk:"ovplyvniť",en:"to influence"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1796,7 +1805,12 @@ verbs: {
   ],
   "Separable Verbs": [
     {de:"auf·regen",p2:"h. aufgeregt",sk:"rozčúliť",en:"to upset",sep:true},
-    {de:"auf·streichen",p2:"h. aufgestrichen",sk:"natierať",en:"to spread, apply on",sep:true}
+    {de:"auf·streichen",p2:"h. aufgestrichen",sk:"natierať",en:"to spread, apply on",sep:true},
+    {de:"los·fahren",p2:"s. losgefahren",sk:"vyštartovať",en:"to depart, drive off",sep:true},
+    {de:"los·gehen",p2:"s. losgegangen",sk:"vyraziť (na cestu)",en:"to leave, go off",sep:true},
+    {de:"weiter·gehen",p2:"s. weitergegangen",sk:"pokračovať v ceste",en:"to continue walking",sep:true},
+    {de:"weiter·machen",p2:"h. weitergemacht",sk:"pokračovať",en:"to continue",sep:true},
+    {de:"durch·setzen, sich",p2:"h. durchgesetzt",sk:"presadiť sa",en:"to assert oneself",sep:true}
   ]
 },
 adjectives: [
@@ -1811,5 +1825,5 @@ adverbs: []
 
 }; /* end VOCAB_LEVELS */
 
-window.VOCAB = window.VOCAB_LEVELS.A2;  // default level
-window.VOCAB_VERSION = "2026-04-26";
+window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
+window.VOCAB_VERSION = "2026-05-18";

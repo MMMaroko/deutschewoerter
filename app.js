@@ -20,7 +20,7 @@
   }
   var GENDER_ARTICLE = {m:'der', f:'die', n:'das', p:'die'};
   var GENDER_CLASS   = {m:'gen-m', f:'gen-f', n:'gen-n', p:'gen-p'};
-  var state = { pool: [], used: [], current: null, revealed: false, direction: 'de', level: 'A2' };
+  var state = { pool: [], used: [], current: null, revealed: false, direction: 'de', level: 'B1' };
 
   // ----- "All levels" view: merge logic --------------------------------
   // When the user picks the "All" level, the per-level VOCAB objects are
@@ -81,8 +81,167 @@
     'fern·sehen':'Mind & Perception','heraus·finden':'Mind & Perception',
     'kennen·lernen':'Mind & Perception','nach·denken':'Mind & Perception',
     'vor·haben':'Mind & Perception','wieder·holen':'Mind & Perception',
-    'wohl·fühlen, sich':'Mind & Perception','zusammen·passen':'Mind & Perception'
+    'wohl·fühlen, sich':'Mind & Perception','zusammen·passen':'Mind & Perception',
+    // ---- B1 batch 2 separable verbs ----
+    'los·fahren':'Movement & Physical','los·gehen':'Movement & Physical',
+    'weiter·gehen':'Movement & Physical','weiter·machen':'Work & Daily Actions',
+    'durch·setzen, sich':'Communication & Social'
     // (All others fall through to "Work & Daily Actions" as default.)
+  };
+
+  // Adj/adverb → thematic category for the "All levels" descriptor view.
+  // Covers every adj and adv entry across A1, A2, B1.
+  var DESC_CAT = {
+    // Character & Personality
+    'nett':'Character & Personality','ehrlich':'Character & Personality',
+    'fleißig':'Character & Personality','flink':'Character & Personality',
+    'gründlich':'Character & Personality','heiter':'Character & Personality',
+    'hilfsbereit':'Character & Personality','höflich':'Character & Personality',
+    'klug':'Character & Personality','lieb':'Character & Personality',
+    'mutig':'Character & Personality','neugierig':'Character & Personality',
+    'schlau':'Character & Personality','selbstbewusst':'Character & Personality',
+    'sparsam':'Character & Personality','treu':'Character & Personality',
+    'vernünftig':'Character & Personality','vorsichtig':'Character & Personality',
+    'zuverlässig':'Character & Personality','bequem':'Character & Personality',
+    'dumm':'Character & Personality','faul':'Character & Personality',
+    'frech':'Character & Personality','launisch':'Character & Personality',
+    'lebhaft':'Character & Personality','ruhelos':'Character & Personality',
+    'stur':'Character & Personality','unruhig':'Character & Personality',
+    'unsicher':'Character & Personality','ungeduldig':'Character & Personality',
+    'verträumt':'Character & Personality','selbstständig':'Character & Personality',
+    'unhöflich':'Character & Personality','eingebildet':'Character & Personality',
+    'blöd':'Character & Personality','heimlich':'Character & Personality',
+    'ängstlich':'Character & Personality','ernst':'Character & Personality',
+    'aufmerksam':'Character & Personality','großzügig':'Character & Personality',
+    'streng':'Character & Personality','verantwortlich':'Character & Personality',
+    // Emotions & Mood
+    'lustig':'Emotions & Mood','traurig':'Emotions & Mood',
+    'begeistert':'Emotions & Mood','zufrieden':'Emotions & Mood',
+    'dankbar':'Emotions & Mood','überrascht':'Emotions & Mood',
+    'verwirrt':'Emotions & Mood','peinlich':'Emotions & Mood',
+    'enttäuscht':'Emotions & Mood','entsetzt':'Emotions & Mood',
+    'wahnsinnig':'Emotions & Mood','genervt':'Emotions & Mood',
+    'wütend':'Emotions & Mood','stolz':'Emotions & Mood',
+    'erschöpft':'Emotions & Mood','verrückt':'Emotions & Mood',
+    // Appearance & Physical
+    'groß':'Appearance & Physical','klein':'Appearance & Physical',
+    'hübsch':'Appearance & Physical','schön':'Appearance & Physical',
+    'hässlich':'Appearance & Physical','dünn':'Appearance & Physical',
+    'dick':'Appearance & Physical','eng':'Appearance & Physical',
+    'weit':'Appearance & Physical','glatt':'Appearance & Physical',
+    'wellig':'Appearance & Physical','lockig':'Appearance & Physical',
+    'gestreift':'Appearance & Physical','gepunktet':'Appearance & Physical',
+    'kariert':'Appearance & Physical','hell':'Appearance & Physical',
+    'dunkel':'Appearance & Physical','bunt':'Appearance & Physical',
+    'lautstark':'Appearance & Physical','leise':'Appearance & Physical',
+    'still':'Appearance & Physical','trocken':'Appearance & Physical',
+    'nass':'Appearance & Physical','feucht':'Appearance & Physical',
+    'kühl':'Appearance & Physical','bedeckt':'Appearance & Physical',
+    'roh':'Appearance & Physical','weich':'Appearance & Physical',
+    'breit':'Appearance & Physical','schmal':'Appearance & Physical',
+    'versalzen':'Appearance & Physical','verzuckert':'Appearance & Physical',
+    'waagerecht':'Appearance & Physical','senkrecht':'Appearance & Physical',
+    'geschnitten':'Appearance & Physical',
+    'salzig':'Appearance & Physical','süß':'Appearance & Physical',
+    'sauer':'Appearance & Physical','bitter':'Appearance & Physical',
+    'scharf':'Appearance & Physical',
+    'schnell':'Appearance & Physical','langsam':'Appearance & Physical',
+    'hoch':'Appearance & Physical','niedrig':'Appearance & Physical',
+    // Quality & Evaluation
+    'gut':'Quality & Evaluation','schlecht':'Quality & Evaluation',
+    'leicht':'Quality & Evaluation','schwer':'Quality & Evaluation',
+    'gefährlich':'Quality & Evaluation','giftig':'Quality & Evaluation',
+    'sicher':'Quality & Evaluation','billig':'Quality & Evaluation',
+    'teuer':'Quality & Evaluation','wunderbar':'Quality & Evaluation',
+    'unglaublich':'Quality & Evaluation','toll':'Quality & Evaluation',
+    'gemütlich':'Quality & Evaluation','günstig':'Quality & Evaluation',
+    'gemeinsam':'Quality & Evaluation','verschieden':'Quality & Evaluation',
+    'undeutlich':'Quality & Evaluation','wichtig':'Quality & Evaluation',
+    'nötig':'Quality & Evaluation','notwendig':'Quality & Evaluation',
+    'dringend':'Quality & Evaluation','eilig':'Quality & Evaluation',
+    'seltsam':'Quality & Evaluation','schrecklich':'Quality & Evaluation',
+    'furchtbar':'Quality & Evaluation','langweilig':'Quality & Evaluation',
+    'spitze':'Quality & Evaluation','anstrengend':'Quality & Evaluation',
+    'mühsam':'Quality & Evaluation','erfolgreich':'Quality & Evaluation',
+    'bekannt':'Quality & Evaluation','berühmt':'Quality & Evaluation',
+    'großartig':'Quality & Evaluation','gruselig':'Quality & Evaluation',
+    'unerhört':'Quality & Evaluation','echt':'Quality & Evaluation',
+    'spannend':'Quality & Evaluation','unsichtbar':'Quality & Evaluation',
+    'unnötig':'Quality & Evaluation','preiswert':'Quality & Evaluation',
+    'sinnvoll':'Quality & Evaluation','vielseitig':'Quality & Evaluation',
+    'nachhaltig':'Quality & Evaluation','vielfältig':'Quality & Evaluation',
+    'bezahlbar':'Quality & Evaluation','hochwertig':'Quality & Evaluation',
+    'abwechslungsreich':'Quality & Evaluation','erfreulich':'Quality & Evaluation',
+    'lieblings-':'Quality & Evaluation','unangenehm':'Quality & Evaluation',
+    // State & Condition
+    'gesund':'State & Condition','krank':'State & Condition',
+    'leer':'State & Condition','voll':'State & Condition',
+    'arm':'State & Condition','reich':'State & Condition',
+    'ledig':'State & Condition','verheiratet':'State & Condition',
+    'geschieden':'State & Condition','verwitwet':'State & Condition',
+    'tot':'State & Condition','bereit':'State & Condition',
+    'gültig':'State & Condition','besetzt':'State & Condition',
+    'müde':'State & Condition','geheim':'State & Condition',
+    'gemischt':'State & Condition','satt':'State & Condition',
+    'taub':'State & Condition','wach':'State & Condition',
+    'ausverkauft':'State & Condition','getrennt':'State & Condition',
+    'beschäftigt':'State & Condition','gewohnt sein':'State & Condition',
+    // Time & Sequence
+    'vorig':'Time & Sequence','folgend':'Time & Sequence',
+    'letzte':'Time & Sequence','nächste':'Time & Sequence',
+    'früh':'Time & Sequence','spät':'Time & Sequence',
+    'ewig':'Time & Sequence','plötzlich':'Time & Sequence',
+    'andauernd':'Time & Sequence',
+    'jetzt':'Time & Sequence','momentan':'Time & Sequence',
+    'zurzeit':'Time & Sequence','gerade':'Time & Sequence',
+    'sofort':'Time & Sequence','gleich':'Time & Sequence',
+    'danach':'Time & Sequence','schon':'Time & Sequence',
+    'schließlich':'Time & Sequence','bald':'Time & Sequence',
+    'oft':'Time & Sequence','gelegentlich':'Time & Sequence',
+    'gestern':'Time & Sequence','heute':'Time & Sequence',
+    'morgen':'Time & Sequence','mal':'Time & Sequence',
+    'wieder':'Time & Sequence','inzwischen':'Time & Sequence',
+    'mehrmals':'Time & Sequence','laufend':'Time & Sequence',
+    'zugleich':'Time & Sequence','neulich':'Time & Sequence',
+    // Place & Direction
+    'weit, fern':'Place & Direction','nah(e)':'Place & Direction',
+    'zurück':'Place & Direction','draußen':'Place & Direction',
+    'drinnen':'Place & Direction','oben':'Place & Direction',
+    'unten':'Place & Direction','überall':'Place & Direction',
+    'nirgends':'Place & Direction','da, dort':'Place & Direction',
+    'drüben':'Place & Direction','vorbei':'Place & Direction',
+    'entlang':'Place & Direction',
+    'im Uhrzeigersinn':'Place & Direction',
+    'gegen den Uhrzeigersinn':'Place & Direction',
+    'nach vorn':'Place & Direction','darauf':'Place & Direction',
+    'dorthin':'Place & Direction','voraus':'Place & Direction',
+    'außerhalb':'Place & Direction',
+    // Degree & Quantity
+    'durchschnittlich':'Degree & Quantity','völlig':'Degree & Quantity',
+    'häufig':'Degree & Quantity','zufällig':'Degree & Quantity',
+    'ein bisschen':'Degree & Quantity','fast':'Degree & Quantity',
+    'genau':'Degree & Quantity','unbedingt':'Degree & Quantity',
+    'bestimmt':'Degree & Quantity','höchstwahrscheinlich':'Degree & Quantity',
+    'ziemlich':'Degree & Quantity','wahrscheinlich':'Degree & Quantity',
+    'vielleicht':'Degree & Quantity','ungefähr':'Degree & Quantity',
+    'insgesamt':'Degree & Quantity','besonders':'Degree & Quantity',
+    'meist':'Degree & Quantity','hauptsächlich':'Degree & Quantity',
+    'vor allem':'Degree & Quantity','auch':'Degree & Quantity',
+    'gar, überhaupt':'Degree & Quantity','kaum':'Degree & Quantity',
+    'genug':'Degree & Quantity','erheblich':'Degree & Quantity',
+    'mindestens':'Degree & Quantity','teilweise':'Degree & Quantity',
+    'doppelt':'Degree & Quantity',
+    // Connective & Logical
+    'umgekehrt':'Connective & Logical',
+    'zusammen':'Connective & Logical','denn':'Connective & Logical',
+    'trotzdem':'Connective & Logical','außerdem':'Connective & Logical',
+    'leider':'Connective & Logical','gern(e)':'Connective & Logical',
+    'eigentlich':'Connective & Logical','gleichfalls':'Connective & Logical',
+    'ebenfalls':'Connective & Logical',
+    'väterlicherseits':'Connective & Logical','deswegen':'Connective & Logical',
+    'dagegen':'Connective & Logical','übrigens':'Connective & Logical',
+    'einander':'Connective & Logical','sonst':'Connective & Logical',
+    'davon':'Connective & Logical'
   };
 
   function sepVerbCategory(v){
@@ -92,8 +251,14 @@
     return SEP_VERB_CATEGORY[v.de] || 'Work & Daily Actions';
   }
 
+  var DESC_ORDER = [
+    'Character & Personality','Emotions & Mood','Appearance & Physical',
+    'Quality & Evaluation','State & Condition','Time & Sequence',
+    'Place & Direction','Degree & Quantity','Connective & Logical'
+  ];
+
   function buildAllLevel(){
-    var all = { nouns:{}, verbs:{}, adjectives:[], adverbs:[] };
+    var all = { nouns:{}, verbs:{}, adjectives:[], adverbs:[], descriptors:{} };
     var levels = ['A1','A2','B1'];
     for (var li=0; li<levels.length; li++){
       var lvl = window.VOCAB_LEVELS[levels[li]];
@@ -126,14 +291,37 @@
       for (i=0; i<lvl.adjectives.length; i++) all.adjectives.push(lvl.adjectives[i]);
       for (i=0; i<lvl.adverbs.length;   i++) all.adverbs.push(lvl.adverbs[i]);
     }
+    // Build categorised descriptor view from the merged adj+adv lists.
+    var doi, dcat, dentry;
+    for (doi=0; doi<DESC_ORDER.length; doi++) all.descriptors[DESC_ORDER[doi]] = [];
+    for (doi=0; doi<all.adjectives.length; doi++){
+      dentry = all.adjectives[doi];
+      dcat = DESC_CAT[dentry.de] || 'Other';
+      if (!all.descriptors[dcat]) all.descriptors[dcat] = [];
+      all.descriptors[dcat].push(dentry);
+    }
+    for (doi=0; doi<all.adverbs.length; doi++){
+      dentry = all.adverbs[doi];
+      dcat = DESC_CAT[dentry.de] || 'Other';
+      if (!all.descriptors[dcat]) all.descriptors[dcat] = [];
+      all.descriptors[dcat].push(dentry);
+    }
+    // Drop any pre-initialised categories that ended up empty.
+    for (var dkey in all.descriptors){
+      if (all.descriptors.hasOwnProperty(dkey) && all.descriptors[dkey].length === 0)
+        delete all.descriptors[dkey];
+    }
     return all;
   }
 
   function loadCategoryOptions(){
     var t = $('type').value;
-    $('catWrap').style.display = (t==='noun' || t==='verb') ? '' : 'none';
+    $('catWrap').style.display = (t==='noun' || t==='verb' || t==='desc') ? '' : 'none';
     var sel = $('cat'); sel.innerHTML = '';
-    var src = (t==='noun') ? window.VOCAB.nouns : (t==='verb') ? window.VOCAB.verbs : null;
+    var src = (t==='noun') ? window.VOCAB.nouns
+            : (t==='verb') ? window.VOCAB.verbs
+            : (t==='desc') ? (window.VOCAB.descriptors || null)
+            : null;
     if(!src) return;
     for(var k in src){
       if(!src.hasOwnProperty(k)) continue;
@@ -164,6 +352,9 @@
       for(i=0;i<window.VOCAB.adjectives.length;i++) words.push(copy(window.VOCAB.adjectives[i],'adj'));
     } else if(t==='adv'){
       for(i=0;i<window.VOCAB.adverbs.length;i++) words.push(copy(window.VOCAB.adverbs[i],'adv'));
+    } else if(t==='desc'){
+      arr = (window.VOCAB.descriptors && window.VOCAB.descriptors[$('cat').value]) || [];
+      for(i=0;i<arr.length;i++) words.push(copy(arr[i],'adj'));
     }
     state.pool = shuffle(words); state.used = [];
   }
@@ -279,6 +470,16 @@
       var kids = seg.getElementsByTagName('button');
       for(var i=0;i<kids.length;i++) kids[i].classList.remove('on');
       btn.classList.add('on');
+      // Show "Adj & Adv (by category)" option only for All level
+      var typeEl = $('type');
+      var dopt = null;
+      for(var oi=0;oi<typeEl.options.length;oi++){
+        if(typeEl.options[oi].value==='desc'){dopt=typeEl.options[oi];break;}
+      }
+      if(dopt){
+        dopt.style.display = (lvl==='All') ? '' : 'none';
+        if(lvl!=='All' && typeEl.value==='desc'){ typeEl.value='adj'; }
+      }
       loadCategoryOptions();
       var nc=0, vc=0, k;
       for(k in window.VOCAB.nouns) if(window.VOCAB.nouns.hasOwnProperty(k)) nc++;
@@ -332,7 +533,7 @@
     var t = $('type').value;
     var kind = (t.indexOf('verb')>=0) ? 'verb'
               : (t.indexOf('noun')>=0) ? 'noun'
-              : (t === 'adj') ? 'adj' : 'adv';
+              : (t === 'adj' || t === 'desc') ? 'adj' : 'adv';
     var groups = [];
     if(t === 'noun'){
       var c = $('cat').value;
@@ -350,6 +551,10 @@
       groups.push({name:'Adjectives', words:window.VOCAB.adjectives});
     } else if(t === 'adv'){
       groups.push({name:'Adverbs', words:window.VOCAB.adverbs});
+    } else if(t === 'desc'){
+      var descs = window.VOCAB.descriptors;
+      if(descs) for(var kd in descs) if(descs.hasOwnProperty(kd))
+        groups.push({name:kd, words:descs[kd]});
     }
     return {kind:kind, groups:groups};
   }
