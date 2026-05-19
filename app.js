@@ -511,6 +511,7 @@
       $('setup').style.display = 'none';
       $('learn').style.display = 'flex';
       $('footer').style.display = 'flex';
+      if (window.App._hideInstall) window.App._hideInstall();
       render();
       diag('learning ' + state.pool.length + ' words, dir=' + state.direction);
     } catch(e){ diag('ERR start: ' + e.message); }
@@ -522,6 +523,7 @@
       $('review').style.display = 'none';
       $('footer').style.display = 'none';
       $('stats').textContent = '0 / 0';
+      if (window.App._showInstallIfEligible) window.App._showInstallIfEligible();
       diag('back to setup');
     } catch(e){ diag('ERR back: ' + e.message); }
   };
@@ -600,6 +602,7 @@
       $('learn').style.display = 'none';
       $('footer').style.display = 'none';
       $('review').style.display = 'block';
+      if (window.App._hideInstall) window.App._hideInstall();
       $('stats').textContent = built.total + ' entries';
       diag('review · ' + built.total + ' entries');
     } catch(e){ diag('ERR review: ' + e.message); }
@@ -702,9 +705,19 @@
     try { return localStorage.getItem('installDismissed') === '1'; } catch(e){ return false; }
   }
 
-  if (bar && !isStandalone() && !wasDismissed()) {
-    bar.style.display = 'flex';
-  }
+  // Helpers exposed to the main app so it can show/hide the bar on view
+  // transitions (the bar is now a body-level sibling of <main>, not a
+  // child of <section id="setup">, so it no longer auto-hides with it).
+  window.App = window.App || {};
+  window.App._showInstallIfEligible = function(){
+    if (bar && !isStandalone() && !wasDismissed()) bar.style.display = 'flex';
+  };
+  window.App._hideInstall = function(){
+    if (bar)  bar.style.display  = 'none';
+    if (help) help.style.display = 'none';
+  };
+
+  window.App._showInstallIfEligible();
 
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault();
