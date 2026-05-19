@@ -679,36 +679,83 @@
   }
 })();
 
-/* PWA install prompt — capture the browser's beforeinstallprompt event and
-   surface a dismissible bar on the home screen. The bar is hidden by default
-   (display:none in CSS) and only shown when the browser decides the app is
-   installable (i.e. SW registered, manifest valid, not already installed). */
+/* PWA install prompt — shows a dismissible bar on the home screen whenever
+   the page is NOT already running in standalone mode. Chrome's
+   beforeinstallprompt event has unpredictable firing heuristics (requires
+   prior engagement, isn't always fired on first visit), so we don't depend
+   on it: the bar appears unconditionally for browser visits, and the
+   install button uses the native prompt if available or falls back to
+   manual instructions otherwise. Session-level dismissal persists via
+   localStorage. */
 (function(){
   var deferred = null;
   var bar  = document.getElementById('installBar');
   var btn  = document.getElementById('installBtn');
   var dimm = document.getElementById('installDismiss');
+  var help = document.getElementById('installHelp');
+
+  function isStandalone(){
+    return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+           window.navigator.standalone === true;
+  }
+  function wasDismissed(){
+    try { return localStorage.getItem('installDismissed') === '1'; } catch(e){ return false; }
+  }
+
+  if (bar && !isStandalone() && !wasDismissed()) {
+    bar.style.display = 'flex';
+  }
 
   window.addEventListener('beforeinstallprompt', function(e){
     e.preventDefault();
     deferred = e;
-    if(bar) bar.style.display = 'flex';
+    if (bar && !isStandalone() && !wasDismissed()) bar.style.display = 'flex';
   });
 
   window.addEventListener('appinstalled', function(){
     deferred = null;
     if(bar) bar.style.display = 'none';
+    if(help) help.style.display = 'none';
   });
 
   if(btn) btn.addEventListener('click', function(){
-    if(!deferred) return;
-    deferred.prompt();
-    deferred.userChoice.then(function(){ deferred = null; });
-    if(bar) bar.style.display = 'none';
+    if (deferred) {
+      deferred.prompt();
+      deferred.userChoice.then(function(){ deferred = null; });
+      if(bar) bar.style.display = 'none';
+    } else if (help) {
+      // No native prompt available (engagement heuristic not met, already
+      // installed elsewhere, etc.) — toggle manual instructions instead.
+      help.style.display = (help.style.display === 'block') ? 'none' : 'block';
+    }
   });
 
   if(dimm) dimm.addEventListener('click', function(){
     if(bar) bar.style.display = 'none';
+    if(help) help.style.display = 'none';
+    try { localStorage.setItem('installDismissed', '1'); } catch(e){}
+  });
+
+  // "Reset offline cache" button in legend section — unregisters the SW
+  // and clears all cached assets, then hard-reloads. Useful when the user
+  // is stuck with a stale icon/code from an old SW.
+  var rc = document.getElementById('resetCache');
+  if (rc) rc.addEventListener('click', function(){
+    if (!confirm('Clear cached app and reload?')) return;
+    var done = function(){ window.location.reload(); };
+    var unreg = (navigator.serviceWorker && navigator.serviceWorker.getRegistrations)
+      ? navigator.serviceWorker.getRegistrations().then(function(regs){
+          return Promise.all(regs.map(function(r){ return r.unregister(); }));
+        })
+      : Promise.resolve();
+    unreg.then(function(){
+      if (window.caches) {
+        return caches.keys().then(function(keys){
+          return Promise.all(keys.map(function(k){ return caches.delete(k); }));
+        });
+      }
+    }).then(done, done);
+    try { localStorage.removeItem('installDismissed'); } catch(e){}
   });
 })();
 
@@ -718,13 +765,20 @@
    data/code immediately after a deploy. */
 if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('sw.js').then(function () {
-      var refreshing = false;
-      navigator.serviceWorker.addEventListener('controllerchange', function () {
-        if (refreshing) return;
-        refreshing = true;
-        window.location.reload();
-      });
-    }).catch(function () { /* SW registration is optional */ });
+    // updateViaCache:'none' forces the browser to bypass its HTTP cache when
+    // fetching sw.js itself — without this, a stale sw.js can sit in the
+    // browser cache for up to 24h and prevent updates from being detected.
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
+      .then(function (reg) {
+        var refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
+        });
+        // Manually trigger an update check on every load so a fresh deploy
+        // is picked up immediately, not only when the browser feels like it.
+        if (reg && reg.update) { try { reg.update(); } catch(e){} }
+      }).catch(function () { /* SW registration is optional */ });
   });
 }

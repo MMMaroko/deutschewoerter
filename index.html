@@ -100,6 +100,8 @@
   #installBar{display:none;align-items:center;gap:10px;background:#1e293b;border:1px solid #2563eb;border-radius:10px;padding:10px 14px;margin-top:10px}
   #installBar p{margin:0;font-size:13px;color:#94a3b8;flex:1;line-height:1.4}
   #installDismiss{background:transparent;border:none;color:#475569;font-size:20px;padding:2px 6px;line-height:1;cursor:pointer;flex-shrink:0}
+  #installHelp{display:none;background:#0b1220;border:1px solid #334155;border-radius:10px;padding:10px 14px;margin-top:8px;font-size:12px;color:#94a3b8;line-height:1.5}
+  #installHelp p{margin:4px 0}
 </style>
 <script src="init.js"></script>
 </head>
@@ -171,11 +173,17 @@
         Review list shows every entry in the chosen category as DE / SK / EN.
       </p>
       <p style="font-size:11px;color:#475569;margin:6px 0 0" id="dbVersion">Database version: —</p>
+      <button type="button" id="resetCache" style="margin-top:10px;background:transparent;border:1px solid #334155;font-size:12px;padding:6px 10px;color:#94a3b8">Reset offline cache</button>
     </details>
     <div id="installBar">
       <p>📲 Add to home screen for offline use</p>
       <button type="button" id="installBtn" class="primary" style="padding:8px 14px;font-size:13px;white-space:nowrap">Install</button>
       <button type="button" id="installDismiss">✕</button>
+    </div>
+    <div id="installHelp">
+      <p><b>Android Chrome:</b> menu (⋮) → "Install app" or "Add to Home screen"</p>
+      <p><b>iOS Safari:</b> Share → "Add to Home Screen"</p>
+      <p style="color:#475569">If the old icon still appears after install, uninstall the app, tap "Reset offline cache" below, then install again.</p>
     </div>
   </section>
 
