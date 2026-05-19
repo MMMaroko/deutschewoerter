@@ -18,6 +18,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <title>DE Vocab Trainer (DE / SK / EN)</title>
 <link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0;height:100%;background:#0f172a;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;overflow:hidden}
@@ -96,6 +97,9 @@
   .legend{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;margin-top:6px}
   .legend span{padding:2px 8px;border-radius:6px;background:#0b1220;border:1px solid #334155}
   @media(min-width:600px){.card .word{font-size:40px}}
+  #installBar{display:none;align-items:center;gap:10px;background:#1e293b;border:1px solid #2563eb;border-radius:10px;padding:10px 14px;margin-top:10px}
+  #installBar p{margin:0;font-size:13px;color:#94a3b8;flex:1;line-height:1.4}
+  #installDismiss{background:transparent;border:none;color:#475569;font-size:20px;padding:2px 6px;line-height:1;cursor:pointer;flex-shrink:0}
 </style>
 <script src="init.js"></script>
 </head>
@@ -168,6 +172,11 @@
       </p>
       <p style="font-size:11px;color:#475569;margin:6px 0 0" id="dbVersion">Database version: —</p>
     </details>
+    <div id="installBar">
+      <p>📲 Add to home screen for offline use</p>
+      <button type="button" id="installBtn" class="primary" style="padding:8px 14px;font-size:13px;white-space:nowrap">Install</button>
+      <button type="button" id="installDismiss">✕</button>
+    </div>
   </section>
 
   <!-- View 3: review list (all entries DE / SK / EN) -->

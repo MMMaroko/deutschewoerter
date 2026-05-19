@@ -679,6 +679,39 @@
   }
 })();
 
+/* PWA install prompt — capture the browser's beforeinstallprompt event and
+   surface a dismissible bar on the home screen. The bar is hidden by default
+   (display:none in CSS) and only shown when the browser decides the app is
+   installable (i.e. SW registered, manifest valid, not already installed). */
+(function(){
+  var deferred = null;
+  var bar  = document.getElementById('installBar');
+  var btn  = document.getElementById('installBtn');
+  var dimm = document.getElementById('installDismiss');
+
+  window.addEventListener('beforeinstallprompt', function(e){
+    e.preventDefault();
+    deferred = e;
+    if(bar) bar.style.display = 'flex';
+  });
+
+  window.addEventListener('appinstalled', function(){
+    deferred = null;
+    if(bar) bar.style.display = 'none';
+  });
+
+  if(btn) btn.addEventListener('click', function(){
+    if(!deferred) return;
+    deferred.prompt();
+    deferred.userChoice.then(function(){ deferred = null; });
+    if(bar) bar.style.display = 'none';
+  });
+
+  if(dimm) dimm.addEventListener('click', function(){
+    if(bar) bar.style.display = 'none';
+  });
+})();
+
 /* Service worker registration — runs after the IIFE has set up the app.
    Skipped on file:// origins (where SWs aren't allowed). When a new SW
    takes control, force a one-time reload so the page picks up updated
