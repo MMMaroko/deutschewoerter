@@ -502,6 +502,21 @@
       state.direction = btn.dataset.v;
     } catch(e){ diag('ERR pickDir: ' + e.message); }
   };
+  // The actual home-transition. All "go back" paths (UI button, hardware
+  // back, popstate) ultimately route through this single function so the
+  // history stack and UI never disagree.
+  function doBackTransition(){
+    try {
+      $('setup').style.display = '';
+      $('learn').style.display = 'none';
+      $('review').style.display = 'none';
+      $('footer').style.display = 'none';
+      $('stats').textContent = '0 / 0';
+      if (window.App._showInstallIfEligible) window.App._showInstallIfEligible();
+      diag('back to setup');
+    } catch(e){ diag('ERR back: ' + e.message); }
+  }
+
   window.App.start = function(){
     try {
       diag('start tapped');
@@ -512,20 +527,23 @@
       $('learn').style.display = 'flex';
       $('footer').style.display = 'flex';
       if (window.App._hideInstall) window.App._hideInstall();
+      // Push a history entry so Android's hardware Back button (and the
+      // browser back arrow) returns to the home view instead of exiting
+      // the PWA. The popstate listener below catches the pop.
+      try { history.pushState({view:'learn'}, ''); } catch(e){}
       render();
       diag('learning ' + state.pool.length + ' words, dir=' + state.direction);
     } catch(e){ diag('ERR start: ' + e.message); }
   };
   window.App.back = function(){
-    try {
-      $('setup').style.display = '';
-      $('learn').style.display = 'none';
-      $('review').style.display = 'none';
-      $('footer').style.display = 'none';
-      $('stats').textContent = '0 / 0';
-      if (window.App._showInstallIfEligible) window.App._showInstallIfEligible();
-      diag('back to setup');
-    } catch(e){ diag('ERR back: ' + e.message); }
+    // Drive the back action through history so hardware Back and the UI
+    // ← Home button take the same path. popstate handler does the actual
+    // transition; if there's nothing on the stack we fall back to a
+    // direct transition (defensive).
+    if (history.state && history.state.view) {
+      try { history.back(); return; } catch(e){}
+    }
+    doBackTransition();
   };
 
   // Review mode: display all entries in the chosen pool as DE/SK/EN rows,
@@ -603,6 +621,8 @@
       $('footer').style.display = 'none';
       $('review').style.display = 'block';
       if (window.App._hideInstall) window.App._hideInstall();
+      // Same Back-button affordance as learn mode.
+      try { history.pushState({view:'review'}, ''); } catch(e){}
       $('stats').textContent = built.total + ' entries';
       diag('review · ' + built.total + ' entries');
     } catch(e){ diag('ERR review: ' + e.message); }
@@ -665,6 +685,17 @@
     if(e.code === 'Space'){ e.preventDefault(); state.revealed ? window.App.next() : window.App.reveal(); }
     else if(e.code === 'ArrowRight') window.App.next();
     else if(e.code === 'Enter') state.revealed ? window.App.next() : window.App.reveal();
+  });
+
+  // popstate fires when the user (or App.back) navigates back in history —
+  // i.e. hardware Back on Android, the browser back arrow, or our own
+  // history.back() call. If a non-home view is currently active, return to
+  // home; otherwise let the navigation proceed (which on the home view
+  // will exit the PWA, as expected).
+  window.addEventListener('popstate', function(){
+    if ($('learn').style.display !== 'none' || $('review').style.display !== 'none') {
+      doBackTransition();
+    }
   });
 
   // init
