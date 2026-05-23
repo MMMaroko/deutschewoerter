@@ -85,7 +85,9 @@
     // ---- B1 batch 2 separable verbs ----
     'los·fahren':'Movement & Physical','los·gehen':'Movement & Physical',
     'weiter·gehen':'Movement & Physical','weiter·machen':'Work & Daily Actions',
-    'durch·setzen, sich':'Communication & Social'
+    'durch·setzen, sich':'Communication & Social',
+    // ---- B1 batch 3 separable verbs ----
+    'zurecht·kommen':'Work & Daily Actions'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -114,6 +116,7 @@
     'ängstlich':'Character & Personality','ernst':'Character & Personality',
     'aufmerksam':'Character & Personality','großzügig':'Character & Personality',
     'streng':'Character & Personality','verantwortlich':'Character & Personality',
+    'geduldig':'Character & Personality','gehorsam':'Character & Personality',
     // Emotions & Mood
     'lustig':'Emotions & Mood','traurig':'Emotions & Mood',
     'begeistert':'Emotions & Mood','zufrieden':'Emotions & Mood',
@@ -186,12 +189,13 @@
     'taub':'State & Condition','wach':'State & Condition',
     'ausverkauft':'State & Condition','getrennt':'State & Condition',
     'beschäftigt':'State & Condition','gewohnt sein':'State & Condition',
+    'süchtig':'State & Condition',
     // Time & Sequence
     'vorig':'Time & Sequence','folgend':'Time & Sequence',
     'letzte':'Time & Sequence','nächste':'Time & Sequence',
     'früh':'Time & Sequence','spät':'Time & Sequence',
     'ewig':'Time & Sequence','plötzlich':'Time & Sequence',
-    'andauernd':'Time & Sequence',
+    'andauernd':'Time & Sequence','übernächste':'Time & Sequence',
     'jetzt':'Time & Sequence','momentan':'Time & Sequence',
     'zurzeit':'Time & Sequence','gerade':'Time & Sequence',
     'sofort':'Time & Sequence','gleich':'Time & Sequence',

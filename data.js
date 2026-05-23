@@ -1767,12 +1767,20 @@ nouns: {
   "Abstract & Communication": [
     {de:"Gedächtnis",g:"n",pl:"-se",sk:"pamäť, spomienka",en:"memory"},
     {de:"Freude",g:"f",pl:"-n",sk:"radosť, potešenie",en:"joy, happiness"},
-    {de:"Nachhilfe",g:"f",pl:"-n",sk:"doučovanie",en:"tutoring"}
+    {de:"Nachhilfe",g:"f",pl:"-n",sk:"doučovanie",en:"tutoring"},
+    {de:"Unterlagen",g:"f",pl:"-",sk:"podklady",en:"documentation"},
+    {de:"Beitrag",g:"m",pl:"-¨e",sk:"príspevok, článok",en:"contribution, article"},
+    {de:"Verantwortung",g:"f",pl:"—",sk:"zodpovednosť",en:"responsibility"},
+    {de:"Bestätigung",g:"f",pl:"-en",sk:"potvrdenie",en:"confirmation"},
+    {de:"Vorkenntnis",g:"f",pl:"-se",sk:"predchádzajúca znalosť",en:"previous knowledge"},
+    {de:"Angabe",g:"f",pl:"-n",sk:"údaj, informácia",en:"statement, information"},
+    {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
     {de:"Forscher",g:"m",pl:"=",sk:"výskumník",en:"researcher, scientist"},
-    {de:"Vorbild",g:"n",pl:"-er",sk:"vzor, príklad",en:"role model"}
+    {de:"Vorbild",g:"n",pl:"-er",sk:"vzor, príklad",en:"role model"},
+    {de:"Erzieher",g:"m",pl:"=",sk:"vychovávateľ",en:"educator"}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1786,7 +1794,11 @@ nouns: {
   ],
   "Miscellaneous": [
     {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
-    {de:"Siedlung",g:"f",pl:"=",sk:"osídlenie",en:"settlement"}
+    {de:"Siedlung",g:"f",pl:"=",sk:"osídlenie",en:"settlement"},
+    {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"},
+    {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
+    {de:"Gehalt",g:"n",pl:"-¨er",sk:"plat",en:"salary"},
+    {de:"Zeitraum",g:"m",pl:"-¨e",sk:"časové obdobie",en:"time period"}
   ]
 },
 verbs: {
@@ -1794,14 +1806,17 @@ verbs: {
     {de:"riechen",p2:"h. gerochen",sk:"cítiť (čuchať)",en:"to smell"},
     {de:"überschätzen",p2:"h. überschätzt",sk:"preceniť",en:"to overestimate"},
     {de:"unterschätzen",p2:"h. unterschätzt",sk:"podceniť",en:"to underestimate"},
-    {de:"beeinflussen",p2:"h. beeinflusst",sk:"ovplyvniť",en:"to influence"}
+    {de:"beeinflussen",p2:"h. beeinflusst",sk:"ovplyvniť",en:"to influence"},
+    {de:"entschließen, sich",p2:"h. entschlossen",sk:"rozhodnúť sa",en:"to decide"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
     {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"}
   ],
   "Work & Daily Actions": [
-    {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"}
+    {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"},
+    {de:"beschäftigen, sich",p2:"h. beschäftigt",sk:"zaoberať sa",en:"to deal with, occupy oneself"},
+    {de:"erledigen",p2:"h. erledigt",sk:"vybaviť, splniť",en:"to complete, settle"}
   ],
   "Separable Verbs": [
     {de:"auf·regen",p2:"h. aufgeregt",sk:"rozčúliť",en:"to upset",sep:true},
@@ -1810,7 +1825,8 @@ verbs: {
     {de:"los·gehen",p2:"s. losgegangen",sk:"vyraziť (na cestu)",en:"to leave, go off",sep:true},
     {de:"weiter·gehen",p2:"s. weitergegangen",sk:"pokračovať v ceste",en:"to continue walking",sep:true},
     {de:"weiter·machen",p2:"h. weitergemacht",sk:"pokračovať",en:"to continue",sep:true},
-    {de:"durch·setzen, sich",p2:"h. durchgesetzt",sk:"presadiť sa",en:"to assert oneself",sep:true}
+    {de:"durch·setzen, sich",p2:"h. durchgesetzt",sk:"presadiť sa",en:"to assert oneself",sep:true},
+    {de:"zurecht·kommen",p2:"s. zurechtgekommen",sk:"zvládnuť, poradiť si",en:"to manage, cope",sep:true}
   ]
 },
 adjectives: [
@@ -1818,7 +1834,11 @@ adjectives: [
   {de:"großzügig",sk:"veľkorysý",en:"generous"},
   {de:"streng",sk:"prísny, neúprosný",en:"strict, harsh"},
   {de:"verantwortlich",sk:"zodpovedný",en:"responsible"},
-  {de:"unangenehm",sk:"nepríjemný",en:"unpleasant"}
+  {de:"unangenehm",sk:"nepríjemný",en:"unpleasant"},
+  {de:"geduldig",sk:"trpezlivý",en:"patient"},
+  {de:"gehorsam",sk:"poslušný",en:"obedient"},
+  {de:"süchtig",sk:"závislý",en:"addicted"},
+  {de:"übernächste",sk:"obďalší",en:"next but one"}
 ],
 adverbs: []
 } /* end B1 */
@@ -1826,4 +1846,4 @@ adverbs: []
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-05-18";
+window.VOCAB_VERSION = "2026-05-23";
