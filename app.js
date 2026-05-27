@@ -87,7 +87,7 @@
     'weiter·gehen':'Movement & Physical','weiter·machen':'Work & Daily Actions',
     'durch·setzen, sich':'Communication & Social',
     // ---- B1 batch 3 separable verbs ----
-    'zurecht·kommen':'Work & Daily Actions'
+    'zurecht·kommen':'Work & Daily Actions','vor·legen':'Work & Daily Actions'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -176,6 +176,7 @@
     'bezahlbar':'Quality & Evaluation','hochwertig':'Quality & Evaluation',
     'abwechslungsreich':'Quality & Evaluation','erfreulich':'Quality & Evaluation',
     'lieblings-':'Quality & Evaluation','unangenehm':'Quality & Evaluation',
+    'strafbar':'Quality & Evaluation','üblich':'Quality & Evaluation',
     // State & Condition
     'gesund':'State & Condition','krank':'State & Condition',
     'leer':'State & Condition','voll':'State & Condition',
@@ -189,7 +190,8 @@
     'taub':'State & Condition','wach':'State & Condition',
     'ausverkauft':'State & Condition','getrennt':'State & Condition',
     'beschäftigt':'State & Condition','gewohnt sein':'State & Condition',
-    'süchtig':'State & Condition',
+    'süchtig':'State & Condition','befristet':'State & Condition',
+    'verfügbar':'State & Condition',
     // Time & Sequence
     'vorig':'Time & Sequence','folgend':'Time & Sequence',
     'letzte':'Time & Sequence','nächste':'Time & Sequence',
@@ -223,6 +225,7 @@
     // Degree & Quantity
     'durchschnittlich':'Degree & Quantity','völlig':'Degree & Quantity',
     'häufig':'Degree & Quantity','zufällig':'Degree & Quantity',
+    'geringfügig':'Degree & Quantity',
     'ein bisschen':'Degree & Quantity','fast':'Degree & Quantity',
     'genau':'Degree & Quantity','unbedingt':'Degree & Quantity',
     'bestimmt':'Degree & Quantity','höchstwahrscheinlich':'Degree & Quantity',
@@ -377,6 +380,15 @@
     if(!s || s === '-') return null;
     return s;
   }
+  // Regional/usage label (e.g. "AT/ÖrD" for Austrian-specific terms),
+  // rendered as a small superscript right after the German headword. Lives
+  // with the German side so it never leaks onto the SK/EN prompt, and is
+  // hidden automatically when cardB is covered (the .tap overlay hides all
+  // children).
+  function regMark(w){
+    if(w && w.reg) return '<sup class="reg-mark">' + escapeText(w.reg) + '</sup>';
+    return '';
+  }
   function deHTML(w){
     if(w._kind === 'noun'){
       var art = GENDER_ARTICLE[w.g] || '';
@@ -395,9 +407,9 @@
         var suf = pluralSuffix(w.pl);
         if(suf) plPart = ' -' + escapeText(suf);
       }
-      return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>';
+      return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>' + regMark(w);
     }
-    return escapeText(w.de);
+    return escapeText(w.de) + regMark(w);
   }
   function viewH(){
     return (window.visualViewport && window.visualViewport.height) || window.innerHeight || 600;
@@ -594,12 +606,12 @@
         var w = copy(raw, data.kind);
         var deCol;
         if(data.kind === 'noun'){
-          deCol = deHTML(w);
+          deCol = deHTML(w);              // deHTML already appends regMark
         } else if(data.kind === 'verb'){
-          deCol = escapeText(w.de);
+          deCol = escapeText(w.de) + regMark(w);
           if(w.p2) deCol += '<span class="p2">' + escapeText(w.p2) + '</span>';
         } else {
-          deCol = escapeText(w.de);
+          deCol = escapeText(w.de) + regMark(w);
         }
         if(w.src === 'kb') deCol += '<span class="src-marker" title="From Kursbuch wordlist, AI-translated">KB</span>';
         html += '<div class="review-row">'

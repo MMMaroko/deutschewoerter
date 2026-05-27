@@ -1774,20 +1774,41 @@ nouns: {
     {de:"Bestätigung",g:"f",pl:"-en",sk:"potvrdenie",en:"confirmation"},
     {de:"Vorkenntnis",g:"f",pl:"-se",sk:"predchádzajúca znalosť",en:"previous knowledge"},
     {de:"Angabe",g:"f",pl:"-n",sk:"údaj, informácia",en:"statement, information"},
-    {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"}
+    {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"},
+    {de:"Begriff",g:"m",pl:"-e",sk:"pojem, výraz",en:"concept, term"},
+    {de:"Zusammenfassung",g:"f",pl:"-en",sk:"zhrnutie, prehľad",en:"summary, abstract"},
+    {de:"Ebene",g:"f",pl:"-n",sk:"rovina, úroveň",en:"plane, layer, level"}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
     {de:"Forscher",g:"m",pl:"=",sk:"výskumník",en:"researcher, scientist"},
     {de:"Vorbild",g:"n",pl:"-er",sk:"vzor, príklad",en:"role model"},
-    {de:"Erzieher",g:"m",pl:"=",sk:"vychovávateľ",en:"educator"}
+    {de:"Erzieher",g:"m",pl:"=",sk:"vychovávateľ",en:"educator"},
+    {de:"Beschäftigte",g:"m",pl:"-n",sk:"zamestnanec",en:"employee"},
+    {de:"Mitglied",g:"n",pl:"-er",sk:"člen",en:"member"},
+    {de:"Angehörige",g:"m",pl:"-n",sk:"príbuzný",en:"relative"}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
     {de:"Raumschiff",g:"n",pl:"-e",sk:"vesmírna loď",en:"spaceship"},
     {de:"Rakete",g:"f",pl:"-n",sk:"raketa (zbraň)",en:"missile, rocket"},
     {de:"Schläger",g:"m",pl:"=",sk:"pálka, raketa",en:"bat, racket"},
-    {de:"Gewürz",g:"n",pl:"-e",sk:"korenie",en:"spice"}
+    {de:"Gewürz",g:"n",pl:"-e",sk:"korenie",en:"spice"},
+    {de:"Speicher",g:"m",pl:"=",sk:"úložisko, pamäť",en:"storage, memory"},
+    {de:"Spickzettel",g:"m",pl:"=",sk:"ťahák",en:"cheat sheet"}
+  ],
+  "Economy & Work": [
+    {de:"Dienstzettel",g:"m",pl:"=",sk:"pracovný výkaz",en:"employment summary",reg:"AT/ÖrD"},
+    {de:"Entgelt",g:"n",pl:"-e",sk:"odmena (finančná)",en:"payment, remuneration"},
+    {de:"Bezug",g:"m",pl:"-¨e",sk:"príjem (finančný)",en:"income, earnings"},
+    {de:"Betrag",g:"m",pl:"-¨e",sk:"suma (peňažná)",en:"amount (of money)"},
+    {de:"Bewilligung",g:"f",pl:"-en",sk:"povolenie",en:"approval"},
+    {de:"Anspruch",g:"m",pl:"-¨e",sk:"nárok",en:"claim, entitlement"},
+    {de:"Haushalt",g:"m",pl:"-e",sk:"domácnosť, rozpočet",en:"household, budget"},
+    {de:"Pflegeurlaub",g:"m",pl:"—",sk:"OČR (ošetrovné)",en:"family care leave",reg:"AT/ÖrD"},
+    {de:"Kranken(stands)bestätigung",g:"f",pl:"-en",sk:"PN (potvrdenie)",en:"sick-leave note",reg:"AT/ÖrD"},
+    {de:"Mutterschutz",g:"m",pl:"—",sk:"materská dovolenka",en:"maternity leave",reg:"AT/ÖrD"},
+    {de:"Elternkarenz",g:"f",pl:"—",sk:"rodičovské voľno",en:"parental leave",reg:"AT/ÖrD"}
   ],
   "Actions & Events": [
     {de:"Abenteuer",g:"n",pl:"=",sk:"dobrodružstvo, aféra",en:"adventure, affair"}
@@ -1798,7 +1819,8 @@ nouns: {
     {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"},
     {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
     {de:"Gehalt",g:"n",pl:"-¨er",sk:"plat",en:"salary"},
-    {de:"Zeitraum",g:"m",pl:"-¨e",sk:"časové obdobie",en:"time period"}
+    {de:"Zeitraum",g:"m",pl:"-¨e",sk:"časové obdobie",en:"time period"},
+    {de:"Pflege",g:"f",pl:"—",sk:"starostlivosť, opatera",en:"care"}
   ]
 },
 verbs: {
@@ -1807,7 +1829,11 @@ verbs: {
     {de:"überschätzen",p2:"h. überschätzt",sk:"preceniť",en:"to overestimate"},
     {de:"unterschätzen",p2:"h. unterschätzt",sk:"podceniť",en:"to underestimate"},
     {de:"beeinflussen",p2:"h. beeinflusst",sk:"ovplyvniť",en:"to influence"},
-    {de:"entschließen, sich",p2:"h. entschlossen",sk:"rozhodnúť sa",en:"to decide"}
+    {de:"entschließen, sich",p2:"h. entschlossen",sk:"rozhodnúť sa",en:"to decide"},
+    {de:"betrügen",p2:"h. betrogen",sk:"podvádzať, klamať",en:"to cheat, defraud"},
+    {de:"spicken",p2:"h. gespickt",sk:"odpísať (pri skúške)",en:"to cheat (copy)"},
+    {de:"täuschen",p2:"h. getäuscht",sk:"(o)klamať, miasť",en:"to deceive, mislead"},
+    {de:"täuschen, sich",p2:"h. getäuscht",sk:"mýliť sa",en:"to be mistaken"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1826,7 +1852,8 @@ verbs: {
     {de:"weiter·gehen",p2:"s. weitergegangen",sk:"pokračovať v ceste",en:"to continue walking",sep:true},
     {de:"weiter·machen",p2:"h. weitergemacht",sk:"pokračovať",en:"to continue",sep:true},
     {de:"durch·setzen, sich",p2:"h. durchgesetzt",sk:"presadiť sa",en:"to assert oneself",sep:true},
-    {de:"zurecht·kommen",p2:"s. zurechtgekommen",sk:"zvládnuť, poradiť si",en:"to manage, cope",sep:true}
+    {de:"zurecht·kommen",p2:"s. zurechtgekommen",sk:"zvládnuť, poradiť si",en:"to manage, cope",sep:true},
+    {de:"vor·legen",p2:"h. vorgelegt",sk:"predložiť",en:"to submit, provide",sep:true}
   ]
 },
 adjectives: [
@@ -1838,7 +1865,12 @@ adjectives: [
   {de:"geduldig",sk:"trpezlivý",en:"patient"},
   {de:"gehorsam",sk:"poslušný",en:"obedient"},
   {de:"süchtig",sk:"závislý",en:"addicted"},
-  {de:"übernächste",sk:"obďalší",en:"next but one"}
+  {de:"übernächste",sk:"obďalší",en:"next but one"},
+  {de:"befristet",sk:"dočasný",en:"temporary, fixed-term"},
+  {de:"geringfügig",sk:"nepatrný",en:"insignificant, marginal"},
+  {de:"strafbar",sk:"trestný",en:"criminal, punishable"},
+  {de:"üblich",sk:"bežný, zvyčajný",en:"usual, common"},
+  {de:"verfügbar",sk:"dostupný",en:"available"}
 ],
 adverbs: []
 } /* end B1 */
@@ -1846,4 +1878,4 @@ adverbs: []
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-05-23";
+window.VOCAB_VERSION = "2026-05-27";

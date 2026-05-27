@@ -77,6 +77,11 @@
      between entries that have a note vs ones that don't. */
   .src-note-outer{font-size:10px;color:#64748b;font-style:italic;text-align:center;line-height:1.3;letter-spacing:.3px;padding:0 14px;min-height:28px;display:flex;align-items:center;justify-content:center}
   .review-row .src-marker{font-size:9px;color:#fbbf24;margin-left:6px;font-weight:600;letter-spacing:.5px;vertical-align:super}
+  /* Regional/usage label (e.g. AT/ÖrD) shown as a superscript next to the
+     German headword. em-scaled so it tracks the big card word; fixed small
+     size in the denser review list. */
+  .reg-mark{font-size:.4em;color:#fbbf24;font-weight:700;letter-spacing:.3px;vertical-align:super;margin-left:8px;white-space:nowrap}
+  .review-row .reg-mark{font-size:9px;margin-left:6px}
   /* Review mode (full list) */
   #review{padding:6px 14px 24px}
   .review-header{display:flex;align-items:center;gap:10px;padding:6px 0 10px;margin-bottom:6px;position:sticky;top:0;background:#0f172a;z-index:1;border-bottom:1px solid #1e293b}
