@@ -87,7 +87,9 @@
     'weiter·gehen':'Movement & Physical','weiter·machen':'Work & Daily Actions',
     'durch·setzen, sich':'Communication & Social',
     // ---- B1 batch 3 separable verbs ----
-    'zurecht·kommen':'Work & Daily Actions','vor·legen':'Work & Daily Actions'
+    'zurecht·kommen':'Work & Daily Actions','vor·legen':'Work & Daily Actions',
+    // ---- B1 batch 4 separable verbs ----
+    'durch·fallen':'Work & Daily Actions'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -124,6 +126,7 @@
     'verwirrt':'Emotions & Mood','peinlich':'Emotions & Mood',
     'enttäuscht':'Emotions & Mood','entsetzt':'Emotions & Mood',
     'wahnsinnig':'Emotions & Mood','genervt':'Emotions & Mood',
+    'betroffen':'Emotions & Mood',
     'wütend':'Emotions & Mood','stolz':'Emotions & Mood',
     'erschöpft':'Emotions & Mood','verrückt':'Emotions & Mood',
     // Appearance & Physical
@@ -146,6 +149,7 @@
     'waagerecht':'Appearance & Physical','senkrecht':'Appearance & Physical',
     'geschnitten':'Appearance & Physical',
     'salzig':'Appearance & Physical','süß':'Appearance & Physical',
+    'dicht':'Appearance & Physical','knusprig':'Appearance & Physical',
     'sauer':'Appearance & Physical','bitter':'Appearance & Physical',
     'scharf':'Appearance & Physical',
     'schnell':'Appearance & Physical','langsam':'Appearance & Physical',
@@ -191,7 +195,8 @@
     'ausverkauft':'State & Condition','getrennt':'State & Condition',
     'beschäftigt':'State & Condition','gewohnt sein':'State & Condition',
     'süchtig':'State & Condition','befristet':'State & Condition',
-    'verfügbar':'State & Condition',
+    'verfügbar':'State & Condition','abhängig':'State & Condition',
+    'besiedelt':'State & Condition',
     // Time & Sequence
     'vorig':'Time & Sequence','folgend':'Time & Sequence',
     'letzte':'Time & Sequence','nächste':'Time & Sequence',
@@ -226,6 +231,7 @@
     'durchschnittlich':'Degree & Quantity','völlig':'Degree & Quantity',
     'häufig':'Degree & Quantity','zufällig':'Degree & Quantity',
     'geringfügig':'Degree & Quantity',
+    'zahlreich':'Degree & Quantity','knapp':'Degree & Quantity',
     'ein bisschen':'Degree & Quantity','fast':'Degree & Quantity',
     'genau':'Degree & Quantity','unbedingt':'Degree & Quantity',
     'bestimmt':'Degree & Quantity','höchstwahrscheinlich':'Degree & Quantity',
@@ -248,7 +254,7 @@
     'väterlicherseits':'Connective & Logical','deswegen':'Connective & Logical',
     'dagegen':'Connective & Logical','übrigens':'Connective & Logical',
     'einander':'Connective & Logical','sonst':'Connective & Logical',
-    'davon':'Connective & Logical'
+    'davon':'Connective & Logical','allerdings':'Connective & Logical'
   };
 
   function sepVerbCategory(v){

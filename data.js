@@ -1777,7 +1777,16 @@ nouns: {
     {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"},
     {de:"Begriff",g:"m",pl:"-e",sk:"pojem, výraz",en:"concept, term"},
     {de:"Zusammenfassung",g:"f",pl:"-en",sk:"zhrnutie, prehľad",en:"summary, abstract"},
-    {de:"Ebene",g:"f",pl:"-n",sk:"rovina, úroveň",en:"plane, layer, level"}
+    {de:"Ebene",g:"f",pl:"-n",sk:"rovina, úroveň",en:"plane, layer, level"},
+    {de:"Leidenschaft",g:"f",pl:"-en",sk:"vášeň, záľuba",en:"passion, enthusiasm"},
+    {de:"Fragebogen",g:"m",pl:"-¨",sk:"dotazník",en:"questionnaire"},
+    {de:"Stufe",g:"f",pl:"-n",sk:"schod, úroveň",en:"step, level"},
+    {de:"Vergleich",g:"m",pl:"-e",sk:"porovnanie",en:"comparison"},
+    {de:"Lücke",g:"f",pl:"-n",sk:"medzera, štrbina",en:"gap, void"},
+    {de:"Einfluss",g:"m",pl:"-¨e",sk:"vplyv",en:"influence"},
+    {de:"Besprechung",g:"f",pl:"-en",sk:"rozhovor, rokovanie",en:"discussion, meeting"},
+    {de:"Ablauf",g:"m",pl:"-¨e",sk:"priebeh, vypršanie",en:"course, expiration"},
+    {de:"Staatsangehörigkeit",g:"f",pl:"-en",sk:"štátna príslušnosť",en:"citizenship"}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
@@ -1786,7 +1795,8 @@ nouns: {
     {de:"Erzieher",g:"m",pl:"=",sk:"vychovávateľ",en:"educator"},
     {de:"Beschäftigte",g:"m",pl:"-n",sk:"zamestnanec",en:"employee"},
     {de:"Mitglied",g:"n",pl:"-er",sk:"člen",en:"member"},
-    {de:"Angehörige",g:"m",pl:"-n",sk:"príbuzný",en:"relative"}
+    {de:"Angehörige",g:"m",pl:"-n",sk:"príbuzný",en:"relative"},
+    {de:"Beauftragte",g:"m",pl:"-n",sk:"splnomocnenec",en:"representative, delegate"}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1795,7 +1805,10 @@ nouns: {
     {de:"Schläger",g:"m",pl:"=",sk:"pálka, raketa",en:"bat, racket"},
     {de:"Gewürz",g:"n",pl:"-e",sk:"korenie",en:"spice"},
     {de:"Speicher",g:"m",pl:"=",sk:"úložisko, pamäť",en:"storage, memory"},
-    {de:"Spickzettel",g:"m",pl:"=",sk:"ťahák",en:"cheat sheet"}
+    {de:"Spickzettel",g:"m",pl:"=",sk:"ťahák",en:"cheat sheet"},
+    {de:"Türknauf",g:"m",pl:"-¨e",sk:"kľučka",en:"door knob"},
+    {de:"Sack",g:"m",pl:"-¨e",sk:"vrece",en:"bag, sack"},
+    {de:"Ofen",g:"m",pl:"-¨",sk:"pec, kachle, rúra",en:"heater, oven"}
   ],
   "Economy & Work": [
     {de:"Dienstzettel",g:"m",pl:"=",sk:"pracovný výkaz",en:"employment summary",reg:"AT/ÖrD"},
@@ -1808,7 +1821,17 @@ nouns: {
     {de:"Pflegeurlaub",g:"m",pl:"—",sk:"OČR (ošetrovné)",en:"family care leave",reg:"AT/ÖrD"},
     {de:"Kranken(stands)bestätigung",g:"f",pl:"-en",sk:"PN (potvrdenie)",en:"sick-leave note",reg:"AT/ÖrD"},
     {de:"Mutterschutz",g:"m",pl:"—",sk:"materská dovolenka",en:"maternity leave",reg:"AT/ÖrD"},
-    {de:"Elternkarenz",g:"f",pl:"—",sk:"rodičovské voľno",en:"parental leave",reg:"AT/ÖrD"}
+    {de:"Elternkarenz",g:"f",pl:"—",sk:"rodičovské voľno",en:"parental leave",reg:"AT/ÖrD"},
+    {de:"Dienst",g:"m",pl:"-e",sk:"služba, pomoc",en:"service, assistance"},
+    {de:"Eigentum",g:"n",pl:"—",sk:"vlastníctvo",en:"ownership, property"}
+  ],
+  "House & Home": [
+    {de:"Vorort",g:"m",pl:"-e",sk:"predmestie",en:"suburb"},
+    {de:"Innenhof",g:"m",pl:"-¨e",sk:"nádvorie",en:"courtyard"},
+    {de:"Grundstück",g:"n",pl:"-e",sk:"pozemok",en:"parcel, lot"},
+    {de:"Einfamilienhaus",g:"n",pl:"-¨er",sk:"rodinný dom",en:"detached house"},
+    {de:"Reihenhaus",g:"n",pl:"-¨er",sk:"radový dom",en:"terraced house"},
+    {de:"Wohnblock",g:"m",pl:"-¨e",sk:"bytovka",en:"block of flats"}
   ],
   "Actions & Events": [
     {de:"Abenteuer",g:"n",pl:"=",sk:"dobrodružstvo, aféra",en:"adventure, affair"}
@@ -1820,7 +1843,10 @@ nouns: {
     {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
     {de:"Gehalt",g:"n",pl:"-¨er",sk:"plat",en:"salary"},
     {de:"Zeitraum",g:"m",pl:"-¨e",sk:"časové obdobie",en:"time period"},
-    {de:"Pflege",g:"f",pl:"—",sk:"starostlivosť, opatera",en:"care"}
+    {de:"Pflege",g:"f",pl:"—",sk:"starostlivosť, opatera",en:"care"},
+    {de:"Dampf",g:"m",pl:"-¨e",sk:"para",en:"steam, vapor"},
+    {de:"Fläche",g:"f",pl:"-n",sk:"plocha",en:"area, surface"},
+    {de:"Zusatzstoff",g:"m",pl:"-e",sk:"prímes, prísada",en:"additive"}
   ]
 },
 verbs: {
@@ -1833,7 +1859,8 @@ verbs: {
     {de:"betrügen",p2:"h. betrogen",sk:"podvádzať, klamať",en:"to cheat, defraud"},
     {de:"spicken",p2:"h. gespickt",sk:"odpísať (pri skúške)",en:"to cheat (copy)"},
     {de:"täuschen",p2:"h. getäuscht",sk:"(o)klamať, miasť",en:"to deceive, mislead"},
-    {de:"täuschen, sich",p2:"h. getäuscht",sk:"mýliť sa",en:"to be mistaken"}
+    {de:"täuschen, sich",p2:"h. getäuscht",sk:"mýliť sa",en:"to be mistaken"},
+    {de:"vermitteln",p2:"h. vermittelt",sk:"sprostredkovať",en:"to convey, mediate"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1853,7 +1880,8 @@ verbs: {
     {de:"weiter·machen",p2:"h. weitergemacht",sk:"pokračovať",en:"to continue",sep:true},
     {de:"durch·setzen, sich",p2:"h. durchgesetzt",sk:"presadiť sa",en:"to assert oneself",sep:true},
     {de:"zurecht·kommen",p2:"s. zurechtgekommen",sk:"zvládnuť, poradiť si",en:"to manage, cope",sep:true},
-    {de:"vor·legen",p2:"h. vorgelegt",sk:"predložiť",en:"to submit, provide",sep:true}
+    {de:"vor·legen",p2:"h. vorgelegt",sk:"predložiť",en:"to submit, provide",sep:true},
+    {de:"durch·fallen",p2:"s. durchgefallen",sk:"prepadnúť (na skúške)",en:"to fail (exam), fall through",sep:true}
   ]
 },
 adjectives: [
@@ -1870,12 +1898,21 @@ adjectives: [
   {de:"geringfügig",sk:"nepatrný",en:"insignificant, marginal"},
   {de:"strafbar",sk:"trestný",en:"criminal, punishable"},
   {de:"üblich",sk:"bežný, zvyčajný",en:"usual, common"},
-  {de:"verfügbar",sk:"dostupný",en:"available"}
+  {de:"verfügbar",sk:"dostupný",en:"available"},
+  {de:"abhängig",sk:"závislý",en:"dependent, addicted"},
+  {de:"besiedelt",sk:"osídlený",en:"populated, settled"},
+  {de:"betroffen",sk:"dotknutý",en:"affected, impacted"},
+  {de:"dicht",sk:"hustý, blízky",en:"dense, close"},
+  {de:"knusprig",sk:"chrumkavý",en:"crispy"},
+  {de:"zahlreich",sk:"početný, hojný",en:"numerous, many"}
 ],
-adverbs: []
+adverbs: [
+  {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},
+  {de:"allerdings",sk:"však, pravdaže",en:"however, indeed"}
+]
 } /* end B1 */
 
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-05-27";
+window.VOCAB_VERSION = "2026-06-14";
