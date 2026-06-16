@@ -89,7 +89,9 @@
     // ---- B1 batch 3 separable verbs ----
     'zurecht·kommen':'Work & Daily Actions','vor·legen':'Work & Daily Actions',
     // ---- B1 batch 4 separable verbs ----
-    'durch·fallen':'Work & Daily Actions'
+    'durch·fallen':'Work & Daily Actions',
+    // ---- B1 batch 5 separable verbs ----
+    'auf·regen, sich':'Mind & Perception','ab·hängen':'Mind & Perception'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -271,7 +273,7 @@
   ];
 
   function buildAllLevel(){
-    var all = { nouns:{}, verbs:{}, adjectives:[], adverbs:[], descriptors:{} };
+    var all = { nouns:{}, verbs:{}, adjectives:[], adverbs:[], descriptors:{}, verbsWithPrep:{} };
     var levels = ['A1','A2','B1'];
     for (var li=0; li<levels.length; li++){
       var lvl = window.VOCAB_LEVELS[levels[li]];
@@ -324,16 +326,44 @@
       if (all.descriptors.hasOwnProperty(dkey) && all.descriptors[dkey].length === 0)
         delete all.descriptors[dkey];
     }
+    // Build "Verbs with prepositions" buckets — every verb that carries a
+    // `prep` field, grouped by case (Dativ / Akkusativ / Mixed). Sourced
+    // from all levels so this view is meaningful only at the All level.
+    var vpGroups = { 'Dativ':[], 'Akkusativ':[], 'Dat & Akk':[] };
+    for (var vli=0; vli<levels.length; vli++){
+      var vlvl = window.VOCAB_LEVELS[levels[vli]];
+      if (!vlvl || !vlvl.verbs) continue;
+      for (var vcat in vlvl.verbs){
+        if (!vlvl.verbs.hasOwnProperty(vcat)) continue;
+        var varr = vlvl.verbs[vcat];
+        for (var vi=0; vi<varr.length; vi++){
+          var pv = varr[vi];
+          if (!pv.prep) continue;
+          var hasDat = pv.prep.indexOf('Dat') !== -1;
+          var hasAkk = pv.prep.indexOf('Akk') !== -1;
+          var vkey = (hasDat && hasAkk) ? 'Dat & Akk' :
+                     (hasDat ? 'Dativ' :
+                     (hasAkk ? 'Akkusativ' : null));
+          if (vkey) vpGroups[vkey].push(pv);
+        }
+      }
+    }
+    for (var vpk in vpGroups){
+      if (vpGroups.hasOwnProperty(vpk) && vpGroups[vpk].length === 0)
+        delete vpGroups[vpk];
+    }
+    all.verbsWithPrep = vpGroups;
     return all;
   }
 
   function loadCategoryOptions(){
     var t = $('type').value;
-    $('catWrap').style.display = (t==='noun' || t==='verb' || t==='desc') ? '' : 'none';
+    $('catWrap').style.display = (t==='noun' || t==='verb' || t==='desc' || t==='vp') ? '' : 'none';
     var sel = $('cat'); sel.innerHTML = '';
     var src = (t==='noun') ? window.VOCAB.nouns
             : (t==='verb') ? window.VOCAB.verbs
             : (t==='desc') ? (window.VOCAB.descriptors || null)
+            : (t==='vp')   ? (window.VOCAB.verbsWithPrep || null)
             : null;
     if(!src) return;
     for(var k in src){
@@ -368,6 +398,9 @@
     } else if(t==='desc'){
       arr = (window.VOCAB.descriptors && window.VOCAB.descriptors[$('cat').value]) || [];
       for(i=0;i<arr.length;i++) words.push(copy(arr[i],'adj'));
+    } else if(t==='vp'){
+      arr = (window.VOCAB.verbsWithPrep && window.VOCAB.verbsWithPrep[$('cat').value]) || [];
+      for(i=0;i<arr.length;i++) words.push(copy(arr[i],'verb'));
     }
     state.pool = shuffle(words); state.used = [];
   }
@@ -436,22 +469,30 @@
   function render(){
     var labelA=$('labelA'), wordA=$('wordA'), subA=$('subA'), noteA=$('noteA');
     var cardB=$('cardB'), wordB=$('wordB'), subB=$('subB'), metaB=$('metaB');
+    var prepA=$('prepA'), prepB=$('prepB');
     if(!state.current){
       labelA.textContent='—'; wordA.textContent='No words'; subA.textContent='';
       wordB.textContent='—'; subB.textContent=''; metaB.textContent='';
       if(noteA) noteA.textContent='';
+      if(prepA) prepA.textContent='';
+      if(prepB) prepB.textContent='';
       return;
     }
     var w = state.current;
     if(noteA) noteA.textContent = srcNoteText(w);
+    // prep-line (e.g. "von + Dat") lives on the German side. Show in
+    // whichever card is currently rendering German, clear the other.
+    var prepText = (w._kind === 'verb' && w.prep) ? w.prep : '';
     if(state.direction === 'de'){
       labelA.textContent = 'GERMAN';
       wordA.innerHTML = deHTML(w);
+      if(prepA) prepA.textContent = prepText;
       if(w._kind === 'verb' && w.p2){ subA.className = 'sub big'; subA.textContent = w.p2; }
       else { subA.className = 'sub'; subA.textContent = ''; }
     } else {
       labelA.textContent = '';
       wordA.innerHTML = skEnBlock(w);
+      if(prepA) prepA.textContent = '';
       subA.className = 'sub'; subA.textContent = '';
     }
     var lblB = cardB.querySelector('.label');
@@ -461,10 +502,12 @@
     // final height from the start and doesn't grow when revealed.
     if(state.direction === 'de'){
       wordB.innerHTML = skEnBlock(w);
+      if(prepB) prepB.textContent = '';
       subB.className = 'sub'; subB.textContent = '';
       metaB.textContent = '';
     } else {
       wordB.innerHTML = deHTML(w);
+      if(prepB) prepB.textContent = prepText;
       if(w._kind === 'verb' && w.p2){ subB.className = 'sub big'; subB.textContent = w.p2; }
       else { subB.className = 'sub'; subB.textContent = ''; }
       metaB.textContent = '';
@@ -492,15 +535,21 @@
       var kids = seg.getElementsByTagName('button');
       for(var i=0;i<kids.length;i++) kids[i].classList.remove('on');
       btn.classList.add('on');
-      // Show "Adj & Adv (by category)" option only for All level
+      // Show "Adj & Adv (by category)" and "Verbs with prepositions"
+      // options only for All level — they merge across A1/A2/B1.
       var typeEl = $('type');
-      var dopt = null;
+      var dopt = null, vpopt = null;
       for(var oi=0;oi<typeEl.options.length;oi++){
-        if(typeEl.options[oi].value==='desc'){dopt=typeEl.options[oi];break;}
+        if(typeEl.options[oi].value==='desc'){dopt=typeEl.options[oi];}
+        if(typeEl.options[oi].value==='vp'){vpopt=typeEl.options[oi];}
       }
       if(dopt){
         dopt.style.display = (lvl==='All') ? '' : 'none';
         if(lvl!=='All' && typeEl.value==='desc'){ typeEl.value='adj'; }
+      }
+      if(vpopt){
+        vpopt.style.display = (lvl==='All') ? '' : 'none';
+        if(lvl!=='All' && typeEl.value==='vp'){ typeEl.value='verb'; }
       }
       loadCategoryOptions();
       var nc=0, vc=0, k;
@@ -573,7 +622,7 @@
   // original (non-shuffled) order, so it works as a reading reference.
   function getReviewGroups(){
     var t = $('type').value;
-    var kind = (t.indexOf('verb')>=0) ? 'verb'
+    var kind = (t.indexOf('verb')>=0 || t === 'vp') ? 'verb'
               : (t.indexOf('noun')>=0) ? 'noun'
               : (t === 'adj' || t === 'desc') ? 'adj' : 'adv';
     var groups = [];
@@ -597,6 +646,10 @@
       var descs = window.VOCAB.descriptors;
       if(descs) for(var kd in descs) if(descs.hasOwnProperty(kd))
         groups.push({name:kd, words:descs[kd]});
+    } else if(t === 'vp'){
+      var vps = window.VOCAB.verbsWithPrep;
+      if(vps) for(var kvp in vps) if(vps.hasOwnProperty(kvp))
+        groups.push({name:kvp, words:vps[kvp]});
     }
     return {kind:kind, groups:groups};
   }
@@ -615,6 +668,7 @@
           deCol = deHTML(w);              // deHTML already appends regMark
         } else if(data.kind === 'verb'){
           deCol = escapeText(w.de) + regMark(w);
+          if(w.prep) deCol += '<div class="prep-line">' + escapeText(w.prep) + '</div>';
           if(w.p2) deCol += '<span class="p2">' + escapeText(w.p2) + '</span>';
         } else {
           deCol = escapeText(w.de) + regMark(w);

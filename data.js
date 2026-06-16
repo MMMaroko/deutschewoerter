@@ -311,7 +311,7 @@ verbs: {
     {de:"befürworten",p2:"h. befürwortet",sk:"zasadiť sa (za)",en:"to advocate"},
     {de:"begleiten",p2:"h. begleitet",sk:"sprevádzať",en:"to accompany"},
     {de:"beraten",p2:"h. beraten",sk:"(po)radiť",en:"to advise"},
-    {de:"beschweren, sich",p2:"h. beschwert",sk:"sťažovať sa",en:"to complain"},
+    {de:"beschweren, sich",p2:"h. beschwert",sk:"sťažovať sa",en:"to complain",prep:"bei + Dat    über + Akk"},
     {de:"bestellen",p2:"h. bestellt",sk:"objednať",en:"to order"},
     {de:"bezeichnen",p2:"h. bezeichnet",sk:"vyznačiť, označiť",en:"to designate, label"},
     {de:"(an·)bieten",p2:"h. geboten",sk:"ponúknuť",en:"to offer"},
@@ -325,7 +325,7 @@ verbs: {
     {de:"streiten",p2:"h. gestritten",sk:"hádať sa",en:"to argue, fight"},
     {de:"übertreiben",p2:"h. übertrieben",sk:"preháňať",en:"to exaggerate"},
     {de:"überzeugen",p2:"h. überzeugt",sk:"presvedčiť",en:"to persuade"},
-    {de:"unterhalten, sich",p2:"h. unterhalten",sk:"baviť, rozprávať sa",en:"to entertain, chat"},
+    {de:"unterhalten, sich",p2:"h. unterhalten",sk:"baviť, rozprávať sa",en:"to entertain, chat",prep:"mit + Dat    über + Akk"},
     {de:"unterstützen",p2:"h. unterstützt",sk:"podporovať",en:"to support"},
     {de:"verabreden (sich)",p2:"h. verabredet",sk:"dohodnúť (sa)",en:"to arrange, agree"},
     {de:"verabschieden, sich",p2:"h. verabschiedet",sk:"rozlúčiť sa",en:"to say goodbye"},
@@ -337,10 +337,14 @@ verbs: {
     {de:"pfeifen",p2:"h. gepfiffen",sk:"pískať",en:"to whistle"},
     {de:"bestätigen",p2:"h. bestätigt",sk:"potvrdiť",en:"to confirm"},
     {de:"beten",p2:"h. gebetet",sk:"modliť sa",en:"to pray"},
-    {de:"ärgern, sich",p2:"h. geärgert",sk:"hnevať (sa)",en:"to be annoyed, get angry"},
+    {de:"ärgern, sich",p2:"h. geärgert",sk:"hnevať (sa)",en:"to be annoyed, get angry",prep:"über + Akk"},
     {de:"schweigen",p2:"h. geschwiegen",sk:"mlčať",en:"to be silent",src:"kb"},
     {de:"verlangen",p2:"h. verlangt",sk:"požadovať, vyžadovať",en:"to demand, require",src:"kb"},
-    {de:"zitieren",p2:"h. zitiert",sk:"citovať",en:"to quote",src:"kb"}
+    {de:"zitieren",p2:"h. zitiert",sk:"citovať",en:"to quote",src:"kb"},
+    {de:"bedanken, sich",p2:"h. bedankt",sk:"poďakovať sa",en:"to thank",prep:"bei + Dat    für + Akk"},
+    {de:"entschuldigen, sich",p2:"h. entschuldigt",sk:"ospravedlniť sa",en:"to apologise",prep:"bei + Dat"},
+    {de:"gratulieren",p2:"h. gratuliert",sk:"blahoželať",en:"to congratulate",prep:"zu + Dat"},
+    {de:"bitten",p2:"h. gebeten",sk:"prosiť",en:"to ask, request",prep:"um + Akk"}
   ],
   "Mind & Perception": [
     {de:"beherrschen",p2:"h. beherrscht",sk:"vládnuť, ovládať",en:"to rule, proficient in"},
@@ -365,7 +369,9 @@ verbs: {
     {de:"messen",p2:"h. gemessen",sk:"(od)merať",en:"to measure"},
     {de:"beschließen",p2:"h. beschlossen",sk:"rozhodnúť, uzavrieť",en:"to decide, conclude",src:"kb"},
     {de:"duften",p2:"h. geduftet",sk:"voňať",en:"to smell (pleasantly)",src:"kb"},
-    {de:"zögern",p2:"h. gezögert",sk:"váhať",en:"to hesitate",src:"kb"}
+    {de:"zögern",p2:"h. gezögert",sk:"váhať",en:"to hesitate",src:"kb"},
+    {de:"träumen",p2:"h. geträumt",sk:"snívať",en:"to dream",prep:"von + Dat"},
+    {de:"interessieren, sich",p2:"h. interessiert",sk:"zaujímať sa",en:"to be interested",prep:"für + Akk"}
   ],
   "Movement & Physical": [
     {de:"beeilen, sich",p2:"h. beeilt",sk:"poponáhľať sa",en:"to hurry"},
@@ -404,7 +410,7 @@ verbs: {
     {de:"behalten",p2:"h. behalten",sk:"(po)nechať si",en:"to retain, keep"},
     {de:"benötigen",p2:"h. benötigt",sk:"potrebovať",en:"to need"},
     {de:"besitzen",p2:"h. besessen",sk:"vlastniť",en:"to own"},
-    {de:"bewerben, sich",p2:"h. beworben",sk:"uchádzať sa",en:"to apply for"},
+    {de:"bewerben, sich",p2:"h. beworben",sk:"uchádzať sa",en:"to apply for",prep:"um + Akk"},
     {de:"blättern",p2:"h. geblättert",sk:"listovať",en:"to flick through"},
     {de:"bleiben",p2:"s. geblieben",sk:"zostať",en:"to stay, remain"},
     {de:"brennen",p2:"h. gebrannt",sk:"horieť",en:"to burn"},
@@ -486,7 +492,7 @@ verbs: {
     {de:"fehl·leiten",p2:"h. fehlgeleitet",sk:"zaviesť",en:"to mislead",sep:true},
     {de:"ab·nehmen",p2:"h. abgenommen",sk:"schudnúť, znižovať",en:"to lose weight, decrease",sep:true},
     {de:"zu·nehmen",p2:"h. zugenommen",sk:"získavať, stúpať",en:"to gain, increase",sep:true},
-    {de:"teil·nehmen",p2:"h. teilgenommen",sk:"zúčastniť sa",en:"to attend",sep:true},
+    {de:"teil·nehmen",p2:"h. teilgenommen",sk:"zúčastniť sa",en:"to attend",sep:true,prep:"an + Dat"},
     {de:"auf·passen",p2:"h. aufgepasst",sk:"dávať pozor",en:"to pay attention",sep:true},
     {de:"ein·richten (sich)",p2:"h. eingerichtet",sk:"zariadiť (sa)",en:"to furnish, set up",sep:true},
     {de:"ein·setzen",p2:"h. eingesetzt",sk:"nasadiť, dosadiť",en:"to deploy, apply",sep:true},
@@ -1346,17 +1352,17 @@ verbs: {
     {de:"wissen",p2:"h. gewusst",sk:"vedieť",en:"to know"}
   ],
   "Communication & Social": [
-    {de:"sprechen",p2:"h. gesprochen",sk:"hovoriť",en:"to speak"},
+    {de:"sprechen",p2:"h. gesprochen",sk:"hovoriť",en:"to speak",prep:"mit + Dat    über + Akk"},
     {de:"sagen",p2:"h. gesagt",sk:"povedať",en:"to say, tell"},
     {de:"reden",p2:"h. geredet",sk:"hovoriť",en:"to talk"},
     {de:"rufen",p2:"h. gerufen",sk:"zvolať",en:"to call, shout"},
     {de:"schreien",p2:"h. geschrien",sk:"kričať",en:"to scream"},
-    {de:"lachen",p2:"h. gelacht",sk:"smiať sa",en:"to laugh"},
+    {de:"lachen",p2:"h. gelacht",sk:"smiať sa",en:"to laugh",prep:"über + Akk"},
     {de:"erzählen",p2:"h. erzählt",sk:"rozprávať",en:"to tell, narrate"},
     {de:"erklären",p2:"h. erklärt",sk:"vysvetliť",en:"to explain"},
     {de:"empfehlen",p2:"h. empfohlen",sk:"odporučiť",en:"to recommend"},
     {de:"beklagen, sich",p2:"h. beklagt",sk:"sťažovať sa",en:"to complain"},
-    {de:"beschweren, sich",p2:"h. beschwert",sk:"sťažovať sa",en:"to complain"},
+    {de:"beschweren, sich",p2:"h. beschwert",sk:"sťažovať sa",en:"to complain",prep:"bei + Dat    über + Akk"},
     {de:"verzeihen",p2:"h. verziehen",sk:"prepáčiť",en:"to forgive"},
     {de:"schenken",p2:"h. geschenkt",sk:"darovať",en:"to gift"},
     {de:"bestellen",p2:"h. bestellt",sk:"objednať",en:"to order"},
@@ -1366,14 +1372,16 @@ verbs: {
     {de:"vereinbaren",p2:"h. vereinbart",sk:"dohodnúť",en:"to arrange"},
     {de:"helfen",p2:"h. geholfen",sk:"pomôcť",en:"to help"},
     {de:"gefallen",p2:"h. gefallen",sk:"páčiť sa",en:"to please, appeal"},
-    {de:"ärgern, sich",p2:"h. geärgert",sk:"hnevať (sa)",en:"to anger, irritate"},
+    {de:"ärgern, sich",p2:"h. geärgert",sk:"hnevať (sa)",en:"to anger, irritate",prep:"über + Akk"},
     {de:"freuen, sich",p2:"h. gefreut",sk:"tešiť (sa)",en:"to rejoice"},
     {de:"feiern",p2:"h. gefeiert",sk:"oslavovať",en:"to celebrate"},
     {de:"treffen",p2:"h. getroffen",sk:"stretnúť",en:"to meet"},
-    {de:"unterhalten, sich",p2:"h. unterhalten",sk:"zabávať, rozprávať sa",en:"to entertain, chat"}
+    {de:"unterhalten, sich",p2:"h. unterhalten",sk:"zabávať, rozprávať sa",en:"to entertain, chat",prep:"mit + Dat    über + Akk"},
+    {de:"fragen",p2:"h. gefragt",sk:"pýtať sa",en:"to ask",prep:"nach + Dat"},
+    {de:"telefonieren",p2:"h. telefoniert",sk:"telefonovať",en:"to phone, call",prep:"mit + Dat"}
   ],
   "Mind & Perception": [
-    {de:"denken",p2:"h. gedacht",sk:"myslieť",en:"to think"},
+    {de:"denken",p2:"h. gedacht",sk:"myslieť",en:"to think",prep:"an + Akk"},
     {de:"finden",p2:"h. gefunden",sk:"nájsť, myslieť si",en:"to find"},
     {de:"sehen",p2:"h. gesehen",sk:"vidieť",en:"to see"},
     {de:"hören",p2:"h. gehört",sk:"počuť, počúvať",en:"to hear, listen"},
@@ -1394,7 +1402,7 @@ verbs: {
     {de:"lesen",p2:"h. gelesen",sk:"čítať",en:"to read"},
     {de:"versuchen",p2:"h. versucht",sk:"skúsiť",en:"to try"},
     {de:"vergessen",p2:"h. vergessen",sk:"zabudnúť",en:"to forget"},
-    {de:"erkundigen, sich",p2:"h. erkundigt",sk:"informovať sa",en:"to enquire"},
+    {de:"erkundigen, sich",p2:"h. erkundigt",sk:"informovať sa",en:"to enquire",prep:"nach + Dat"},
     {de:"untersuchen",p2:"h. untersucht",sk:"preskúmať",en:"to examine"},
     {de:"erleben",p2:"h. erlebt",sk:"zažiť",en:"to experience"},
     {de:"erschrecken",p2:"h. erschrocken",sk:"zľaknúť sa",en:"to startle, frighten"},
@@ -1423,13 +1431,13 @@ verbs: {
     {de:"beeilen, sich",p2:"h. beeilt",sk:"ponáhľať sa",en:"to hurry"},
     {de:"ziehen",p2:"h. gezogen",sk:"ťahať",en:"to draw, pull"},
     {de:"hängen",p2:"h. gehangen",sk:"visieť",en:"to hang"},
-    {de:"verlieben, sich",p2:"h. verliebt",sk:"zamilovať sa",en:"to fall in love"},
+    {de:"verlieben, sich",p2:"h. verliebt",sk:"zamilovať sa",en:"to fall in love",prep:"in + Akk"},
     {de:"streicheln",p2:"h. gestreichelt",sk:"hladiť",en:"to pet, stroke"},
     {de:"wischen",p2:"h. gewischt",sk:"utrieť",en:"to wipe"},
     {de:"überfallen",p2:"h. überfallen",sk:"prepadnúť",en:"to raid"},
     {de:"verändern, sich",p2:"h. verändert",sk:"zmeniť (sa)",en:"to change"},
     {de:"hupen",p2:"h. gehupt",sk:"trúbiť",en:"to honk"},
-    {de:"kämpfen",p2:"h. gekämpft",sk:"bojovať",en:"to fight"},
+    {de:"kämpfen",p2:"h. gekämpft",sk:"bojovať",en:"to fight",prep:"gegen + Akk"},
     {de:"schwitzen",p2:"h. geschwitzt",sk:"potiť sa",en:"to sweat"},
     {de:"hacken",p2:"h. gehackt",sk:"rúbať",en:"to chop"}
   ],
@@ -1452,11 +1460,11 @@ verbs: {
     {de:"dauern",p2:"h. gedauert",sk:"trvať",en:"to last"},
     {de:"bekommen",p2:"h. bekommen",sk:"dostať",en:"to receive"},
     {de:"kriegen",p2:"h. gekriegt",sk:"dostať",en:"to get"},
-    {de:"bewerben, sich",p2:"h. beworben",sk:"uchádzať sa",en:"to apply"},
+    {de:"bewerben, sich",p2:"h. beworben",sk:"uchádzať sa",en:"to apply",prep:"um + Akk"},
     {de:"bestehen",p2:"h. bestanden",sk:"vydržať, uspieť",en:"to persist, pass"},
-    {de:"bestehen aus",p2:"h. bestanden",sk:"pozostávať",en:"to consist of"},
+    {de:"bestehen",p2:"h. bestanden",sk:"pozostávať, spočívať v",en:"to consist of, to consist in",prep:"aus + Dat    in + Dat"},
     {de:"verdienen",p2:"h. verdient",sk:"zarobiť",en:"to earn"},
-    {de:"warten",p2:"h. gewartet",sk:"čakať",en:"to wait"},
+    {de:"warten",p2:"h. gewartet",sk:"čakať",en:"to wait",prep:"auf + Akk"},
     {de:"zeigen",p2:"h. gezeigt",sk:"ukázať",en:"to show, point"},
     {de:"zelten",p2:"h. gezeltet",sk:"stanovať",en:"to camp"},
     {de:"sammeln",p2:"h. gesammelt",sk:"zbierať",en:"to collect"},
@@ -1487,19 +1495,20 @@ verbs: {
     {de:"ebnen",p2:"h. geebnet",sk:"vyrovnať",en:"to level, smooth"},
     {de:"erfreuen",p2:"h. erfreut",sk:"potešiť",en:"to please, delight"},
     {de:"fehlen",p2:"h. gefehlt",sk:"chýbať",en:"to be missing, lack"},
-    {de:"gehören",p2:"h. gehört",sk:"patriť",en:"to belong"},
+    {de:"gehören",p2:"h. gehört",sk:"patriť",en:"to belong",prep:"zu + Dat"},
     {de:"hassen",p2:"h. gehasst",sk:"nenávidieť",en:"to despise"},
     {de:"kümmern, sich",p2:"h. gekümmert",sk:"postarať (sa)",en:"to take care of"},
     {de:"kündigen",p2:"h. gekündigt",sk:"dať výpoveď",en:"to give notice"},
     {de:"lutschen",p2:"h. gelutscht",sk:"cmúľať",en:"to lick"},
     {de:"nerven",p2:"h. genervt",sk:"rozčuľovať",en:"to annoy"},
-    {de:"genehmigen",p2:"h. genehmigt",sk:"schváliť",en:"to approve"}
+    {de:"genehmigen",p2:"h. genehmigt",sk:"schváliť",en:"to approve"},
+    {de:"beginnen",p2:"h. begonnen",sk:"začať",en:"to begin, start",prep:"mit + Dat"}
   ],
   "Separable Verbs": [
     {de:"ab·biegen",p2:"s. abgebogen",sk:"odbočiť",en:"to turn",sep:true},
     {de:"an·bieten",p2:"h. angeboten",sk:"ponúknuť",en:"to offer",sep:true},
     {de:"zurück·bleiben",p2:"s. zurückgeblieben",sk:"zostať",en:"to stay behind",sep:true},
-    {de:"nach·denken",p2:"h. nachgedacht",sk:"uvažovať",en:"to think about",sep:true},
+    {de:"nach·denken",p2:"h. nachgedacht",sk:"uvažovať",en:"to think about",sep:true,prep:"über + Akk"},
     {de:"statt·finden",p2:"h. stattgefunden",sk:"konať sa",en:"to take place",sep:true},
     {de:"ab·fliegen",p2:"s. abgeflogen",sk:"odletieť",en:"to take off",sep:true},
     {de:"ab·geben",p2:"h. abgegeben",sk:"odovzdať",en:"to hand over",sep:true},
@@ -1528,7 +1537,7 @@ verbs: {
     {de:"ein·atmen",p2:"h. eingeatmet",sk:"vdýchnuť",en:"to inhale",sep:true},
     {de:"raus·bringen",p2:"h. rausgebracht",sk:"vyniesť",en:"to take out",sep:true},
     {de:"runter·bringen",p2:"h. runtergebracht",sk:"zniesť dole",en:"to bring down",sep:true},
-    {de:"an·fangen",p2:"h. angefangen",sk:"začať",en:"to start, begin",sep:true},
+    {de:"an·fangen",p2:"h. angefangen",sk:"začať",en:"to start, begin",sep:true,prep:"mit + Dat"},
     {de:"auf·hören",p2:"h. aufgehört",sk:"skončiť",en:"to end, cease",sep:true},
     {de:"weg·fahren",p2:"s. weggefahren",sk:"odcestovať",en:"to drive away",sep:true},
     {de:"ab·fahren",p2:"s. abgefahren",sk:"odísť",en:"to depart",sep:true},
@@ -1860,19 +1869,23 @@ verbs: {
     {de:"spicken",p2:"h. gespickt",sk:"odpísať (pri skúške)",en:"to cheat (copy)"},
     {de:"täuschen",p2:"h. getäuscht",sk:"(o)klamať, miasť",en:"to deceive, mislead"},
     {de:"täuschen, sich",p2:"h. getäuscht",sk:"mýliť sa",en:"to be mistaken"},
-    {de:"vermitteln",p2:"h. vermittelt",sk:"sprostredkovať",en:"to convey, mediate"}
+    {de:"vermitteln",p2:"h. vermittelt",sk:"sprostredkovať",en:"to convey, mediate"},
+    {de:"diskutieren",p2:"h. diskutiert",sk:"diskutovať",en:"to discuss",prep:"mit + Dat    über + Akk"},
+    {de:"leiden",p2:"h. gelitten",sk:"trpieť",en:"to suffer",prep:"unter + Dat"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
-    {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"}
+    {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"},
+    {de:"wehren, sich",p2:"h. gewehrt",sk:"brániť sa",en:"to defend oneself",prep:"gegen + Akk"}
   ],
   "Work & Daily Actions": [
     {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"},
-    {de:"beschäftigen, sich",p2:"h. beschäftigt",sk:"zaoberať sa",en:"to deal with, occupy oneself"},
-    {de:"erledigen",p2:"h. erledigt",sk:"vybaviť, splniť",en:"to complete, settle"}
+    {de:"beschäftigen, sich",p2:"h. beschäftigt",sk:"zaoberať sa",en:"to deal with, occupy oneself",prep:"mit + Dat"},
+    {de:"erledigen",p2:"h. erledigt",sk:"vybaviť, splniť",en:"to complete, settle"},
+    {de:"basieren",p2:"h. basiert",sk:"zakladať sa",en:"to be based on",prep:"auf + Dat"}
   ],
   "Separable Verbs": [
-    {de:"auf·regen",p2:"h. aufgeregt",sk:"rozčúliť",en:"to upset",sep:true},
+    {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
     {de:"auf·streichen",p2:"h. aufgestrichen",sk:"natierať",en:"to spread, apply on",sep:true},
     {de:"los·fahren",p2:"s. losgefahren",sk:"vyštartovať",en:"to depart, drive off",sep:true},
     {de:"los·gehen",p2:"s. losgegangen",sk:"vyraziť (na cestu)",en:"to leave, go off",sep:true},
@@ -1881,7 +1894,8 @@ verbs: {
     {de:"durch·setzen, sich",p2:"h. durchgesetzt",sk:"presadiť sa",en:"to assert oneself",sep:true},
     {de:"zurecht·kommen",p2:"s. zurechtgekommen",sk:"zvládnuť, poradiť si",en:"to manage, cope",sep:true},
     {de:"vor·legen",p2:"h. vorgelegt",sk:"predložiť",en:"to submit, provide",sep:true},
-    {de:"durch·fallen",p2:"s. durchgefallen",sk:"prepadnúť (na skúške)",en:"to fail (exam), fall through",sep:true}
+    {de:"durch·fallen",p2:"s. durchgefallen",sk:"prepadnúť (na skúške)",en:"to fail (exam), fall through",sep:true},
+    {de:"ab·hängen",p2:"h. abgehangen",sk:"závisieť",en:"to depend on",sep:true,prep:"von + Dat"}
   ]
 },
 adjectives: [
@@ -1915,4 +1929,4 @@ adverbs: [
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-06-14";
+window.VOCAB_VERSION = "2026-06-17";

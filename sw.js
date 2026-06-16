@@ -1,5 +1,5 @@
 // Service worker - cache app shell for full offline use
-const CACHE = 'devocab-v10';
+const CACHE = 'devocab-v13';
 const ASSETS = [
   './',
   './index.html',

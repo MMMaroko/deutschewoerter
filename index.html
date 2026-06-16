@@ -60,6 +60,16 @@
   .card .word{font-size:30px;font-weight:600;line-height:1.2;word-break:break-word}
   .card .sub{margin-top:8px;font-size:15px;color:#94a3b8;line-height:1.35}
   .card .sub.big{font-size:22px;color:#cbd5e1;font-weight:500;margin-top:14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  /* Preposition + case (prep+Fall) line — shown only on verbs that
+     govern a specific preposition (e.g. "von + Dat", "bei + Dat   über + Akk").
+     Sits between the German verb and its Partizip II row. Lemon-yellow
+     italic — distinct from the amber AT/ÖrD superscript and the gender
+     colours used on nouns. Empty .prep-line collapses via :empty so verbs
+     without a prep field render identically to before. white-space:
+     pre-wrap preserves the user's chosen spacing between multiple preps. */
+  .card .prep-line{font-size:15px;font-style:italic;color:#fde047;letter-spacing:.3px;margin-top:8px;line-height:1.3;white-space:pre-wrap;word-break:break-word}
+  .card .prep-line:empty{display:none}
+  .review-row .prep-line{display:block;font-size:10px;color:#fde047;font-style:italic;margin-top:2px;font-weight:400;letter-spacing:0;white-space:pre-wrap}
   /* Divider-with-tag pattern: a 1-px line with a centered SK/EN/etc tag.
      Centered cleanly via inline-block + text-align rather than absolute
      positioning, so letter-spacing doesn't shift the tag off-center.        */
@@ -143,6 +153,7 @@
           <option value="adj">Adjectives</option>
           <option value="adv">Adverbs</option>
           <option value="desc" style="display:none">Adj &amp; Adv (by category)</option>
+          <option value="vp" style="display:none">Verbs with prepositions</option>
         </select>
       </div>
       <div class="field" id="catWrap">
@@ -196,11 +207,13 @@
     <div class="card" id="cardA">
       <div class="label" id="labelA">SLOVAK / ENGLISH</div>
       <div class="word" id="wordA">—</div>
+      <div class="prep-line" id="prepA"></div>
       <div class="sub" id="subA"></div>
     </div>
     <div class="card tap" id="cardB">
       <div class="label">TAP TO REVEAL</div>
       <div class="word" id="wordB">•••</div>
+      <div class="prep-line" id="prepB"></div>
       <div class="sub" id="subB"></div>
       <div class="meta" id="metaB"></div>
     </div>
