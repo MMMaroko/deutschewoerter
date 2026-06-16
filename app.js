@@ -428,6 +428,13 @@
     if(w && w.reg) return '<sup class="reg-mark">' + escapeText(w.reg) + '</sup>';
     return '';
   }
+  // "xtra" flag — entry comes from a supplementary source (e.g. TV
+  // subtitles), beyond the core wordlist. Same superscript pattern as
+  // regMark, fuchsia colour. Boolean field `xtra:true` on the entry.
+  function xtraMark(w){
+    if(w && w.xtra) return '<sup class="xtra-mark">xtra</sup>';
+    return '';
+  }
   function deHTML(w){
     if(w._kind === 'noun'){
       var art = GENDER_ARTICLE[w.g] || '';
@@ -446,9 +453,9 @@
         var suf = pluralSuffix(w.pl);
         if(suf) plPart = ' -' + escapeText(suf);
       }
-      return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>' + regMark(w);
+      return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>' + regMark(w) + xtraMark(w);
     }
-    return escapeText(w.de) + regMark(w);
+    return escapeText(w.de) + regMark(w) + xtraMark(w);
   }
   function viewH(){
     return (window.visualViewport && window.visualViewport.height) || window.innerHeight || 600;
@@ -665,13 +672,13 @@
         var w = copy(raw, data.kind);
         var deCol;
         if(data.kind === 'noun'){
-          deCol = deHTML(w);              // deHTML already appends regMark
+          deCol = deHTML(w);              // deHTML already appends regMark + xtraMark
         } else if(data.kind === 'verb'){
-          deCol = escapeText(w.de) + regMark(w);
+          deCol = escapeText(w.de) + regMark(w) + xtraMark(w);
           if(w.prep) deCol += '<div class="prep-line">' + escapeText(w.prep) + '</div>';
           if(w.p2) deCol += '<span class="p2">' + escapeText(w.p2) + '</span>';
         } else {
-          deCol = escapeText(w.de) + regMark(w);
+          deCol = escapeText(w.de) + regMark(w) + xtraMark(w);
         }
         if(w.src === 'kb') deCol += '<span class="src-marker" title="From Kursbuch wordlist, AI-translated">KB</span>';
         html += '<div class="review-row">'
