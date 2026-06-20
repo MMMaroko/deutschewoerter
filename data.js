@@ -1795,7 +1795,22 @@ nouns: {
     {de:"Einfluss",g:"m",pl:"-¨e",sk:"vplyv",en:"influence"},
     {de:"Besprechung",g:"f",pl:"-en",sk:"rozhovor, rokovanie",en:"discussion, meeting"},
     {de:"Ablauf",g:"m",pl:"-¨e",sk:"priebeh, vypršanie",en:"course, expiration"},
-    {de:"Staatsangehörigkeit",g:"f",pl:"-en",sk:"štátna príslušnosť",en:"citizenship"}
+    {de:"Staatsangehörigkeit",g:"f",pl:"-en",sk:"štátna príslušnosť",en:"citizenship"},
+    {de:"Auskunft",g:"f",pl:"-¨e",sk:"informácia",en:"information"},
+    {de:"Durchwahl",g:"f",pl:"-en",sk:"klapka",en:"extension number"},
+    {de:"Umfrage",g:"f",pl:"-n",sk:"prieskum, anketa",en:"poll, survey"},
+    {de:"Strafregisterauszug",g:"m",pl:"-¨e",sk:"výpis z registra trestov",en:"criminal records extract"},
+    {de:"Beweis",g:"m",pl:"-e",sk:"dôkaz",en:"proof, evidence"},
+    {de:"Anrede",g:"f",pl:"-n",sk:"oslovenie",en:"form of address"},
+    {de:"Betreff",g:"m",pl:"-e",sk:"vec, predmet (list)",en:"subject, matter"},
+    {de:"Aussage",g:"f",pl:"-n",sk:"výpoveď, vyhlásenie",en:"statement, testimony"},
+    {de:"Urteil",g:"n",pl:"-e",sk:"rozsudok",en:"verdict, judgment"},
+    {de:"Drohung",g:"f",pl:"-en",sk:"hrozba",en:"threat"},
+    {de:"Verhör",g:"n",pl:"-e",sk:"výsluch",en:"interrogation"},
+    {de:"Geständnis",g:"n",pl:"-se",sk:"priznanie",en:"confession"},
+    {de:"Strafe",g:"f",pl:"-n",sk:"trest",en:"punishment, penalty"},
+    {de:"Geldbuße",g:"f",pl:"-n",sk:"peňažný trest, pokuta",en:"monetary fine"},
+    {de:"Gewalt",g:"f",pl:"-en",sk:"násilie, moc, sila",en:"violence, power, force"}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
@@ -1805,7 +1820,10 @@ nouns: {
     {de:"Beschäftigte",g:"m",pl:"-n",sk:"zamestnanec",en:"employee"},
     {de:"Mitglied",g:"n",pl:"-er",sk:"člen",en:"member"},
     {de:"Angehörige",g:"m",pl:"-n",sk:"príbuzný",en:"relative"},
-    {de:"Beauftragte",g:"m",pl:"-n",sk:"splnomocnenec",en:"representative, delegate"}
+    {de:"Beauftragte",g:"m",pl:"-n",sk:"splnomocnenec",en:"representative, delegate"},
+    {de:"Verlag",g:"m",pl:"-e",sk:"vydavateľstvo",en:"publisher"},
+    {de:"Behörde",g:"f",pl:"-n",sk:"úrad",en:"authority, agency"},
+    {de:"Opfer",g:"n",pl:"=",sk:"obeť",en:"victim"}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1817,7 +1835,8 @@ nouns: {
     {de:"Spickzettel",g:"m",pl:"=",sk:"ťahák",en:"cheat sheet"},
     {de:"Türknauf",g:"m",pl:"-¨e",sk:"kľučka",en:"door knob"},
     {de:"Sack",g:"m",pl:"-¨e",sk:"vrece",en:"bag, sack"},
-    {de:"Ofen",g:"m",pl:"-¨",sk:"pec, kachle, rúra",en:"heater, oven"}
+    {de:"Ofen",g:"m",pl:"-¨",sk:"pec, kachle, rúra",en:"heater, oven"},
+    {de:"Eimer",g:"m",pl:"=",sk:"vedro",en:"bucket"}
   ],
   "Economy & Work": [
     {de:"Dienstzettel",g:"m",pl:"=",sk:"pracovný výkaz",en:"employment summary",reg:"AT/ÖrD"},
@@ -1843,7 +1862,15 @@ nouns: {
     {de:"Wohnblock",g:"m",pl:"-¨e",sk:"bytovka",en:"block of flats"}
   ],
   "Actions & Events": [
-    {de:"Abenteuer",g:"n",pl:"=",sk:"dobrodružstvo, aféra",en:"adventure, affair"}
+    {de:"Abenteuer",g:"n",pl:"=",sk:"dobrodružstvo, aféra",en:"adventure, affair"},
+    {de:"Diebstahl",g:"m",pl:"-¨e",sk:"krádež",en:"theft, robbery"},
+    {de:"Ermittlung",g:"f",pl:"-en",sk:"vyšetrovanie",en:"investigation"},
+    {de:"Verbrechen",g:"n",pl:"=",sk:"zločin",en:"crime"},
+    {de:"Raub",g:"m",pl:"-e",sk:"lúpež",en:"robbery"},
+    {de:"Betrug",g:"m",pl:"-¨e",sk:"podvod",en:"fraud, deception"},
+    {de:"Erpressung",g:"f",pl:"-en",sk:"vydieranie",en:"blackmail, extortion"},
+    {de:"Entführung",g:"f",pl:"-en",sk:"únos",en:"kidnapping, abduction"},
+    {de:"Flucht",g:"f",pl:"-en",sk:"útek",en:"escape, flight"}
   ],
   "Miscellaneous": [
     {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
@@ -1855,7 +1882,11 @@ nouns: {
     {de:"Pflege",g:"f",pl:"—",sk:"starostlivosť, opatera",en:"care"},
     {de:"Dampf",g:"m",pl:"-¨e",sk:"para",en:"steam, vapor"},
     {de:"Fläche",g:"f",pl:"-n",sk:"plocha",en:"area, surface"},
-    {de:"Zusatzstoff",g:"m",pl:"-e",sk:"prímes, prísada",en:"additive"}
+    {de:"Zusatzstoff",g:"m",pl:"-e",sk:"prímes, prísada",en:"additive"},
+    {de:"Äquator",g:"m",pl:"-en",sk:"rovník",en:"equator"},
+    {de:"Leuchtturm",g:"m",pl:"-¨e",sk:"maják",en:"lighthouse"},
+    {de:"Pranke",g:"f",pl:"-n",sk:"laba",en:"paw"},
+    {de:"Gefängnis",g:"n",pl:"-se",sk:"väzenie",en:"prison, jail"}
   ]
 },
 verbs: {
@@ -1871,18 +1902,25 @@ verbs: {
     {de:"täuschen, sich",p2:"h. getäuscht",sk:"mýliť sa",en:"to be mistaken"},
     {de:"vermitteln",p2:"h. vermittelt",sk:"sprostredkovať",en:"to convey, mediate"},
     {de:"diskutieren",p2:"h. diskutiert",sk:"diskutovať",en:"to discuss",prep:"mit + Dat    über + Akk"},
-    {de:"leiden",p2:"h. gelitten",sk:"trpieť",en:"to suffer",prep:"unter + Dat"}
+    {de:"leiden",p2:"h. gelitten",sk:"trpieť",en:"to suffer",prep:"unter + Dat"},
+    {de:"ermitteln",p2:"h. ermittelt",sk:"vyšetrovať",en:"to investigate",prep:"gegen + Akk"},
+    {de:"gestehen",p2:"h. gestanden",sk:"priznať",en:"to confess, admit"},
+    {de:"erpressen",p2:"h. erpresst",sk:"vydierať",en:"to blackmail"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
     {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"},
-    {de:"wehren, sich",p2:"h. gewehrt",sk:"brániť sa",en:"to defend oneself",prep:"gegen + Akk"}
+    {de:"wehren, sich",p2:"h. gewehrt",sk:"brániť sa",en:"to defend oneself",prep:"gegen + Akk"},
+    {de:"entführen",p2:"h. entführt",sk:"uniesť",en:"to kidnap, abduct"},
+    {de:"flüchten",p2:"s. geflüchtet",sk:"utiecť",en:"to flee, escape",prep:"vor + Dat    aus + Dat"}
   ],
   "Work & Daily Actions": [
     {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"},
     {de:"beschäftigen, sich",p2:"h. beschäftigt",sk:"zaoberať sa",en:"to deal with, occupy oneself",prep:"mit + Dat"},
     {de:"erledigen",p2:"h. erledigt",sk:"vybaviť, splniť",en:"to complete, settle"},
-    {de:"basieren",p2:"h. basiert",sk:"zakladať sa",en:"to be based on",prep:"auf + Dat"}
+    {de:"basieren",p2:"h. basiert",sk:"zakladať sa",en:"to be based on",prep:"auf + Dat"},
+    {de:"herrschen",p2:"h. geherrscht",sk:"vládnuť, panovať",en:"to rule, reign"},
+    {de:"verurteilen",p2:"h. verurteilt",sk:"odsúdiť",en:"to sentence, convict",prep:"zu + Dat"}
   ],
   "Separable Verbs": [
     {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
@@ -1895,7 +1933,11 @@ verbs: {
     {de:"zurecht·kommen",p2:"s. zurechtgekommen",sk:"zvládnuť, poradiť si",en:"to manage, cope",sep:true},
     {de:"vor·legen",p2:"h. vorgelegt",sk:"predložiť",en:"to submit, provide",sep:true},
     {de:"durch·fallen",p2:"s. durchgefallen",sk:"prepadnúť (na skúške)",en:"to fail (exam), fall through",sep:true},
-    {de:"ab·hängen",p2:"h. abgehangen",sk:"závisieť",en:"to depend on",sep:true,prep:"von + Dat"}
+    {de:"ab·hängen",p2:"h. abgehangen",sk:"závisieť",en:"to depend on",sep:true,prep:"von + Dat"},
+    {de:"durch·stellen",p2:"h. durchgestellt",sk:"prepojiť",en:"to put through",sep:true},
+    {de:"ein·leiten",p2:"h. eingeleitet",sk:"začať, spustiť",en:"to initiate",sep:true},
+    {de:"aus·richten",p2:"h. ausgerichtet",sk:"odkázať, odovzdať",en:"to convey, pass on",sep:true},
+    {de:"an·zeigen",p2:"h. angezeigt",sk:"oznámiť, nahlásiť",en:"to report (file complaint)",sep:true}
   ]
 },
 adjectives: [
@@ -1918,15 +1960,22 @@ adjectives: [
   {de:"betroffen",sk:"dotknutý",en:"affected, impacted"},
   {de:"dicht",sk:"hustý, blízky",en:"dense, close"},
   {de:"knusprig",sk:"chrumkavý",en:"crispy"},
-  {de:"zahlreich",sk:"početný, hojný",en:"numerous, many"}
+  {de:"zahlreich",sk:"početný, hojný",en:"numerous, many"},
+  {de:"erreichbar",sk:"dostupný",en:"accessible, reachable"},
+  {de:"schuldig",sk:"vinný",en:"guilty"},
+  {de:"verdächtig",sk:"podozrivý",en:"suspicious, suspect"},
+  {de:"verhaftet",sk:"zatknutý",en:"detained, under arrest"},
+  {de:"zuständig",sk:"príslušný",en:"responsible for"},
+  {de:"bewaffnet",sk:"ozbrojený",en:"armed"}
 ],
 adverbs: [
   {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},
-  {de:"allerdings",sk:"však, pravdaže",en:"however, indeed"}
+  {de:"allerdings",sk:"však, pravdaže",en:"however, indeed"},
+  {de:"durcheinander",sk:"pomiešaný",en:"chaotic, mixed up"}
 ]
 } /* end B1 */
 
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-06-17";
+window.VOCAB_VERSION = "2026-06-20";

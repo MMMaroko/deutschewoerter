@@ -91,7 +91,12 @@
     // ---- B1 batch 4 separable verbs ----
     'durch·fallen':'Work & Daily Actions',
     // ---- B1 batch 5 separable verbs ----
-    'auf·regen, sich':'Mind & Perception','ab·hängen':'Mind & Perception'
+    'auf·regen, sich':'Mind & Perception','ab·hängen':'Mind & Perception',
+    // ---- B1 batch 6 separable verbs ----
+    'durch·stellen':'Communication & Social','aus·richten':'Communication & Social',
+    'ein·leiten':'Work & Daily Actions',
+    // ---- B1 batch 7 separable verbs ----
+    'an·zeigen':'Communication & Social'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -183,6 +188,7 @@
     'abwechslungsreich':'Quality & Evaluation','erfreulich':'Quality & Evaluation',
     'lieblings-':'Quality & Evaluation','unangenehm':'Quality & Evaluation',
     'strafbar':'Quality & Evaluation','üblich':'Quality & Evaluation',
+    'verdächtig':'Quality & Evaluation',
     // State & Condition
     'gesund':'State & Condition','krank':'State & Condition',
     'leer':'State & Condition','voll':'State & Condition',
@@ -198,7 +204,10 @@
     'beschäftigt':'State & Condition','gewohnt sein':'State & Condition',
     'süchtig':'State & Condition','befristet':'State & Condition',
     'verfügbar':'State & Condition','abhängig':'State & Condition',
-    'besiedelt':'State & Condition',
+    'besiedelt':'State & Condition','erreichbar':'State & Condition',
+    'schuldig':'State & Condition','verhaftet':'State & Condition',
+    'zuständig':'State & Condition','durcheinander':'State & Condition',
+    'bewaffnet':'State & Condition',
     // Time & Sequence
     'vorig':'Time & Sequence','folgend':'Time & Sequence',
     'letzte':'Time & Sequence','nächste':'Time & Sequence',
