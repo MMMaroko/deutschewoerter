@@ -1820,7 +1820,17 @@ nouns: {
     {de:"Gefallen",g:"m",pl:"=",sk:"láskavosť",en:"favor",xtra:true},
     {de:"Vertrauen",g:"n",pl:"—",sk:"dôvera",en:"trust",xtra:true},
     {de:"Schicksal",g:"n",pl:"-e",sk:"osud",en:"fate, destiny",xtra:true},
-    {de:"Versprechen",g:"n",pl:"=",sk:"sľub",en:"promise",xtra:true}
+    {de:"Versprechen",g:"n",pl:"=",sk:"sľub",en:"promise",xtra:true},
+    {de:"Bewertung",g:"f",pl:"-en",sk:"hodnotenie",en:"evaluation, rating",xtra:true},
+    {de:"Macht",g:"f",pl:"-¨e",sk:"moc",en:"power",xtra:true},
+    {de:"Wechsel",g:"m",pl:"=",sk:"zmena",en:"change",xtra:true},
+    {de:"Vorhaben",g:"n",pl:"=",sk:"zámer",en:"plan, intention"},
+    {de:"Vorschlag",g:"m",pl:"-¨e",sk:"návrh",en:"suggestion, proposal"},
+    {de:"Veröffentlichung",g:"f",pl:"-en",sk:"zverejnenie",en:"publication, release",xtra:true},
+    {de:"Unterstützung",g:"f",pl:"-en",sk:"podpora",en:"support",xtra:true},
+    {de:"Verhalten",g:"n",pl:"—",sk:"správanie",en:"behavior",xtra:true},
+    {de:"Mühe",g:"f",pl:"-n",sk:"námaha, úsilie",en:"effort, trouble",xtra:true},
+    {de:"Eindruck",g:"m",pl:"-¨e",sk:"dojem",en:"impression",xtra:true}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
@@ -1873,7 +1883,8 @@ nouns: {
     {de:"Pleite",g:"f",pl:"-n",sk:"bankrot",en:"bankruptcy",xtra:true},
     {de:"Verlust",g:"m",pl:"-e",sk:"strata",en:"loss",xtra:true},
     {de:"Wachstum",g:"n",pl:"—",sk:"rast",en:"growth",xtra:true},
-    {de:"Abteilung",g:"f",pl:"-en",sk:"oddelenie",en:"department",xtra:true}
+    {de:"Abteilung",g:"f",pl:"-en",sk:"oddelenie",en:"department",xtra:true},
+    {de:"Aufwand",g:"m",pl:"-¨e",sk:"náklady",en:"effort, expense",xtra:true}
   ],
   "House & Home": [
     {de:"Vorort",g:"m",pl:"-e",sk:"predmestie",en:"suburb"},
@@ -1936,7 +1947,9 @@ verbs: {
     {de:"behaupten",p2:"h. behauptet",sk:"tvrdiť",en:"to claim, assert",xtra:true},
     {de:"trauen",p2:"h. getraut",sk:"dôverovať",en:"to trust",prep:"jdm. + Dat",xtra:true},
     {de:"trauen, sich",p2:"h. getraut",sk:"odvážiť sa",en:"to dare",xtra:true},
-    {de:"begreifen",p2:"h. begriffen",sk:"pochopiť",en:"to grasp, understand",xtra:true}
+    {de:"begreifen",p2:"h. begriffen",sk:"pochopiť",en:"to grasp, understand",xtra:true},
+    {de:"erwarten",p2:"h. erwartet",sk:"očakávať",en:"to expect"},
+    {de:"widersprechen",p2:"h. widersprochen",sk:"odporovať, protirečiť",en:"to contradict",prep:"jdm. + Dat",xtra:true}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1953,7 +1966,8 @@ verbs: {
     {de:"herrschen",p2:"h. geherrscht",sk:"vládnuť, panovať",en:"to rule, reign"},
     {de:"verurteilen",p2:"h. verurteilt",sk:"odsúdiť",en:"to sentence, convict",prep:"zu + Dat"},
     {de:"feuern",p2:"h. gefeuert",sk:"vyhodiť, strieľať",en:"to fire",xtra:true},
-    {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm. + Dat",xtra:true}
+    {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm. + Dat",xtra:true},
+    {de:"verhandeln",p2:"h. verhandelt",sk:"rokovať",en:"to negotiate",prep:"über + Akk    mit + Dat",xtra:true}
   ],
   "Separable Verbs": [
     {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
@@ -2001,7 +2015,9 @@ adjectives: [
   {de:"verdächtig",sk:"podozrivý",en:"suspicious, suspect"},
   {de:"verhaftet",sk:"zatknutý",en:"detained, under arrest"},
   {de:"zuständig",sk:"príslušný",en:"responsible for"},
-  {de:"bewaffnet",sk:"ozbrojený",en:"armed"}
+  {de:"bewaffnet",sk:"ozbrojený",en:"armed"},
+  {de:"wertvoll",sk:"cenný, hodnotný",en:"valuable"},
+  {de:"locker",sk:"uvoľnený, voľný",en:"loose, relaxed"}
 ],
 adverbs: [
   {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},

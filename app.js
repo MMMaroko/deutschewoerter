@@ -129,6 +129,7 @@
     'aufmerksam':'Character & Personality','großzügig':'Character & Personality',
     'streng':'Character & Personality','verantwortlich':'Character & Personality',
     'geduldig':'Character & Personality','gehorsam':'Character & Personality',
+    'locker':'Character & Personality',
     // Emotions & Mood
     'lustig':'Emotions & Mood','traurig':'Emotions & Mood',
     'begeistert':'Emotions & Mood','zufrieden':'Emotions & Mood',
@@ -191,7 +192,7 @@
     'abwechslungsreich':'Quality & Evaluation','erfreulich':'Quality & Evaluation',
     'lieblings-':'Quality & Evaluation','unangenehm':'Quality & Evaluation',
     'strafbar':'Quality & Evaluation','üblich':'Quality & Evaluation',
-    'verdächtig':'Quality & Evaluation',
+    'verdächtig':'Quality & Evaluation','wertvoll':'Quality & Evaluation',
     // State & Condition
     'gesund':'State & Condition','krank':'State & Condition',
     'leer':'State & Condition','voll':'State & Condition',
