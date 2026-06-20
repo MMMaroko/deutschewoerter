@@ -1553,7 +1553,7 @@ verbs: {
     {de:"aus·räumen",p2:"h. ausgeräumt",sk:"vypratať",en:"to clear out",sep:true},
     {de:"an·rufen",p2:"h. angerufen",sk:"zavolať",en:"to call",sep:true},
     {de:"zurück·rufen",p2:"h. zurückgerufen",sk:"zavolať späť",en:"to call back",sep:true},
-    {de:"ab·schließen",p2:"h. abgeschlossen",sk:"uzavrieť",en:"to conclude",sep:true},
+    {de:"ab·schließen",p2:"h. abgeschlossen",sk:"uzavrieť, ukončiť",en:"to conclude, finalize",sep:true},
     {de:"zu·schließen",p2:"h. zugeschlossen",sk:"zamknúť",en:"to lock",sep:true},
     {de:"auf·schließen",p2:"h. aufgeschlossen",sk:"odomknúť",en:"to unlock",sep:true},
     {de:"fern·sehen",p2:"h. ferngesehen",sk:"pozerať TV",en:"to watch TV",sep:true},
@@ -1810,7 +1810,17 @@ nouns: {
     {de:"Geständnis",g:"n",pl:"-se",sk:"priznanie",en:"confession"},
     {de:"Strafe",g:"f",pl:"-n",sk:"trest",en:"punishment, penalty"},
     {de:"Geldbuße",g:"f",pl:"-n",sk:"peňažný trest, pokuta",en:"monetary fine"},
-    {de:"Gewalt",g:"f",pl:"-en",sk:"násilie, moc, sila",en:"violence, power, force"}
+    {de:"Gewalt",g:"f",pl:"-en",sk:"násilie, moc, sila",en:"violence, power, force"},
+    {de:"Aufsicht",g:"f",pl:"-en",sk:"dohľad, dozor",en:"supervision, oversight",xtra:true},
+    {de:"Verhandlung",g:"f",pl:"-en",sk:"rokovanie, súdne konanie",en:"negotiation, trial hearing",xtra:true},
+    {de:"Auftrag",g:"m",pl:"-¨e",sk:"zákazka, úloha",en:"contract, task",xtra:true},
+    {de:"Lage",g:"f",pl:"-n",sk:"situácia, poloha",en:"situation, location",xtra:true},
+    {de:"Beleg",g:"m",pl:"-e",sk:"doklad",en:"receipt, evidence",xtra:true},
+    {de:"Ruf",g:"m",pl:"-e",sk:"povesť, dobré meno",en:"reputation",xtra:true},
+    {de:"Gefallen",g:"m",pl:"=",sk:"láskavosť",en:"favor",xtra:true},
+    {de:"Vertrauen",g:"n",pl:"—",sk:"dôvera",en:"trust",xtra:true},
+    {de:"Schicksal",g:"n",pl:"-e",sk:"osud",en:"fate, destiny",xtra:true},
+    {de:"Versprechen",g:"n",pl:"=",sk:"sľub",en:"promise",xtra:true}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
@@ -1823,7 +1833,10 @@ nouns: {
     {de:"Beauftragte",g:"m",pl:"-n",sk:"splnomocnenec",en:"representative, delegate"},
     {de:"Verlag",g:"m",pl:"-e",sk:"vydavateľstvo",en:"publisher"},
     {de:"Behörde",g:"f",pl:"-n",sk:"úrad",en:"authority, agency"},
-    {de:"Opfer",g:"n",pl:"=",sk:"obeť",en:"victim"}
+    {de:"Opfer",g:"n",pl:"=",sk:"obeť",en:"victim"},
+    {de:"Anleger",g:"m",pl:"=",sk:"investor",en:"investor",xtra:true},
+    {de:"Vorstand",g:"m",pl:"-¨e",sk:"vedenie, predstavenstvo",en:"board, management",xtra:true},
+    {de:"Lügner",g:"m",pl:"=",sk:"klamár",en:"liar",xtra:true}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1851,7 +1864,16 @@ nouns: {
     {de:"Mutterschutz",g:"m",pl:"—",sk:"materská dovolenka",en:"maternity leave",reg:"AT/ÖrD"},
     {de:"Elternkarenz",g:"f",pl:"—",sk:"rodičovské voľno",en:"parental leave",reg:"AT/ÖrD"},
     {de:"Dienst",g:"m",pl:"-e",sk:"služba, pomoc",en:"service, assistance"},
-    {de:"Eigentum",g:"n",pl:"—",sk:"vlastníctvo",en:"ownership, property"}
+    {de:"Eigentum",g:"n",pl:"—",sk:"vlastníctvo",en:"ownership, property"},
+    {de:"Bewerbung",g:"f",pl:"-en",sk:"žiadosť, prihláška",en:"application"},
+    {de:"Bilanz",g:"f",pl:"-en",sk:"bilancia, súvaha",en:"balance sheet",xtra:true},
+    {de:"Ertrag",g:"m",pl:"-¨e",sk:"výnos, výťažok",en:"yield, return",xtra:true},
+    {de:"Vermögen",g:"n",pl:"=",sk:"majetok, bohatstvo",en:"assets, fortune",xtra:true},
+    {de:"Besitz",g:"m",pl:"—",sk:"vlastníctvo",en:"possession, ownership",xtra:true},
+    {de:"Pleite",g:"f",pl:"-n",sk:"bankrot",en:"bankruptcy",xtra:true},
+    {de:"Verlust",g:"m",pl:"-e",sk:"strata",en:"loss",xtra:true},
+    {de:"Wachstum",g:"n",pl:"—",sk:"rast",en:"growth",xtra:true},
+    {de:"Abteilung",g:"f",pl:"-en",sk:"oddelenie",en:"department",xtra:true}
   ],
   "House & Home": [
     {de:"Vorort",g:"m",pl:"-e",sk:"predmestie",en:"suburb"},
@@ -1870,7 +1892,9 @@ nouns: {
     {de:"Betrug",g:"m",pl:"-¨e",sk:"podvod",en:"fraud, deception"},
     {de:"Erpressung",g:"f",pl:"-en",sk:"vydieranie",en:"blackmail, extortion"},
     {de:"Entführung",g:"f",pl:"-en",sk:"únos",en:"kidnapping, abduction"},
-    {de:"Flucht",g:"f",pl:"-en",sk:"útek",en:"escape, flight"}
+    {de:"Flucht",g:"f",pl:"-en",sk:"útek",en:"escape, flight"},
+    {de:"Verrat",g:"m",pl:"-¨e",sk:"zrada",en:"betrayal",xtra:true},
+    {de:"Scheidung",g:"f",pl:"-en",sk:"rozvod",en:"divorce",xtra:true}
   ],
   "Miscellaneous": [
     {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
@@ -1886,7 +1910,8 @@ nouns: {
     {de:"Äquator",g:"m",pl:"-en",sk:"rovník",en:"equator"},
     {de:"Leuchtturm",g:"m",pl:"-¨e",sk:"maják",en:"lighthouse"},
     {de:"Pranke",g:"f",pl:"-n",sk:"laba",en:"paw"},
-    {de:"Gefängnis",g:"n",pl:"-se",sk:"väzenie",en:"prison, jail"}
+    {de:"Gefängnis",g:"n",pl:"-se",sk:"väzenie",en:"prison, jail"},
+    {de:"Geheimdienst",g:"m",pl:"-e",sk:"tajná služba",en:"secret service",xtra:true}
   ]
 },
 verbs: {
@@ -1905,14 +1930,20 @@ verbs: {
     {de:"leiden",p2:"h. gelitten",sk:"trpieť",en:"to suffer",prep:"unter + Dat"},
     {de:"ermitteln",p2:"h. ermittelt",sk:"vyšetrovať",en:"to investigate",prep:"gegen + Akk"},
     {de:"gestehen",p2:"h. gestanden",sk:"priznať",en:"to confess, admit"},
-    {de:"erpressen",p2:"h. erpresst",sk:"vydierať",en:"to blackmail"}
+    {de:"erpressen",p2:"h. erpresst",sk:"vydierať",en:"to blackmail"},
+    {de:"versprechen",p2:"h. versprochen",sk:"sľúbiť",en:"to promise",xtra:true},
+    {de:"beweisen",p2:"h. bewiesen",sk:"dokázať",en:"to prove",xtra:true},
+    {de:"behaupten",p2:"h. behauptet",sk:"tvrdiť",en:"to claim, assert",xtra:true},
+    {de:"trauen",p2:"h. getraut",sk:"dôverovať",en:"to trust",prep:"jdm. + Dat",xtra:true},
+    {de:"trauen, sich",p2:"h. getraut",sk:"odvážiť sa",en:"to dare",xtra:true},
+    {de:"begreifen",p2:"h. begriffen",sk:"pochopiť",en:"to grasp, understand",xtra:true}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
     {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"},
     {de:"wehren, sich",p2:"h. gewehrt",sk:"brániť sa",en:"to defend oneself",prep:"gegen + Akk"},
     {de:"entführen",p2:"h. entführt",sk:"uniesť",en:"to kidnap, abduct"},
-    {de:"flüchten",p2:"s. geflüchtet",sk:"utiecť",en:"to flee, escape",prep:"vor + Dat    aus + Dat"}
+    {de:"flüchten",p2:"s. geflüchtet",sk:"utiecť",en:"to flee, escape",prep:"vor + Dat"}
   ],
   "Work & Daily Actions": [
     {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"},
@@ -1920,7 +1951,9 @@ verbs: {
     {de:"erledigen",p2:"h. erledigt",sk:"vybaviť, splniť",en:"to complete, settle"},
     {de:"basieren",p2:"h. basiert",sk:"zakladať sa",en:"to be based on",prep:"auf + Dat"},
     {de:"herrschen",p2:"h. geherrscht",sk:"vládnuť, panovať",en:"to rule, reign"},
-    {de:"verurteilen",p2:"h. verurteilt",sk:"odsúdiť",en:"to sentence, convict",prep:"zu + Dat"}
+    {de:"verurteilen",p2:"h. verurteilt",sk:"odsúdiť",en:"to sentence, convict",prep:"zu + Dat"},
+    {de:"feuern",p2:"h. gefeuert",sk:"vyhodiť, strieľať",en:"to fire",xtra:true},
+    {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm. + Dat",xtra:true}
   ],
   "Separable Verbs": [
     {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
@@ -1937,7 +1970,9 @@ verbs: {
     {de:"durch·stellen",p2:"h. durchgestellt",sk:"prepojiť",en:"to put through",sep:true},
     {de:"ein·leiten",p2:"h. eingeleitet",sk:"začať, spustiť",en:"to initiate",sep:true},
     {de:"aus·richten",p2:"h. ausgerichtet",sk:"odkázať, odovzdať",en:"to convey, pass on",sep:true},
-    {de:"an·zeigen",p2:"h. angezeigt",sk:"oznámiť, nahlásiť",en:"to report (file complaint)",sep:true}
+    {de:"an·zeigen",p2:"h. angezeigt",sk:"oznámiť, nahlásiť",en:"to report (file complaint)",sep:true},
+    {de:"aus·halten",p2:"h. ausgehalten",sk:"vydržať, zniesť",en:"to endure, withstand",sep:true,xtra:true},
+    {de:"hin·kriegen",p2:"h. hingekriegt",sk:"zvládnuť (hovor.)",en:"to accomplish",sep:true,xtra:true}
   ]
 },
 adjectives: [

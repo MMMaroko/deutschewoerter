@@ -96,7 +96,10 @@
     'durch·stellen':'Communication & Social','aus·richten':'Communication & Social',
     'ein·leiten':'Work & Daily Actions',
     // ---- B1 batch 7 separable verbs ----
-    'an·zeigen':'Communication & Social'
+    'an·zeigen':'Communication & Social',
+    // ---- B1 batch 8 separable verbs (Bad Banks xtra) ----
+    'ab·schließen':'Work & Daily Actions','aus·halten':'Mind & Perception',
+    'hin·kriegen':'Work & Daily Actions'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
