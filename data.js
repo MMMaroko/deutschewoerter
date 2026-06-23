@@ -1777,18 +1777,13 @@ nouns: {
     {de:"Gedächtnis",g:"n",pl:"-se",sk:"pamäť, spomienka",en:"memory"},
     {de:"Freude",g:"f",pl:"-n",sk:"radosť, potešenie",en:"joy, happiness"},
     {de:"Nachhilfe",g:"f",pl:"-n",sk:"doučovanie",en:"tutoring"},
-    {de:"Unterlagen",g:"f",pl:"-",sk:"podklady",en:"documentation"},
     {de:"Beitrag",g:"m",pl:"-¨e",sk:"príspevok, článok",en:"contribution, article"},
     {de:"Verantwortung",g:"f",pl:"—",sk:"zodpovednosť",en:"responsibility"},
-    {de:"Bestätigung",g:"f",pl:"-en",sk:"potvrdenie",en:"confirmation"},
     {de:"Vorkenntnis",g:"f",pl:"-se",sk:"predchádzajúca znalosť",en:"previous knowledge"},
     {de:"Angabe",g:"f",pl:"-n",sk:"údaj, informácia",en:"statement, information"},
-    {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"},
     {de:"Begriff",g:"m",pl:"-e",sk:"pojem, výraz",en:"concept, term"},
-    {de:"Zusammenfassung",g:"f",pl:"-en",sk:"zhrnutie, prehľad",en:"summary, abstract"},
     {de:"Ebene",g:"f",pl:"-n",sk:"rovina, úroveň",en:"plane, layer, level"},
     {de:"Leidenschaft",g:"f",pl:"-en",sk:"vášeň, záľuba",en:"passion, enthusiasm"},
-    {de:"Fragebogen",g:"m",pl:"-¨",sk:"dotazník",en:"questionnaire"},
     {de:"Stufe",g:"f",pl:"-n",sk:"schod, úroveň",en:"step, level"},
     {de:"Vergleich",g:"m",pl:"-e",sk:"porovnanie",en:"comparison"},
     {de:"Lücke",g:"f",pl:"-n",sk:"medzera, štrbina",en:"gap, void"},
@@ -1799,23 +1794,8 @@ nouns: {
     {de:"Auskunft",g:"f",pl:"-¨e",sk:"informácia",en:"information"},
     {de:"Durchwahl",g:"f",pl:"-en",sk:"klapka",en:"extension number"},
     {de:"Umfrage",g:"f",pl:"-n",sk:"prieskum, anketa",en:"poll, survey"},
-    {de:"Strafregisterauszug",g:"m",pl:"-¨e",sk:"výpis z registra trestov",en:"criminal records extract"},
-    {de:"Beweis",g:"m",pl:"-e",sk:"dôkaz",en:"proof, evidence"},
-    {de:"Anrede",g:"f",pl:"-n",sk:"oslovenie",en:"form of address"},
-    {de:"Betreff",g:"m",pl:"-e",sk:"vec, predmet (list)",en:"subject, matter"},
-    {de:"Aussage",g:"f",pl:"-n",sk:"výpoveď, vyhlásenie",en:"statement, testimony"},
-    {de:"Urteil",g:"n",pl:"-e",sk:"rozsudok",en:"verdict, judgment"},
-    {de:"Drohung",g:"f",pl:"-en",sk:"hrozba",en:"threat"},
-    {de:"Verhör",g:"n",pl:"-e",sk:"výsluch",en:"interrogation"},
-    {de:"Geständnis",g:"n",pl:"-se",sk:"priznanie",en:"confession"},
-    {de:"Strafe",g:"f",pl:"-n",sk:"trest",en:"punishment, penalty"},
-    {de:"Geldbuße",g:"f",pl:"-n",sk:"peňažný trest, pokuta",en:"monetary fine"},
-    {de:"Gewalt",g:"f",pl:"-en",sk:"násilie, moc, sila",en:"violence, power, force"},
-    {de:"Aufsicht",g:"f",pl:"-en",sk:"dohľad, dozor",en:"supervision, oversight",xtra:true},
-    {de:"Verhandlung",g:"f",pl:"-en",sk:"rokovanie, súdne konanie",en:"negotiation, trial hearing",xtra:true},
     {de:"Auftrag",g:"m",pl:"-¨e",sk:"zákazka, úloha",en:"contract, task",xtra:true},
     {de:"Lage",g:"f",pl:"-n",sk:"situácia, poloha",en:"situation, location",xtra:true},
-    {de:"Beleg",g:"m",pl:"-e",sk:"doklad",en:"receipt, evidence",xtra:true},
     {de:"Ruf",g:"m",pl:"-e",sk:"povesť, dobré meno",en:"reputation",xtra:true},
     {de:"Gefallen",g:"m",pl:"=",sk:"láskavosť",en:"favor",xtra:true},
     {de:"Vertrauen",g:"n",pl:"—",sk:"dôvera",en:"trust",xtra:true},
@@ -1832,6 +1812,32 @@ nouns: {
     {de:"Mühe",g:"f",pl:"-n",sk:"námaha, úsilie",en:"effort, trouble",xtra:true},
     {de:"Eindruck",g:"m",pl:"-¨e",sk:"dojem",en:"impression",xtra:true}
   ],
+  "Law & Justice": [
+    {de:"Beweis",g:"m",pl:"-e",sk:"dôkaz",en:"proof, evidence"},
+    {de:"Beleg",g:"m",pl:"-e",sk:"doklad",en:"receipt, evidence",xtra:true},
+    {de:"Aussage",g:"f",pl:"-n",sk:"výpoveď, vyhlásenie",en:"statement, testimony"},
+    {de:"Verhör",g:"n",pl:"-e",sk:"výsluch",en:"interrogation"},
+    {de:"Geständnis",g:"n",pl:"-se",sk:"priznanie",en:"confession"},
+    {de:"Verhandlung",g:"f",pl:"-en",sk:"rokovanie, súdne konanie",en:"negotiation, trial hearing",xtra:true},
+    {de:"Urteil",g:"n",pl:"-e",sk:"rozsudok",en:"verdict, judgment"},
+    {de:"Strafe",g:"f",pl:"-n",sk:"trest",en:"punishment, penalty"},
+    {de:"Geldbuße",g:"f",pl:"-n",sk:"peňažný trest, pokuta",en:"monetary fine"},
+    {de:"Gefängnis",g:"n",pl:"-se",sk:"väzenie",en:"prison, jail"},
+    {de:"Drohung",g:"f",pl:"-en",sk:"hrozba",en:"threat"},
+    {de:"Gewalt",g:"f",pl:"-en",sk:"násilie, moc, sila",en:"violence, power, force"},
+    {de:"Aufsicht",g:"f",pl:"-en",sk:"dohľad, dozor",en:"supervision, oversight",xtra:true},
+    {de:"Geheimdienst",g:"m",pl:"-e",sk:"tajná služba",en:"secret service",xtra:true}
+  ],
+  "Documents & Records": [
+    {de:"Unterlagen",g:"f",pl:"-",sk:"podklady",en:"documentation"},
+    {de:"Bestätigung",g:"f",pl:"-en",sk:"potvrdenie",en:"confirmation"},
+    {de:"Anrede",g:"f",pl:"-n",sk:"oslovenie",en:"form of address"},
+    {de:"Betreff",g:"m",pl:"-e",sk:"vec, predmet (list)",en:"subject, matter"},
+    {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"},
+    {de:"Fragebogen",g:"m",pl:"-¨",sk:"dotazník",en:"questionnaire"},
+    {de:"Zusammenfassung",g:"f",pl:"-en",sk:"zhrnutie, prehľad",en:"summary, abstract"},
+    {de:"Strafregisterauszug",g:"m",pl:"-¨e",sk:"výpis z registra trestov",en:"criminal records extract"}
+  ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
     {de:"Forscher",g:"m",pl:"=",sk:"výskumník",en:"researcher, scientist"},
@@ -1846,7 +1852,9 @@ nouns: {
     {de:"Opfer",g:"n",pl:"=",sk:"obeť",en:"victim"},
     {de:"Anleger",g:"m",pl:"=",sk:"investor",en:"investor",xtra:true},
     {de:"Vorstand",g:"m",pl:"-¨e",sk:"vedenie, predstavenstvo",en:"board, management",xtra:true},
-    {de:"Lügner",g:"m",pl:"=",sk:"klamár",en:"liar",xtra:true}
+    {de:"Lügner",g:"m",pl:"=",sk:"klamár",en:"liar",xtra:true},
+    {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
+    {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1859,7 +1867,8 @@ nouns: {
     {de:"Türknauf",g:"m",pl:"-¨e",sk:"kľučka",en:"door knob"},
     {de:"Sack",g:"m",pl:"-¨e",sk:"vrece",en:"bag, sack"},
     {de:"Ofen",g:"m",pl:"-¨",sk:"pec, kachle, rúra",en:"heater, oven"},
-    {de:"Eimer",g:"m",pl:"=",sk:"vedro",en:"bucket"}
+    {de:"Eimer",g:"m",pl:"=",sk:"vedro",en:"bucket"},
+    {de:"Leuchtturm",g:"m",pl:"-¨e",sk:"maják",en:"lighthouse"}
   ],
   "Economy & Work": [
     {de:"Dienstzettel",g:"m",pl:"=",sk:"pracovný výkaz",en:"employment summary",reg:"AT/ÖrD"},
@@ -1884,7 +1893,8 @@ nouns: {
     {de:"Verlust",g:"m",pl:"-e",sk:"strata",en:"loss",xtra:true},
     {de:"Wachstum",g:"n",pl:"—",sk:"rast",en:"growth",xtra:true},
     {de:"Abteilung",g:"f",pl:"-en",sk:"oddelenie",en:"department",xtra:true},
-    {de:"Aufwand",g:"m",pl:"-¨e",sk:"náklady",en:"effort, expense",xtra:true}
+    {de:"Aufwand",g:"m",pl:"-¨e",sk:"náklady",en:"effort, expense",xtra:true},
+    {de:"Gehalt",g:"n",pl:"-¨er",sk:"plat",en:"salary"}
   ],
   "House & Home": [
     {de:"Vorort",g:"m",pl:"-e",sk:"predmestie",en:"suburb"},
@@ -1910,19 +1920,13 @@ nouns: {
   "Miscellaneous": [
     {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
     {de:"Siedlung",g:"f",pl:"=",sk:"osídlenie",en:"settlement"},
-    {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"},
-    {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
-    {de:"Gehalt",g:"n",pl:"-¨er",sk:"plat",en:"salary"},
     {de:"Zeitraum",g:"m",pl:"-¨e",sk:"časové obdobie",en:"time period"},
     {de:"Pflege",g:"f",pl:"—",sk:"starostlivosť, opatera",en:"care"},
     {de:"Dampf",g:"m",pl:"-¨e",sk:"para",en:"steam, vapor"},
     {de:"Fläche",g:"f",pl:"-n",sk:"plocha",en:"area, surface"},
     {de:"Zusatzstoff",g:"m",pl:"-e",sk:"prímes, prísada",en:"additive"},
     {de:"Äquator",g:"m",pl:"-en",sk:"rovník",en:"equator"},
-    {de:"Leuchtturm",g:"m",pl:"-¨e",sk:"maják",en:"lighthouse"},
-    {de:"Pranke",g:"f",pl:"-n",sk:"laba",en:"paw"},
-    {de:"Gefängnis",g:"n",pl:"-se",sk:"väzenie",en:"prison, jail"},
-    {de:"Geheimdienst",g:"m",pl:"-e",sk:"tajná služba",en:"secret service",xtra:true}
+    {de:"Pranke",g:"f",pl:"-n",sk:"laba",en:"paw"}
   ]
 },
 verbs: {
