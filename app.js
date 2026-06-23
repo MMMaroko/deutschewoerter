@@ -99,7 +99,9 @@
     'an·zeigen':'Communication & Social',
     // ---- B1 batch 8 separable verbs (Bad Banks xtra) ----
     'ab·schließen':'Work & Daily Actions','aus·halten':'Mind & Perception',
-    'hin·kriegen':'Work & Daily Actions'
+    'hin·kriegen':'Work & Daily Actions',
+    // ---- B1 batch 9 separable verbs ----
+    'auf·fordern':'Communication & Social'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -193,6 +195,7 @@
     'lieblings-':'Quality & Evaluation','unangenehm':'Quality & Evaluation',
     'strafbar':'Quality & Evaluation','üblich':'Quality & Evaluation',
     'verdächtig':'Quality & Evaluation','wertvoll':'Quality & Evaluation',
+    'ungerade':'Quality & Evaluation',
     // State & Condition
     'gesund':'State & Condition','krank':'State & Condition',
     'leer':'State & Condition','voll':'State & Condition',

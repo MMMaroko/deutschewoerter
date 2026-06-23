@@ -364,7 +364,7 @@ verbs: {
     {de:"untersuchen",p2:"h. untersucht",sk:"vyšetriť",en:"to examine"},
     {de:"vermeiden",p2:"h. vermieden",sk:"vyhnúť sa",en:"to avoid, prevent"},
     {de:"verpflichten (sich)",p2:"h. verpflichtet",sk:"zaviazať (sa)",en:"to commit"},
-    {de:"vertrauen",p2:"h. vertraut",sk:"dôverovať, veriť",en:"to trust",prep:"jdm. + Dat"},
+    {de:"vertrauen",p2:"h. vertraut",sk:"dôverovať, veriť",en:"to trust",prep:"jdm."},
     {de:"wählen",p2:"h. gewählt",sk:"vybrať, (z)voliť",en:"to choose, vote"},
     {de:"messen",p2:"h. gemessen",sk:"(od)merať",en:"to measure"},
     {de:"beschließen",p2:"h. beschlossen",sk:"rozhodnúť, uzavrieť",en:"to decide, conclude",src:"kb"},
@@ -376,7 +376,7 @@ verbs: {
   "Movement & Physical": [
     {de:"beeilen, sich",p2:"h. beeilt",sk:"poponáhľať sa",en:"to hurry"},
     {de:"berühren",p2:"h. berührt",sk:"dotknúť sa",en:"to touch"},
-    {de:"bewegen",p2:"h. bewegt",sk:"pohybovať, hýbať",en:"to move, shift"},
+    {de:"bewegen (sich)",p2:"h. bewegt",sk:"pohybovať, hýbať (sa)",en:"to move, shift (oneself)"},
     {de:"brechen",p2:"h. gebrochen",sk:"zlomiť",en:"to break"},
     {de:"bummeln",p2:"s. gebummelt",sk:"túlať sa",en:"to stroll, wander"},
     {de:"eilen",p2:"s. geeilt",sk:"ponáhľať sa",en:"to rush"},
@@ -1370,8 +1370,8 @@ verbs: {
     {de:"verbieten",p2:"h. verboten",sk:"zakázať",en:"to forbid"},
     {de:"verabreden",p2:"h. verabredet",sk:"dohodnúť",en:"to agree on"},
     {de:"vereinbaren",p2:"h. vereinbart",sk:"dohodnúť",en:"to arrange"},
-    {de:"helfen",p2:"h. geholfen",sk:"pomôcť",en:"to help",prep:"jdm. + Dat"},
-    {de:"gefallen",p2:"h. gefallen",sk:"páčiť sa",en:"to please, appeal",prep:"jdm. + Dat"},
+    {de:"helfen",p2:"h. geholfen",sk:"pomôcť",en:"to help",prep:"jdm."},
+    {de:"gefallen",p2:"h. gefallen",sk:"páčiť sa",en:"to please, appeal",prep:"jdm."},
     {de:"ärgern, sich",p2:"h. geärgert",sk:"hnevať (sa)",en:"to anger, irritate",prep:"über + Akk"},
     {de:"freuen, sich",p2:"h. gefreut",sk:"tešiť (sa)",en:"to rejoice"},
     {de:"feiern",p2:"h. gefeiert",sk:"oslavovať",en:"to celebrate"},
@@ -1477,7 +1477,7 @@ verbs: {
     {de:"liegen",p2:"h. gelegen",sk:"ležať, nachádzať sa",en:"to lie, be located"},
     {de:"legen",p2:"h. gelegt",sk:"položiť",en:"to lay, place"},
     {de:"lassen",p2:"h. gelassen",sk:"nechať",en:"to let"},
-    {de:"passen",p2:"h. gepasst",sk:"pasovať",en:"to fit, suit",prep:"jdm. + Dat"},
+    {de:"passen",p2:"h. gepasst",sk:"pasovať",en:"to fit, suit",prep:"jdm."},
     {de:"pflegen",p2:"h. gepflegt",sk:"ošetrovať",en:"to care for"},
     {de:"rauchen",p2:"h. geraucht",sk:"fajčiť",en:"to smoke"},
     {de:"reagieren",p2:"h. reagiert",sk:"reagovať",en:"to react"},
@@ -1494,7 +1494,7 @@ verbs: {
     {de:"duschen",p2:"h. geduscht",sk:"sprchovať",en:"to shower"},
     {de:"ebnen",p2:"h. geebnet",sk:"vyrovnať",en:"to level, smooth"},
     {de:"erfreuen",p2:"h. erfreut",sk:"potešiť",en:"to please, delight"},
-    {de:"fehlen",p2:"h. gefehlt",sk:"chýbať",en:"to be missing, lack",prep:"jdm. + Dat"},
+    {de:"fehlen",p2:"h. gefehlt",sk:"chýbať",en:"to be missing, lack",prep:"jdm."},
     {de:"gehören",p2:"h. gehört",sk:"patriť",en:"to belong",prep:"zu + Dat"},
     {de:"hassen",p2:"h. gehasst",sk:"nenávidieť",en:"to despise"},
     {de:"kümmern, sich",p2:"h. gekümmert",sk:"postarať (sa)",en:"to take care of"},
@@ -1945,11 +1945,12 @@ verbs: {
     {de:"versprechen",p2:"h. versprochen",sk:"sľúbiť",en:"to promise",xtra:true},
     {de:"beweisen",p2:"h. bewiesen",sk:"dokázať",en:"to prove",xtra:true},
     {de:"behaupten",p2:"h. behauptet",sk:"tvrdiť",en:"to claim, assert",xtra:true},
-    {de:"trauen",p2:"h. getraut",sk:"dôverovať",en:"to trust",prep:"jdm. + Dat",xtra:true},
+    {de:"trauen",p2:"h. getraut",sk:"dôverovať",en:"to trust",prep:"jdm.",xtra:true},
     {de:"trauen, sich",p2:"h. getraut",sk:"odvážiť sa",en:"to dare",xtra:true},
     {de:"begreifen",p2:"h. begriffen",sk:"pochopiť",en:"to grasp, understand",xtra:true},
     {de:"erwarten",p2:"h. erwartet",sk:"očakávať",en:"to expect"},
-    {de:"widersprechen",p2:"h. widersprochen",sk:"odporovať, protirečiť",en:"to contradict",prep:"jdm. + Dat",xtra:true}
+    {de:"widersprechen",p2:"h. widersprochen",sk:"odporovať, protirečiť",en:"to contradict",prep:"jdm.",xtra:true},
+    {de:"orten",p2:"h. geortet",sk:"lokalizovať",en:"to locate"}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1966,7 +1967,7 @@ verbs: {
     {de:"herrschen",p2:"h. geherrscht",sk:"vládnuť, panovať",en:"to rule, reign"},
     {de:"verurteilen",p2:"h. verurteilt",sk:"odsúdiť",en:"to sentence, convict",prep:"zu + Dat"},
     {de:"feuern",p2:"h. gefeuert",sk:"vyhodiť, strieľať",en:"to fire",xtra:true},
-    {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm. + Dat",xtra:true},
+    {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm.",xtra:true},
     {de:"verhandeln",p2:"h. verhandelt",sk:"rokovať",en:"to negotiate",prep:"über + Akk    mit + Dat",xtra:true}
   ],
   "Separable Verbs": [
@@ -1986,7 +1987,8 @@ verbs: {
     {de:"aus·richten",p2:"h. ausgerichtet",sk:"odkázať, odovzdať",en:"to convey, pass on",sep:true},
     {de:"an·zeigen",p2:"h. angezeigt",sk:"oznámiť, nahlásiť",en:"to report (file complaint)",sep:true},
     {de:"aus·halten",p2:"h. ausgehalten",sk:"vydržať, zniesť",en:"to endure, withstand",sep:true,xtra:true},
-    {de:"hin·kriegen",p2:"h. hingekriegt",sk:"zvládnuť (hovor.)",en:"to accomplish",sep:true,xtra:true}
+    {de:"hin·kriegen",p2:"h. hingekriegt",sk:"zvládnuť (hovor.)",en:"to accomplish",sep:true,xtra:true},
+    {de:"auf·fordern",p2:"h. aufgefordert",sk:"vyzvať",en:"to request, call for",sep:true,prep:"jdn.    zu + Dat"}
   ]
 },
 adjectives: [
@@ -2017,7 +2019,9 @@ adjectives: [
   {de:"zuständig",sk:"príslušný",en:"responsible for"},
   {de:"bewaffnet",sk:"ozbrojený",en:"armed"},
   {de:"wertvoll",sk:"cenný, hodnotný",en:"valuable"},
-  {de:"locker",sk:"uvoľnený, voľný",en:"loose, relaxed"}
+  {de:"locker",sk:"uvoľnený, voľný",en:"loose, relaxed"},
+  {de:"gerade",sk:"párny",en:"even (number)"},
+  {de:"ungerade",sk:"nepárny",en:"odd (number)"}
 ],
 adverbs: [
   {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},
