@@ -469,9 +469,9 @@
         var suf = pluralSuffix(w.pl);
         if(suf) plPart = ' -' + escapeText(suf);
       }
-      return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>' + regMark(w) + xtraMark(w);
+      return '<span class="' + cls + '">' + (art ? art + ' ' : '') + escapeText(w.de) + plPart + '</span>' + regMark(w);
     }
-    return escapeText(w.de) + regMark(w) + xtraMark(w);
+    return escapeText(w.de) + regMark(w);
   }
   function viewH(){
     return (window.visualViewport && window.visualViewport.height) || window.innerHeight || 600;
@@ -493,16 +493,24 @@
     var labelA=$('labelA'), wordA=$('wordA'), subA=$('subA'), noteA=$('noteA');
     var cardB=$('cardB'), wordB=$('wordB'), subB=$('subB'), metaB=$('metaB');
     var prepA=$('prepA'), prepB=$('prepB');
+    var xtraA=$('xtraA'), xtraB=$('xtraB');
     if(!state.current){
       labelA.textContent='—'; wordA.textContent='No words'; subA.textContent='';
       wordB.textContent='—'; subB.textContent=''; metaB.textContent='';
       if(noteA) noteA.textContent='';
       if(prepA) prepA.textContent='';
       if(prepB) prepB.textContent='';
+      if(xtraA) xtraA.classList.remove('on');
+      if(xtraB) xtraB.classList.remove('on');
       return;
     }
     var w = state.current;
     if(noteA) noteA.textContent = srcNoteText(w);
+    // xtra corner badge — appears on both cards (prompt + answer) whenever
+    // the entry is flagged. On cardB the .tap overlay hides it until reveal,
+    // so it doesn't leak the answer in SK→DE mode.
+    if(xtraA) xtraA.classList.toggle('on', !!w.xtra);
+    if(xtraB) xtraB.classList.toggle('on', !!w.xtra);
     // prep-line (e.g. "von + Dat") lives on the German side. Show in
     // whichever card is currently rendering German, clear the other.
     var prepText = (w._kind === 'verb' && w.prep) ? w.prep : '';
@@ -688,7 +696,7 @@
         var w = copy(raw, data.kind);
         var deCol;
         if(data.kind === 'noun'){
-          deCol = deHTML(w);              // deHTML already appends regMark + xtraMark
+          deCol = deHTML(w) + xtraMark(w); // deHTML appends regMark; xtra stays inline in the review list
         } else if(data.kind === 'verb'){
           deCol = escapeText(w.de) + regMark(w) + xtraMark(w);
           if(w.prep) deCol += '<div class="prep-line">' + escapeText(w.prep) + '</div>';

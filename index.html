@@ -95,9 +95,13 @@
   /* "xtra" flag — entry came from supplementary source (e.g. TV
      subtitles), distinct from core wordlist. Fuchsia keeps it visually
      clear of the amber regional-usage marker and of the three gender
-     ramps used on nouns. */
+     ramps used on nouns. In the review list it stays as an inline
+     superscript next to the German word; in the learning cards it
+     moves to a corner badge (.xtra-corner) visible on both sides. */
   .xtra-mark{font-size:.4em;color:#f0abfc;font-weight:700;letter-spacing:.3px;vertical-align:super;margin-left:6px;white-space:nowrap}
   .review-row .xtra-mark{font-size:9px;margin-left:5px}
+  .xtra-corner{position:absolute;top:10px;right:14px;font-size:10px;font-weight:700;color:#f0abfc;letter-spacing:1.5px;text-transform:uppercase;line-height:1;display:none}
+  .xtra-corner.on{display:block}
   /* Review mode (full list) */
   #review{padding:6px 14px 24px}
   .review-header{display:flex;align-items:center;gap:10px;padding:6px 0 10px;margin-bottom:6px;position:sticky;top:0;background:#0f172a;z-index:1;border-bottom:1px solid #1e293b}
@@ -211,12 +215,14 @@
   <section class="cardWrap" id="learn" style="display:none">
     <div class="src-note-outer" id="noteA"></div>
     <div class="card" id="cardA">
+      <div class="xtra-corner" id="xtraA">xtra</div>
       <div class="label" id="labelA">SLOVAK / ENGLISH</div>
       <div class="word" id="wordA">—</div>
       <div class="prep-line" id="prepA"></div>
       <div class="sub" id="subA"></div>
     </div>
     <div class="card tap" id="cardB">
+      <div class="xtra-corner" id="xtraB">xtra</div>
       <div class="label">TAP TO REVEAL</div>
       <div class="word" id="wordB">•••</div>
       <div class="prep-line" id="prepB"></div>
