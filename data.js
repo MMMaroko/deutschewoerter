@@ -1810,7 +1810,8 @@ nouns: {
     {de:"Unterstützung",g:"f",pl:"-en",sk:"podpora",en:"support",xtra:true},
     {de:"Verhalten",g:"n",pl:"—",sk:"správanie",en:"behavior",xtra:true},
     {de:"Mühe",g:"f",pl:"-n",sk:"námaha, úsilie",en:"effort, trouble",xtra:true},
-    {de:"Eindruck",g:"m",pl:"-¨e",sk:"dojem",en:"impression",xtra:true}
+    {de:"Eindruck",g:"m",pl:"-¨e",sk:"dojem",en:"impression",xtra:true},
+    {de:"Zutritt",g:"m",pl:"-e",sk:"prístup, vstup",en:"access, entry",xtra:true}
   ],
   "Law & Justice": [
     {de:"Beweis",g:"m",pl:"-e",sk:"dôkaz",en:"proof, evidence"},
@@ -1854,7 +1855,8 @@ nouns: {
     {de:"Vorstand",g:"m",pl:"-¨e",sk:"vedenie, predstavenstvo",en:"board, management",xtra:true},
     {de:"Lügner",g:"m",pl:"=",sk:"klamár",en:"liar",xtra:true},
     {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
-    {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"}
+    {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"},
+    {de:"Feigling",g:"m",pl:"-e",sk:"zbabelec",en:"coward",xtra:true}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1961,7 +1963,9 @@ verbs: {
     {de:"zerstören",p2:"h. zerstört",sk:"zničiť",en:"to destroy"},
     {de:"wehren, sich",p2:"h. gewehrt",sk:"brániť sa",en:"to defend oneself",prep:"gegen + Akk"},
     {de:"entführen",p2:"h. entführt",sk:"uniesť",en:"to kidnap, abduct"},
-    {de:"flüchten",p2:"s. geflüchtet",sk:"utiecť",en:"to flee, escape",prep:"vor + Dat"}
+    {de:"flüchten",p2:"s. geflüchtet",sk:"utiecť",en:"to flee, escape",prep:"vor + Dat"},
+    {de:"begegnen",p2:"s. begegnet",sk:"stretnúť, natrafiť",en:"to encounter, meet",prep:"jdm.",xtra:true},
+    {de:"widersetzen, sich",p2:"h. widersetzt",sk:"vzoprieť sa, odporovať",en:"to defy, oppose, resist",prep:"jdm.",xtra:true}
   ],
   "Work & Daily Actions": [
     {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"},
@@ -1992,7 +1996,9 @@ verbs: {
     {de:"an·zeigen",p2:"h. angezeigt",sk:"oznámiť, nahlásiť",en:"to report (file complaint)",sep:true},
     {de:"aus·halten",p2:"h. ausgehalten",sk:"vydržať, zniesť",en:"to endure, withstand",sep:true,xtra:true},
     {de:"hin·kriegen",p2:"h. hingekriegt",sk:"zvládnuť (hovor.)",en:"to accomplish",sep:true,xtra:true},
-    {de:"auf·fordern",p2:"h. aufgefordert",sk:"vyzvať",en:"to request, call for",sep:true,prep:"jdn.    zu + Dat"}
+    {de:"auf·fordern",p2:"h. aufgefordert",sk:"vyzvať",en:"to request, call for",sep:true,prep:"jdn.    zu + Dat"},
+    {de:"ab·lösen",p2:"h. abgelöst",sk:"odstrániť, oddeliť",en:"to remove, detach",sep:true,xtra:true},
+    {de:"zu·lassen",p2:"h. zugelassen",sk:"dovoliť, povoliť",en:"to allow, permit",sep:true,xtra:true}
   ]
 },
 adjectives: [

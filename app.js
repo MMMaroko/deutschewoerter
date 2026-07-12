@@ -101,7 +101,9 @@
     'ab·schließen':'Work & Daily Actions','aus·halten':'Mind & Perception',
     'hin·kriegen':'Work & Daily Actions',
     // ---- B1 batch 9 separable verbs ----
-    'auf·fordern':'Communication & Social'
+    'auf·fordern':'Communication & Social',
+    // ---- B1 batch 10 separable verbs (xtra) ----
+    'ab·lösen':'Movement & Physical','zu·lassen':'Work & Daily Actions'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
