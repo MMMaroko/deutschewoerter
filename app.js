@@ -495,6 +495,72 @@
     if(w && w.src === 'kb') return 'This word was included from Kursbuch wordlist and translated by AI';
     return '';
   }
+
+  // ---- Speech synthesis (voiced German word) --------------------------
+  // Pick a voice once at startup: prefer Austrian (de-AT), fall back to
+  // any German (de-*). The chosen voice's name + region is shown in the
+  // Legend & info section so the user knows what they're hearing.
+  var _speechVoice = null;
+  var _speechVoiceLabel = '';
+  var _langLabels = { 'de-AT':'Austrian', 'de-DE':'German', 'de-CH':'Swiss' };
+
+  function pickGermanVoice(){
+    if (!('speechSynthesis' in window)) return;
+    var voices = speechSynthesis.getVoices();
+    if (!voices || !voices.length) return;
+    var austrian = null, other = null;
+    for (var i = 0; i < voices.length; i++) {
+      var v = voices[i];
+      if (v.lang === 'de-AT' && !austrian) austrian = v;
+      if (v.lang && v.lang.indexOf('de') === 0 && !other) other = v;
+    }
+    var pick = austrian || other;
+    if (pick && pick !== _speechVoice) {
+      _speechVoice = pick;
+      _speechVoiceLabel = pick.name + ' (' + (_langLabels[pick.lang] || pick.lang) + ')';
+      updateVoiceInfoDisplay();
+      updateSpeakBtnVisibility();
+    }
+  }
+  function updateVoiceInfoDisplay(){
+    var el = $('voiceInfo'); if (!el) return;
+    if (!('speechSynthesis' in window)) { el.textContent = 'Voice: not supported'; return; }
+    if (!_speechVoice) { el.textContent = 'Voice: no German voice available'; return; }
+    el.textContent = 'Voice: ' + _speechVoiceLabel;
+  }
+  function updateSpeakBtnVisibility(){
+    var sa=$('speakA'), sb=$('speakB');
+    var showA = !!_speechVoice && !!state.current && state.direction === 'de';
+    var showB = !!_speechVoice && !!state.current && state.direction !== 'de';
+    if (sa) sa.classList.toggle('on', showA);
+    if (sb) sb.classList.toggle('on', showB);
+  }
+  function normalizeForSpeech(text){
+    if (!text) return '';
+    text = text.replace(/·/g, '');                              // strip trennbar dot
+    text = text.replace(/^(.+?),\s*sich\s*$/, 'sich $1');       // ", sich" → "sich X"
+    return text.trim();
+  }
+  function speakCurrentWord(){
+    if (!('speechSynthesis' in window)) return;
+    if (!state.current || !state.current.de) return;
+    var text = normalizeForSpeech(state.current.de);
+    if (!text) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = _speechVoice ? _speechVoice.lang : 'de-DE';
+    u.rate = 0.9;
+    if (_speechVoice) u.voice = _speechVoice;
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }
+  function initSpeech(){
+    updateVoiceInfoDisplay();  // shows "not supported" if no API
+    if (!('speechSynthesis' in window)) return;
+    pickGermanVoice();
+    // Voices load async on some browsers; re-pick when they arrive.
+    speechSynthesis.addEventListener('voiceschanged', pickGermanVoice);
+  }
+
   function render(){
     var labelA=$('labelA'), wordA=$('wordA'), subA=$('subA'), noteA=$('noteA');
     var cardB=$('cardB'), wordB=$('wordB'), subB=$('subB'), metaB=$('metaB');
@@ -508,6 +574,7 @@
       if(prepB) prepB.textContent='';
       if(xtraA) xtraA.classList.remove('on');
       if(xtraB) xtraB.classList.remove('on');
+      updateSpeakBtnVisibility();
       return;
     }
     var w = state.current;
@@ -517,6 +584,8 @@
     // so it doesn't leak the answer in SK→DE mode.
     if(xtraA) xtraA.classList.toggle('on', !!w.xtra);
     if(xtraB) xtraB.classList.toggle('on', !!w.xtra);
+    // Speaker button — only on whichever card shows the German side.
+    updateSpeakBtnVisibility();
     // prep-line (e.g. "von + Dat") lives on the German side. Show in
     // whichever card is currently rendering German, clear the other.
     var prepText = (w._kind === 'verb' && w.prep) ? w.prep : '';
@@ -764,6 +833,10 @@
     if (state.revealed) App.next();
     else App.reveal();
   });
+  // Speaker buttons — stopPropagation so tapping the icon on cardB
+  // doesn't also trigger cardB's reveal/next handler.
+  bind($('speakA'), 'click', function(e){ e.stopPropagation(); speakCurrentWord(); });
+  bind($('speakB'), 'click', function(e){ e.stopPropagation(); speakCurrentWord(); });
   bind($('type'),      'change', function(){ App.changeType(); });
 
   var _lvlBtns = $('lvl').getElementsByTagName('button');
@@ -793,6 +866,7 @@
   window.addEventListener('resize', fitBody);
   if (window.visualViewport) window.visualViewport.addEventListener('resize', fitBody);
   window.addEventListener('orientationchange', fitBody);
+  initSpeech();
   document.addEventListener('keydown', function(e){
     if($('learn').style.display === 'none') return;
     if(e.code === 'Space'){ e.preventDefault(); state.revealed ? window.App.next() : window.App.reveal(); }

@@ -102,6 +102,14 @@
   .review-row .xtra-mark{font-size:9px;margin-left:5px}
   .xtra-corner{position:absolute;top:10px;right:14px;font-size:10px;font-weight:700;color:#f0abfc;letter-spacing:1.5px;text-transform:uppercase;line-height:1;display:none}
   .xtra-corner.on{display:block}
+  /* Speak-aloud button — visible only on the card that currently shows
+     the German word. Uses the browser's SpeechSynthesis API, offline-
+     capable via OS-level voices. Preferred voice picked once at startup
+     (Austrian first, then any German). */
+  .speak-btn{position:absolute;top:8px;left:10px;background:transparent;border:0;color:#94a3b8;padding:6px 8px;cursor:pointer;line-height:0;display:none;border-radius:6px;-webkit-tap-highlight-color:transparent}
+  .speak-btn.on{display:block}
+  .speak-btn:active{background:rgba(148,163,184,.15);color:#e2e8f0}
+  .speak-btn svg{display:block}
   /* Review mode (full list) */
   #review{padding:6px 14px 24px}
   .review-header{display:flex;align-items:center;gap:10px;padding:6px 0 10px;margin-bottom:6px;position:sticky;top:0;background:#0f172a;z-index:1;border-bottom:1px solid #1e293b}
@@ -199,6 +207,7 @@
         Review list shows every entry in the chosen category as DE / SK / EN.
       </p>
       <p style="font-size:11px;color:#475569;margin:6px 0 0" id="dbVersion">Database version: —</p>
+      <p style="font-size:11px;color:#475569;margin:2px 0 0" id="voiceInfo">Voice: (checking…)</p>
       <button type="button" id="resetCache" style="margin-top:10px;background:transparent;border:1px solid #334155;font-size:12px;padding:6px 10px;color:#94a3b8">Reset offline cache</button>
     </details>
   </section>
@@ -216,6 +225,7 @@
     <div class="src-note-outer" id="noteA"></div>
     <div class="card" id="cardA">
       <div class="xtra-corner" id="xtraA">xtra</div>
+      <button class="speak-btn" id="speakA" type="button" aria-label="Speak German word"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
       <div class="label" id="labelA">SLOVAK / ENGLISH</div>
       <div class="word" id="wordA">—</div>
       <div class="prep-line" id="prepA"></div>
@@ -223,6 +233,7 @@
     </div>
     <div class="card tap" id="cardB">
       <div class="xtra-corner" id="xtraB">xtra</div>
+      <button class="speak-btn" id="speakB" type="button" aria-label="Speak German word"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button>
       <div class="label">TAP TO REVEAL</div>
       <div class="word" id="wordB">•••</div>
       <div class="prep-line" id="prepB"></div>
