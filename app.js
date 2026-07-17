@@ -103,7 +103,9 @@
     // ---- B1 batch 9 separable verbs ----
     'auf·fordern':'Communication & Social',
     // ---- B1 batch 10 separable verbs (xtra) ----
-    'ab·lösen':'Movement & Physical','zu·lassen':'Work & Daily Actions'
+    'ab·lösen':'Movement & Physical','zu·lassen':'Work & Daily Actions',
+    // ---- B1 batch 11 separable verbs ----
+    'auf·teilen':'Work & Daily Actions','an·erkennen':'Communication & Social'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -197,7 +199,8 @@
     'lieblings-':'Quality & Evaluation','unangenehm':'Quality & Evaluation',
     'strafbar':'Quality & Evaluation','üblich':'Quality & Evaluation',
     'verdächtig':'Quality & Evaluation','wertvoll':'Quality & Evaluation',
-    'ungerade':'Quality & Evaluation',
+    'ungerade':'Quality & Evaluation','lesbar':'Quality & Evaluation',
+    'führend':'Quality & Evaluation','unverzichtbar':'Quality & Evaluation',
     // State & Condition
     'gesund':'State & Condition','krank':'State & Condition',
     'leer':'State & Condition','voll':'State & Condition',
@@ -223,6 +226,7 @@
     'früh':'Time & Sequence','spät':'Time & Sequence',
     'ewig':'Time & Sequence','plötzlich':'Time & Sequence',
     'andauernd':'Time & Sequence','übernächste':'Time & Sequence',
+    'rasch':'Time & Sequence',
     'jetzt':'Time & Sequence','momentan':'Time & Sequence',
     'zurzeit':'Time & Sequence','gerade':'Time & Sequence',
     'sofort':'Time & Sequence','gleich':'Time & Sequence',

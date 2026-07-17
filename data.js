@@ -1811,7 +1811,11 @@ nouns: {
     {de:"Verhalten",g:"n",pl:"—",sk:"správanie",en:"behavior",xtra:true},
     {de:"Mühe",g:"f",pl:"-n",sk:"námaha, úsilie",en:"effort, trouble",xtra:true},
     {de:"Eindruck",g:"m",pl:"-¨e",sk:"dojem",en:"impression",xtra:true},
-    {de:"Zutritt",g:"m",pl:"-e",sk:"prístup, vstup",en:"access, entry",xtra:true}
+    {de:"Zutritt",g:"m",pl:"-e",sk:"prístup, vstup",en:"access, entry",xtra:true},
+    {de:"Einsatz",g:"m",pl:"-¨e",sk:"nasadenie, misia",en:"commitment, mission"},
+    {de:"Fähigkeit",g:"f",pl:"-en",sk:"schopnosť, zručnosť",en:"skill, ability"},
+    {de:"Inhalt",g:"m",pl:"-e",sk:"obsah",en:"content"},
+    {de:"Geduld",g:"f",pl:"—",sk:"trpezlivosť",en:"patience"}
   ],
   "Law & Justice": [
     {de:"Beweis",g:"m",pl:"-e",sk:"dôkaz",en:"proof, evidence"},
@@ -1827,7 +1831,8 @@ nouns: {
     {de:"Drohung",g:"f",pl:"-en",sk:"hrozba",en:"threat"},
     {de:"Gewalt",g:"f",pl:"-en",sk:"násilie, moc, sila",en:"violence, power, force"},
     {de:"Aufsicht",g:"f",pl:"-en",sk:"dohľad, dozor",en:"supervision, oversight",xtra:true},
-    {de:"Geheimdienst",g:"m",pl:"-e",sk:"tajná služba",en:"secret service",xtra:true}
+    {de:"Geheimdienst",g:"m",pl:"-e",sk:"tajná služba",en:"secret service",xtra:true},
+    {de:"Gericht",g:"n",pl:"-e",sk:"súd",en:"court, tribunal"}
   ],
   "Documents & Records": [
     {de:"Unterlagen",g:"f",pl:"-",sk:"podklady",en:"documentation"},
@@ -1870,7 +1875,9 @@ nouns: {
     {de:"Sack",g:"m",pl:"-¨e",sk:"vrece",en:"bag, sack"},
     {de:"Ofen",g:"m",pl:"-¨",sk:"pec, kachle, rúra",en:"heater, oven"},
     {de:"Eimer",g:"m",pl:"=",sk:"vedro",en:"bucket"},
-    {de:"Leuchtturm",g:"m",pl:"-¨e",sk:"maják",en:"lighthouse"}
+    {de:"Leuchtturm",g:"m",pl:"-¨e",sk:"maják",en:"lighthouse"},
+    {de:"Stahl",g:"m",pl:"—",sk:"oceľ",en:"steel"},
+    {de:"Löschfahrzeug",g:"n",pl:"-e",sk:"hasičské auto",en:"fire truck"}
   ],
   "Economy & Work": [
     {de:"Dienstzettel",g:"m",pl:"=",sk:"pracovný výkaz",en:"employment summary",reg:"AT/ÖrD"},
@@ -1956,7 +1963,10 @@ verbs: {
     {de:"begreifen",p2:"h. begriffen",sk:"pochopiť",en:"to grasp, understand",xtra:true},
     {de:"erwarten",p2:"h. erwartet",sk:"očakávať",en:"to expect"},
     {de:"widersprechen",p2:"h. widersprochen",sk:"odporovať, protirečiť",en:"to contradict",prep:"jdm.",xtra:true},
-    {de:"orten",p2:"h. geortet",sk:"lokalizovať",en:"to locate"}
+    {de:"orten",p2:"h. geortet",sk:"lokalizovať",en:"to locate"},
+    {de:"überwachen",p2:"h. überwacht",sk:"monitorovať, sledovať",en:"to monitor, watch"},
+    {de:"befassen, sich",p2:"h. befasst",sk:"zaoberať sa",en:"to deal with, address",prep:"mit + Dat"},
+    {de:"verstören",p2:"h. verstört",sk:"znepokojiť, rozrušiť",en:"to upset, disturb",xtra:true}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1965,7 +1975,9 @@ verbs: {
     {de:"entführen",p2:"h. entführt",sk:"uniesť",en:"to kidnap, abduct"},
     {de:"flüchten",p2:"s. geflüchtet",sk:"utiecť",en:"to flee, escape",prep:"vor + Dat"},
     {de:"begegnen",p2:"s. begegnet",sk:"stretnúť, natrafiť",en:"to encounter, meet",prep:"jdm.",xtra:true},
-    {de:"widersetzen, sich",p2:"h. widersetzt",sk:"vzoprieť sa, odporovať",en:"to defy, oppose, resist",prep:"jdm.",xtra:true}
+    {de:"widersetzen, sich",p2:"h. widersetzt",sk:"vzoprieť sa, odporovať",en:"to defy, oppose, resist",prep:"jdm.",xtra:true},
+    {de:"funkeln",p2:"h. gefunkelt",sk:"iskriť, trblietať sa",en:"to sparkle, twinkle",xtra:true},
+    {de:"schleifen",p2:"h. geschliffen",sk:"brúsiť, leštiť",en:"to grind, polish",xtra:true}
   ],
   "Work & Daily Actions": [
     {de:"wecken",p2:"h. geweckt",sk:"prebudiť, zobudiť",en:"to wake (up)"},
@@ -1976,7 +1988,9 @@ verbs: {
     {de:"verurteilen",p2:"h. verurteilt",sk:"odsúdiť",en:"to sentence, convict",prep:"zu + Dat"},
     {de:"feuern",p2:"h. gefeuert",sk:"vyhodiť, strieľať",en:"to fire",xtra:true},
     {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm.",xtra:true},
-    {de:"verhandeln",p2:"h. verhandelt",sk:"rokovať",en:"to negotiate",prep:"über + Akk    mit + Dat",xtra:true}
+    {de:"verhandeln",p2:"h. verhandelt",sk:"rokovať",en:"to negotiate",prep:"über + Akk    mit + Dat",xtra:true},
+    {de:"naschen",p2:"h. genascht",sk:"maškrtiť",en:"to snack, nibble sweets",xtra:true},
+    {de:"gefährden",p2:"h. gefährdet",sk:"ohroziť",en:"to endanger, jeopardize",xtra:true}
   ],
   "Separable Verbs": [
     {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
@@ -1998,7 +2012,9 @@ verbs: {
     {de:"hin·kriegen",p2:"h. hingekriegt",sk:"zvládnuť (hovor.)",en:"to accomplish",sep:true,xtra:true},
     {de:"auf·fordern",p2:"h. aufgefordert",sk:"vyzvať",en:"to request, call for",sep:true,prep:"jdn.    zu + Dat"},
     {de:"ab·lösen",p2:"h. abgelöst",sk:"odstrániť, oddeliť",en:"to remove, detach",sep:true,xtra:true},
-    {de:"zu·lassen",p2:"h. zugelassen",sk:"dovoliť, povoliť",en:"to allow, permit",sep:true,xtra:true}
+    {de:"zu·lassen",p2:"h. zugelassen",sk:"dovoliť, povoliť",en:"to allow, permit",sep:true,xtra:true},
+    {de:"auf·teilen",p2:"h. aufgeteilt",sk:"rozdeliť",en:"to distribute, divide",sep:true,prep:"unter + Akk"},
+    {de:"an·erkennen",p2:"h. anerkannt",sk:"uznať, oceniť",en:"to acknowledge, appreciate",sep:true}
   ]
 },
 adjectives: [
@@ -2031,7 +2047,11 @@ adjectives: [
   {de:"wertvoll",sk:"cenný, hodnotný",en:"valuable"},
   {de:"locker",sk:"uvoľnený, voľný",en:"loose, relaxed"},
   {de:"gerade",sk:"párny",en:"even (number)"},
-  {de:"ungerade",sk:"nepárny",en:"odd (number)"}
+  {de:"ungerade",sk:"nepárny",en:"odd (number)"},
+  {de:"lesbar",sk:"čitateľný",en:"readable"},
+  {de:"führend",sk:"vedúci, popredný",en:"leading"},
+  {de:"unverzichtbar",sk:"nevyhnutný",en:"essential"},
+  {de:"rasch",sk:"rýchly, hbitý",en:"quick, rapid"}
 ],
 adverbs: [
   {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},
@@ -2043,4 +2063,4 @@ adverbs: [
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-06-20";
+window.VOCAB_VERSION = "2026-07-05";
