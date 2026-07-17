@@ -497,27 +497,29 @@
   }
 
   // ---- Speech synthesis (voiced German word) --------------------------
-  // Pick a voice once at startup: prefer Austrian (de-AT), fall back to
-  // any German (de-*). The chosen voice's name + region is shown in the
-  // Legend & info section so the user knows what they're hearing.
+  // Pick a voice once at startup (and again on voiceschanged / when the
+  // tab regains focus, in case the OS voice list changed while away).
+  // Prefer Austrian (de-AT), fall back to any German (de-*).
   var _speechVoice = null;
   var _speechVoiceLabel = '';
   var _langLabels = { 'de-AT':'Austrian', 'de-DE':'German', 'de-CH':'Swiss' };
 
+  function normLang(l){ return (l || '').replace('_','-'); }
   function pickGermanVoice(){
     if (!('speechSynthesis' in window)) return;
     var voices = speechSynthesis.getVoices();
     if (!voices || !voices.length) return;
     var austrian = null, other = null;
     for (var i = 0; i < voices.length; i++) {
-      var v = voices[i];
-      if (v.lang === 'de-AT' && !austrian) austrian = v;
-      if (v.lang && v.lang.indexOf('de') === 0 && !other) other = v;
+      var v = voices[i]; var lang = normLang(v.lang);
+      if (lang === 'de-AT' && !austrian) austrian = v;
+      if (lang && lang.indexOf('de') === 0 && !other) other = v;
     }
     var pick = austrian || other;
     if (pick && pick !== _speechVoice) {
       _speechVoice = pick;
-      _speechVoiceLabel = pick.name + ' (' + (_langLabels[pick.lang] || pick.lang) + ')';
+      var lang = normLang(pick.lang);
+      _speechVoiceLabel = pick.name + ' (' + (_langLabels[lang] || lang) + ')';
       updateVoiceInfoDisplay();
       updateSpeakBtnVisibility();
     }
@@ -530,8 +532,11 @@
   }
   function updateSpeakBtnVisibility(){
     var sa=$('speakA'), sb=$('speakB');
-    var showA = !!_speechVoice && !!state.current && state.direction === 'de';
-    var showB = !!_speechVoice && !!state.current && state.direction !== 'de';
+    // Only show the button when a German voice was actually picked;
+    // hiding it when none is available avoids a dead-looking icon.
+    var ready = !!_speechVoice && !!state.current;
+    var showA = ready && state.direction === 'de';
+    var showB = ready && state.direction !== 'de';
     if (sa) sa.classList.toggle('on', showA);
     if (sb) sb.classList.toggle('on', showB);
   }
@@ -542,15 +547,17 @@
     return text.trim();
   }
   function speakCurrentWord(){
-    if (!('speechSynthesis' in window)) return;
+    if (!('speechSynthesis' in window)) { diag('TTS: not supported in this browser'); return; }
     if (!state.current || !state.current.de) return;
     var text = normalizeForSpeech(state.current.de);
     if (!text) return;
     var u = new SpeechSynthesisUtterance(text);
-    u.lang = _speechVoice ? _speechVoice.lang : 'de-DE';
+    u.lang = _speechVoice ? normLang(_speechVoice.lang) : 'de-DE';
     u.rate = 0.9;
     if (_speechVoice) u.voice = _speechVoice;
+    u.onerror = function(ev){ diag('TTS error: ' + (ev.error || 'unknown')); };
     speechSynthesis.cancel();
+    try { speechSynthesis.resume(); } catch(e){}   // wake queue if paused
     speechSynthesis.speak(u);
   }
   function initSpeech(){
@@ -559,6 +566,11 @@
     pickGermanVoice();
     // Voices load async on some browsers; re-pick when they arrive.
     speechSynthesis.addEventListener('voiceschanged', pickGermanVoice);
+    // Also re-pick when the tab regains focus (user may have changed OS
+    // TTS settings while away). Cheap: one lookup per focus change.
+    document.addEventListener('visibilitychange', function(){
+      if (!document.hidden) pickGermanVoice();
+    });
   }
 
   function render(){
