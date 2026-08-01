@@ -105,7 +105,10 @@
     // ---- B1 batch 10 separable verbs (xtra) ----
     'ab·lösen':'Movement & Physical','zu·lassen':'Work & Daily Actions',
     // ---- B1 batch 11 separable verbs ----
-    'auf·teilen':'Work & Daily Actions','an·erkennen':'Communication & Social'
+    'auf·teilen':'Work & Daily Actions','an·erkennen':'Communication & Social',
+    // ---- B1 batch 12 separable verbs (xtra) ----
+    'an·treiben':'Movement & Physical','aus·üben':'Work & Daily Actions',
+    'mit·laufen':'Movement & Physical','locker·lassen':'Work & Daily Actions'
     // (All others fall through to "Work & Daily Actions" as default.)
   };
 
@@ -201,6 +204,9 @@
     'verdächtig':'Quality & Evaluation','wertvoll':'Quality & Evaluation',
     'ungerade':'Quality & Evaluation','lesbar':'Quality & Evaluation',
     'führend':'Quality & Evaluation','unverzichtbar':'Quality & Evaluation',
+    'ausschlaggebend':'Quality & Evaluation','deutlich':'Quality & Evaluation',
+    'ungemütlich':'Quality & Evaluation','erstaunlich':'Quality & Evaluation',
+    'langlebig':'Quality & Evaluation','riesig':'Appearance & Physical',
     // State & Condition
     'gesund':'State & Condition','krank':'State & Condition',
     'leer':'State & Condition','voll':'State & Condition',
@@ -238,6 +244,8 @@
     'wieder':'Time & Sequence','inzwischen':'Time & Sequence',
     'mehrmals':'Time & Sequence','laufend':'Time & Sequence',
     'zugleich':'Time & Sequence','neulich':'Time & Sequence',
+    'derzeit':'Time & Sequence','zunächst':'Time & Sequence',
+    'heuer':'Time & Sequence',
     // Place & Direction
     'weit, fern':'Place & Direction','nah(e)':'Place & Direction',
     'zurück':'Place & Direction','draußen':'Place & Direction',

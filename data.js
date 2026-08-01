@@ -230,7 +230,8 @@ nouns: {
     {de:"Zutat",g:"f",pl:"-en",sk:"ingrediencia",en:"ingredient"},
     {de:"Essig",g:"m",pl:"-e",sk:"ocot",en:"vinegar",src:"kb"},
     {de:"Getreide",g:"n",pl:"=",sk:"obilie",en:"grain, cereal",src:"kb"},
-    {de:"Nachspeise",g:"f",pl:"-n",sk:"dezert",en:"dessert",src:"kb"}
+    {de:"Nachspeise",g:"f",pl:"-n",sk:"dezert",en:"dessert",src:"kb"},
+    {de:"Gericht",g:"n",pl:"-e",sk:"jedlo, pokrm",en:"dish, meal"}
   ],
   "Culture": [
     {de:"Sehenswürdigkeit",g:"f",pl:"-en",sk:"pamätihodnosť",en:"tourist attraction"},
@@ -1815,7 +1816,12 @@ nouns: {
     {de:"Einsatz",g:"m",pl:"-¨e",sk:"nasadenie, misia",en:"commitment, mission"},
     {de:"Fähigkeit",g:"f",pl:"-en",sk:"schopnosť, zručnosť",en:"skill, ability"},
     {de:"Inhalt",g:"m",pl:"-e",sk:"obsah",en:"content"},
-    {de:"Geduld",g:"f",pl:"—",sk:"trpezlivosť",en:"patience"}
+    {de:"Geduld",g:"f",pl:"—",sk:"trpezlivosť",en:"patience"},
+    {de:"Rücktritt",g:"m",pl:"-e",sk:"odstúpenie, rezignácia",en:"resignation",xtra:true},
+    {de:"Redewendung",g:"f",pl:"-en",sk:"fráza, ustálený výraz",en:"phrase, idiom",xtra:true},
+    {de:"Unsinn",g:"m",pl:"—",sk:"nezmysel",en:"nonsense, absurdity"},
+    {de:"Entscheidung",g:"f",pl:"-en",sk:"rozhodnutie",en:"decision, choice"},
+    {de:"Andrang",g:"m",pl:"—",sk:"nával",en:"rush, influx",xtra:true}
   ],
   "Law & Justice": [
     {de:"Beweis",g:"m",pl:"-e",sk:"dôkaz",en:"proof, evidence"},
@@ -1861,7 +1867,8 @@ nouns: {
     {de:"Lügner",g:"m",pl:"=",sk:"klamár",en:"liar",xtra:true},
     {de:"Einrichtung",g:"f",pl:"-en",sk:"inštitúcia",en:"institution"},
     {de:"Gesundheitswesen",g:"n",pl:"=",sk:"zdravotnícky systém",en:"healthcare system"},
-    {de:"Feigling",g:"m",pl:"-e",sk:"zbabelec",en:"coward",xtra:true}
+    {de:"Feigling",g:"m",pl:"-e",sk:"zbabelec",en:"coward",xtra:true},
+    {de:"Verwandte",g:"m",pl:"-n",sk:"príbuzný",en:"relative"}
   ],
   "Objects": [
     {de:"Kopfhörer",g:"m",pl:"=",sk:"slúchadlá",en:"headphones"},
@@ -1924,7 +1931,10 @@ nouns: {
     {de:"Entführung",g:"f",pl:"-en",sk:"únos",en:"kidnapping, abduction"},
     {de:"Flucht",g:"f",pl:"-en",sk:"útek",en:"escape, flight"},
     {de:"Verrat",g:"m",pl:"-¨e",sk:"zrada",en:"betrayal",xtra:true},
-    {de:"Scheidung",g:"f",pl:"-en",sk:"rozvod",en:"divorce",xtra:true}
+    {de:"Scheidung",g:"f",pl:"-en",sk:"rozvod",en:"divorce",xtra:true},
+    {de:"Auslöser",g:"m",pl:"=",sk:"spúšť, spínač",en:"trigger",xtra:true},
+    {de:"Wettkampf",g:"m",pl:"-¨e",sk:"súťaž",en:"competition (sport)",xtra:true},
+    {de:"Jagd",g:"f",pl:"-en",sk:"poľovačka, honba",en:"chase, hunt",xtra:true}
   ],
   "Miscellaneous": [
     {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
@@ -1935,7 +1945,8 @@ nouns: {
     {de:"Fläche",g:"f",pl:"-n",sk:"plocha",en:"area, surface"},
     {de:"Zusatzstoff",g:"m",pl:"-e",sk:"prímes, prísada",en:"additive"},
     {de:"Äquator",g:"m",pl:"-en",sk:"rovník",en:"equator"},
-    {de:"Pranke",g:"f",pl:"-n",sk:"laba",en:"paw"}
+    {de:"Pranke",g:"f",pl:"-n",sk:"laba",en:"paw"},
+    {de:"Eiweiß",g:"n",pl:"-e",sk:"bielkovina, vaječný bielok",en:"protein, egg white",xtra:true}
   ]
 },
 verbs: {
@@ -1966,7 +1977,13 @@ verbs: {
     {de:"orten",p2:"h. geortet",sk:"lokalizovať",en:"to locate"},
     {de:"überwachen",p2:"h. überwacht",sk:"monitorovať, sledovať",en:"to monitor, watch"},
     {de:"befassen, sich",p2:"h. befasst",sk:"zaoberať sa",en:"to deal with, address",prep:"mit + Dat"},
-    {de:"verstören",p2:"h. verstört",sk:"znepokojiť, rozrušiť",en:"to upset, disturb",xtra:true}
+    {de:"verstören",p2:"h. verstört",sk:"znepokojiť, rozrušiť",en:"to upset, disturb",xtra:true},
+    {de:"nennen",p2:"h. genannt",sk:"nazvať, uviesť, spomenúť",en:"to name, call, mention",xtra:true},
+    {de:"schätzen",p2:"h. geschätzt",sk:"odhadnúť, oceniť",en:"to estimate, appreciate",prep:"auf + Akk",xtra:true},
+    {de:"beeindrucken",p2:"h. beeindruckt",sk:"zapôsobiť, urobiť dojem",en:"to impress"},
+    {de:"begeistern",p2:"h. begeistert",sk:"nadchnúť",en:"to excite, inspire",xtra:true},
+    {de:"berichten",p2:"h. berichtet",sk:"oznámiť, referovať",en:"to report, inform",prep:"über + Akk"},
+    {de:"prägen",p2:"h. geprägt",sk:"formovať, ovplyvniť",en:"to shape, mold, influence",xtra:true}
   ],
   "Movement & Physical": [
     {de:"ohrfeigen",p2:"h. geohrfeigt",sk:"fackať",en:"to slap"},
@@ -1990,7 +2007,9 @@ verbs: {
     {de:"schaden",p2:"h. geschadet",sk:"škodiť",en:"to harm",prep:"jdm.",xtra:true},
     {de:"verhandeln",p2:"h. verhandelt",sk:"rokovať",en:"to negotiate",prep:"über + Akk    mit + Dat",xtra:true},
     {de:"naschen",p2:"h. genascht",sk:"maškrtiť",en:"to snack, nibble sweets",xtra:true},
-    {de:"gefährden",p2:"h. gefährdet",sk:"ohroziť",en:"to endanger, jeopardize",xtra:true}
+    {de:"gefährden",p2:"h. gefährdet",sk:"ohroziť",en:"to endanger, jeopardize",xtra:true},
+    {de:"verzeichnen",p2:"h. verzeichnet",sk:"zaznamenať",en:"to record, note",xtra:true},
+    {de:"gelingen",p2:"s. gelungen",sk:"podariť sa",en:"to succeed",prep:"jdm.",xtra:true}
   ],
   "Separable Verbs": [
     {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
@@ -2014,7 +2033,11 @@ verbs: {
     {de:"ab·lösen",p2:"h. abgelöst",sk:"odstrániť, oddeliť",en:"to remove, detach",sep:true,xtra:true},
     {de:"zu·lassen",p2:"h. zugelassen",sk:"dovoliť, povoliť",en:"to allow, permit",sep:true,xtra:true},
     {de:"auf·teilen",p2:"h. aufgeteilt",sk:"rozdeliť",en:"to distribute, divide",sep:true,prep:"unter + Akk"},
-    {de:"an·erkennen",p2:"h. anerkannt",sk:"uznať, oceniť",en:"to acknowledge, appreciate",sep:true}
+    {de:"an·erkennen",p2:"h. anerkannt",sk:"uznať, oceniť",en:"to acknowledge, appreciate",sep:true},
+    {de:"an·treiben",p2:"h. angetrieben",sk:"poháňať, hnať",en:"to fuel, drive, propel",sep:true,xtra:true},
+    {de:"aus·üben",p2:"h. ausgeübt",sk:"vykonávať, zastávať, vyvíjať (nátlak)",en:"to execute, exercise, practice",sep:true,xtra:true},
+    {de:"mit·laufen",p2:"s. mitgelaufen",sk:"bežať spolu, prebiehať zároveň",en:"to run along, accompany",sep:true,xtra:true},
+    {de:"locker·lassen",p2:"h. lockergelassen",sk:"poľaviť, ustúpiť",en:"to relax, let up (colloq.)",sep:true,xtra:true}
   ]
 },
 adjectives: [
@@ -2051,16 +2074,25 @@ adjectives: [
   {de:"lesbar",sk:"čitateľný",en:"readable"},
   {de:"führend",sk:"vedúci, popredný",en:"leading"},
   {de:"unverzichtbar",sk:"nevyhnutný",en:"essential"},
-  {de:"rasch",sk:"rýchly, hbitý",en:"quick, rapid"}
+  {de:"rasch",sk:"rýchly, hbitý",en:"quick, rapid"},
+  {de:"ausschlaggebend",sk:"rozhodujúci",en:"decisive, crucial",xtra:true},
+  {de:"deutlich",sk:"jasný, zreteľný",en:"clear, distinct"},
+  {de:"riesig",sk:"obrovský",en:"huge, enormous"},
+  {de:"ungemütlich",sk:"nepríjemný, nepohodlný",en:"uncomfortable, unpleasant"},
+  {de:"erstaunlich",sk:"udivujúci, prekvapivý",en:"amazing, astonishing"},
+  {de:"langlebig",sk:"odolný, dlhotrvajúci",en:"durable",xtra:true}
 ],
 adverbs: [
   {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},
   {de:"allerdings",sk:"však, pravdaže",en:"however, indeed"},
-  {de:"durcheinander",sk:"pomiešaný",en:"chaotic, mixed up"}
+  {de:"durcheinander",sk:"pomiešaný",en:"chaotic, mixed up"},
+  {de:"derzeit",sk:"momentálne, v súčasnosti",en:"currently, nowadays"},
+  {de:"zunächst",sk:"najprv, spočiatku",en:"initially, at first"},
+  {de:"heuer",sk:"tento rok",en:"this year",reg:"AT/ÖrD",xtra:true}
 ]
 } /* end B1 */
 
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-07-05";
+window.VOCAB_VERSION = "2026-08-01";
