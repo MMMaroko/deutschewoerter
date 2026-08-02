@@ -1848,7 +1848,8 @@ nouns: {
     {de:"Lebenslauf",g:"m",pl:"-¨e",sk:"životopis",en:"CV, resume"},
     {de:"Fragebogen",g:"m",pl:"-¨",sk:"dotazník",en:"questionnaire"},
     {de:"Zusammenfassung",g:"f",pl:"-en",sk:"zhrnutie, prehľad",en:"summary, abstract"},
-    {de:"Strafregisterauszug",g:"m",pl:"-¨e",sk:"výpis z registra trestov",en:"criminal records extract"}
+    {de:"Strafregisterauszug",g:"m",pl:"-¨e",sk:"výpis z registra trestov",en:"criminal records extract"},
+    {de:"Verfassung",g:"f",pl:"-en",sk:"ústava",en:"constitution",xtra:true}
   ],
   "People & Society": [
     {de:"Leiter",g:"m",pl:"=",sk:"vedúci",en:"leader, manager"},
@@ -1934,7 +1935,8 @@ nouns: {
     {de:"Scheidung",g:"f",pl:"-en",sk:"rozvod",en:"divorce",xtra:true},
     {de:"Auslöser",g:"m",pl:"=",sk:"spúšť, spínač",en:"trigger",xtra:true},
     {de:"Wettkampf",g:"m",pl:"-¨e",sk:"súťaž",en:"competition (sport)",xtra:true},
-    {de:"Jagd",g:"f",pl:"-en",sk:"poľovačka, honba",en:"chase, hunt",xtra:true}
+    {de:"Jagd",g:"f",pl:"-en",sk:"poľovačka, honba",en:"chase, hunt",xtra:true},
+    {de:"Besatzung",g:"f",pl:"-en",sk:"okupácia, posádka",en:"occupation, crew"}
   ],
   "Miscellaneous": [
     {de:"Absatz",g:"m",pl:"-¨e",sk:"opätok, odsek",en:"heel, paragraph"},
@@ -2009,7 +2011,10 @@ verbs: {
     {de:"naschen",p2:"h. genascht",sk:"maškrtiť",en:"to snack, nibble sweets",xtra:true},
     {de:"gefährden",p2:"h. gefährdet",sk:"ohroziť",en:"to endanger, jeopardize",xtra:true},
     {de:"verzeichnen",p2:"h. verzeichnet",sk:"zaznamenať",en:"to record, note",xtra:true},
-    {de:"gelingen",p2:"s. gelungen",sk:"podariť sa",en:"to succeed",prep:"jdm.",xtra:true}
+    {de:"gelingen",p2:"s. gelungen",sk:"podariť sa",en:"to succeed",prep:"jdm.",xtra:true},
+    {de:"besetzen",p2:"h. besetzt",sk:"obsadiť",en:"to occupy"},
+    {de:"verzögern",p2:"h. verzögert",sk:"oneskoriť, odďaľovať",en:"to delay, postpone, stall",xtra:true},
+    {de:"beschlagnahmen",p2:"h. beschlagnahmt",sk:"zabaviť, zhabať",en:"to confiscate, seize",xtra:true}
   ],
   "Separable Verbs": [
     {de:"auf·regen, sich",p2:"h. aufgeregt",sk:"rozčúliť sa",en:"to get upset, get agitated",sep:true,prep:"über + Akk"},
@@ -2037,7 +2042,11 @@ verbs: {
     {de:"an·treiben",p2:"h. angetrieben",sk:"poháňať, hnať",en:"to fuel, drive, propel",sep:true,xtra:true},
     {de:"aus·üben",p2:"h. ausgeübt",sk:"vykonávať, zastávať, vyvíjať (nátlak)",en:"to execute, exercise, practice",sep:true,xtra:true},
     {de:"mit·laufen",p2:"s. mitgelaufen",sk:"bežať spolu, prebiehať zároveň",en:"to run along, accompany",sep:true,xtra:true},
-    {de:"locker·lassen",p2:"h. lockergelassen",sk:"poľaviť, ustúpiť",en:"to relax, let up (colloq.)",sep:true,xtra:true}
+    {de:"locker·lassen",p2:"h. lockergelassen",sk:"poľaviť, ustúpiť",en:"to relax, let up (colloq.)",sep:true,xtra:true},
+    {de:"zu·wandern",p2:"s. zugewandert",sk:"prisťahovať sa, imigrovať",en:"to immigrate",sep:true,xtra:true},
+    {de:"mit·erleben",p2:"h. miterlebt",sk:"zažiť spolu, byť svedkom",en:"to witness, experience",sep:true,xtra:true},
+    {de:"an·streben",p2:"h. angestrebt",sk:"usilovať sa, snažiť sa o",en:"to pursue, aim for",sep:true,xtra:true},
+    {de:"dar·stellen",p2:"h. dargestellt",sk:"predstavovať, znázorňovať",en:"to represent, portray",sep:true}
   ]
 },
 adjectives: [
@@ -2080,7 +2089,8 @@ adjectives: [
   {de:"riesig",sk:"obrovský",en:"huge, enormous"},
   {de:"ungemütlich",sk:"nepríjemný, nepohodlný",en:"uncomfortable, unpleasant"},
   {de:"erstaunlich",sk:"udivujúci, prekvapivý",en:"amazing, astonishing"},
-  {de:"langlebig",sk:"odolný, dlhotrvajúci",en:"durable",xtra:true}
+  {de:"langlebig",sk:"odolný, dlhotrvajúci",en:"durable",xtra:true},
+  {de:"damalig",sk:"vtedajší",en:"former, of that time"}
 ],
 adverbs: [
   {de:"knapp",sk:"sotva, takmer",en:"barely, scarcely"},
@@ -2088,11 +2098,12 @@ adverbs: [
   {de:"durcheinander",sk:"pomiešaný",en:"chaotic, mixed up"},
   {de:"derzeit",sk:"momentálne, v súčasnosti",en:"currently, nowadays"},
   {de:"zunächst",sk:"najprv, spočiatku",en:"initially, at first"},
-  {de:"heuer",sk:"tento rok",en:"this year",reg:"AT/ÖrD",xtra:true}
+  {de:"heuer",sk:"tento rok",en:"this year",reg:"AT/ÖrD",xtra:true},
+  {de:"gleichzeitig",sk:"súčasne, zároveň",en:"simultaneously, at the same time"}
 ]
 } /* end B1 */
 
 }; /* end VOCAB_LEVELS */
 
 window.VOCAB = window.VOCAB_LEVELS.B1;  // default level
-window.VOCAB_VERSION = "2026-08-01";
+window.VOCAB_VERSION = "2026-08-03";
